@@ -19,8 +19,8 @@ def get_files_in_directory(dir, file_extension=".wav",):
     files = []
 
     i = 0
-    for file in os.listdir(directory):
-        filename = os.fsdecode(file)
+    for f in os.listdir(directory):
+        filename = os.fsdecode(f)
 
         if filename.endswith(file_extension):
             dir_and_file =  os.path.join(directory, filename)
@@ -106,23 +106,25 @@ def classify_dir(dir,trained_machine_name,trained_machine_algorithm, file_extens
     print("File results: " + trained_machine_algorithm + ".txt")
 
 def main():
+    truth_audio_path = "../../training-data/deception-audio/truth_audio"
+    lie_audio_path = "../../training-data/deception-audio/lie_audio"
 
     # train model
-    # aT.featureAndTrain(["../deception-audio/truth_audio","../deception-audio/lie_audio"], 1.0,1.0, aT.shortTermWindow, aT.shortTermStep, "svm", "deceptionSvm", False)
-    # aT.featureAndTrain(["../deception-audio/truth_audio","../deception-audio/lie_audio"], 1.0,1.0, aT.shortTermWindow, aT.shortTermStep, "knn", "deceptionKNN", False)
-    # aT.featureAndTrain(["../deception-audio/truth_audio","../deception-audio/lie_audio"], 1.0,1.0, aT.shortTermWindow, aT.shortTermStep, "randomforest", "deceptionRandomForest", False)
-    # aT.featureAndTrain(["../deception-audio/truth_audio","../deception-audio/lie_audio"], 1.0,1.0, aT.shortTermWindow, aT.shortTermStep, "gradientboosting", "deceptionGradientBoosting", False)
-    # aT.featureAndTrain(["../deception-audio/truth_audio","../deception-audio/lie_audio"], 1.0,1.0, aT.shortTermWindow, aT.shortTermStep, "extratrees", "deceptionExtraTrees", False)
+    aT.featureAndTrain([truth_audio_path,lie_audio_path], 1.0,1.0, aT.shortTermWindow, aT.shortTermStep, "svm", "deceptionSvm", False)
+    aT.featureAndTrain([truth_audio_path,lie_audio_path], 1.0,1.0, aT.shortTermWindow, aT.shortTermStep, "knn", "deceptionKNN", False)
+    aT.featureAndTrain([truth_audio_path,lie_audio_path], 1.0,1.0, aT.shortTermWindow, aT.shortTermStep, "randomforest", "deceptionRandomForest", False)
+    aT.featureAndTrain([truth_audio_path,lie_audio_path], 1.0,1.0, aT.shortTermWindow, aT.shortTermStep, "gradientboosting", "deceptionGradientBoosting", False)
+    aT.featureAndTrain([truth_audio_path,lie_audio_path], 1.0,1.0, aT.shortTermWindow, aT.shortTermStep, "extratrees", "deceptionExtraTrees", False)
 
 
 
 
     #classify wav files in directory
-    classify_dir("../deception-audio/testing_data", "deceptionSvm", "svm")
-    classify_dir("../deception-audio/testing_data", "deceptionKNN", "knn")
-    classify_dir("../deception-audio/testing_data", "deceptionRandomForest", "randomforest")
-    classify_dir("../deception-audio/testing_data", "deceptionGradientBoosting", "gradientboosting")
-    classify_dir("../deception-audio/testing_data", "deceptionExtraTrees", "extratrees")
+    # classify_dir("../deception-audio/testing_data", "deceptionSvm", "svm")
+    # classify_dir("../deception-audio/testing_data", "deceptionKNN", "knn")
+    # classify_dir("../deception-audio/testing_data", "deceptionRandomForest", "randomforest")
+    # classify_dir("../deception-audio/testing_data", "deceptionGradientBoosting", "gradientboosting")
+    # classify_dir("../deception-audio/testing_data", "deceptionExtraTrees", "extratrees")
 
 
 
