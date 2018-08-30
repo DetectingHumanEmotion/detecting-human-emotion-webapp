@@ -5,8 +5,18 @@ name = "pypi"
 
 [packages]
 flask = "*"
+numpy = "*"
+matplotlib = "*"
+scipy = "*"
+sklearn = "*"
+hmmlearn = "*"
+simplejson = "*"
+"eyed3" = "*"
+pydub = "*"
+pyaudioanalysis = "==0.2.4"
 
 [dev-packages]
+pylint = "*"
 
 [requires]
 python_version = "3.6"
