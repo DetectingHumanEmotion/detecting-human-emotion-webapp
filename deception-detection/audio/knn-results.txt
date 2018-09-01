@@ -1,0 +1,4 @@
+Correct classification: 3 out of 5
+Expected: truth
+['Truth', 'Lie']
+[0. 1.]

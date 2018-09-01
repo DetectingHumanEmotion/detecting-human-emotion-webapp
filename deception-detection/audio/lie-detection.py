@@ -2,9 +2,10 @@ from pyAudioAnalysis import audioTrainTest as aT
 import threading
 import os
 
-EXPECTED = {"0.0":"truth" , "1.0":"lie"}
+EXPECTED = {"0.0": "truth", "1.0": "lie"}
 
-def get_files_in_directory(dir, file_extension=".wav",):
+
+def get_files_in_directory(dir, file_extension=".wav"):
     """
     Gets all the files in a specified directory
 
@@ -23,17 +24,20 @@ def get_files_in_directory(dir, file_extension=".wav",):
         filename = os.fsdecode(f)
 
         if filename.endswith(file_extension):
-            dir_and_file =  os.path.join(directory, filename)
+            dir_and_file = os.path.join(directory, filename)
             # print(dir_and_file)
-            files.insert(i ,dir_and_file)
-            i+= 1
+            files.insert(i, dir_and_file)
+            i += 1
             continue
         else:
             continue
 
     return files
 
-def classify_dir(dir,trained_machine_name,trained_machine_algorithm, file_extension=".wav"):
+
+def classify_dir(
+    dir, trained_machine_name, trained_machine_algorithm, classification, file_extension=".wav"
+):
     """
     This classifies every file within a specified directory and prints / writes results.
 
@@ -45,89 +49,85 @@ def classify_dir(dir,trained_machine_name,trained_machine_algorithm, file_extens
     :return: void
     """
 
-    #get all files in the directory
-    files_in_directory = get_files_in_directory(dir,file_extension)
+    # get all files in the directory
+    files_in_directory = get_files_in_directory(dir, file_extension)
+    output_file_name = trained_machine_algorithm + "-results" + ".txt"
 
-    #clear old file
-    with open(trained_machine_algorithm + "-results"+ ".txt", "w") as f:
+    results = {
+        "output_file": output_file_name,
+        "trained_model_name": trained_machine_name,
+        "algorithm": trained_machine_algorithm,
+        "classification": classification
+    }
+
+    # clear old file
+    with open(results["output_file"], "w") as f:
         f.write("")
 
-    #counts the number of correctly predicted emotions
+    # counts the number of correctly predicted emotions
     correct = 0
 
-    #loop through all the files in the directory
-    for file in files_in_directory:
+    # loop through all the files in the directory
+    for file_path in files_in_directory:
 
-        #classify the .wav file
-        #dominate_result: dominate emotion in classification
-        dominate_result, statistics, paths =aT.fileClassification(file,trained_machine_name,trained_machine_algorithm)
+        # classify the .wav file
+        # dominate_result: dominate emotion in classification
+        (fname, fname) = file_path.split("\\")
 
-        #make sure dominate_result has tenth location then convert to string (this is used when finding hte key in the EMOTIONS map)
-        dominate_result= str(format(dominate_result,'.1f'))
+        (trash, expected, trash) = fname.split("_")
 
-        #Conver to list
-        statistics = list(statistics)
+        dominate_result, statistics, paths = aT.fileClassification(
+            inputFile=file_path,
+            model_name=results["trained_model_name"],
+            model_type=results["algorithm"],
+        )
 
-        #convert to list
-        paths = list(paths)
+        dominate_result = str(format(dominate_result, ".1f"))
 
-        dominate_result = EXPECTED.get(dominate_result)
+        results["dominate_result"] = EXPECTED.get(dominate_result)
+        results["results"] = statistics
+        results["classification_paths"] = paths
+        results["tested_filename"] = fname
+        results["expected_result"] = expected
+        results["number_of_results"] = len(files_in_directory)
+        # make sure dominate_result has tenth location then convert to string (this is used when finding hte key in the EMOTIONS map)
 
-        (file,file) = file.split('\\')
-        print(file.split("_"))
-        (trash, expected, trash) = file.split("_")
-
-        if expected == dominate_result:
+        # print(expected, results['dominate_result'])
+        if results["expected_result"] == results["dominate_result"]:
             correct += 1
 
+        results['correct'] = correct
+        print(results['correct'])
 
-        with open(trained_machine_algorithm + "-results" +".txt","a+") as f:
+        formated_results = f'Correct classification: {results["correct"]} out of {results["number_of_results"]}\nExpected: {results["expected_result"]}\n{results["classification"]}\n{results["results"]}'
+        with open(results["output_file"], "w") as f:
 
-            print(file)
-            print("File results: " + str(trained_machine_algorithm) + ".txt")
-            print("Expected: " + expected)
-            print("Dominate result: "+ dominate_result)
-            print("[truth,lie]")
-            print(str(statistics)+"\n" )
+            f.write(formated_results)
 
-            f.write(file + "\n")
-            f.write("File results: " + str(trained_machine_algorithm) + ".txt" + "\n")
-            f.write("Expected: " + expected)
-            f.write("Dominate result: "+ dominate_result +"\n")
-            f.write("[truth,lie]" + "\n")
-            f.write(str(statistics)+"\n")
-            f.write('\n')
+        
+        print(formated_results)
 
-
-    with open(trained_machine_algorithm + "-results" + ".txt", "a+") as f:
-        print("Correct classifications: " + str(correct) + " Out of " + str(len(files_in_directory)))
-        f.write("Correct classifications: " + str(correct) + " Out of " + str(len(files_in_directory)))
-
-    print("File results: " + trained_machine_algorithm + ".txt")
 
 def main():
     truth_audio_path = "../../training-data/deception-audio/truth_audio"
     lie_audio_path = "../../training-data/deception-audio/lie_audio"
+    classify_location = "../../training-data/deception-audio/testing_data"
+    classification = ["Truth", "Lie"]
 
     # train model
-    aT.featureAndTrain([truth_audio_path,lie_audio_path], 1.0,1.0, aT.shortTermWindow, aT.shortTermStep, "svm", "deceptionSvm", False)
-    aT.featureAndTrain([truth_audio_path,lie_audio_path], 1.0,1.0, aT.shortTermWindow, aT.shortTermStep, "knn", "deceptionKNN", False)
-    aT.featureAndTrain([truth_audio_path,lie_audio_path], 1.0,1.0, aT.shortTermWindow, aT.shortTermStep, "randomforest", "deceptionRandomForest", False)
-    aT.featureAndTrain([truth_audio_path,lie_audio_path], 1.0,1.0, aT.shortTermWindow, aT.shortTermStep, "gradientboosting", "deceptionGradientBoosting", False)
-    aT.featureAndTrain([truth_audio_path,lie_audio_path], 1.0,1.0, aT.shortTermWindow, aT.shortTermStep, "extratrees", "deceptionExtraTrees", False)
+    # aT.featureAndTrain([truth_audio_path,lie_audio_path], 1.0,1.0, aT.shortTermWindow, aT.shortTermStep, "svm", "deceptionSvm", False)
+    # aT.featureAndTrain([truth_audio_path,lie_audio_path], 1.0,1.0, aT.shortTermWindow, aT.shortTermStep, "knn", "deceptionKNN", False)
+    # aT.featureAndTrain([truth_audio_path,lie_audio_path], 1.0,1.0, aT.shortTermWindow, aT.shortTermStep, "randomforest", "deceptionRandomForest", False)
+    # aT.featureAndTrain([truth_audio_path,lie_audio_path], 1.0,1.0, aT.shortTermWindow, aT.shortTermStep, "gradientboosting", "deceptionGradientBoosting", False)
+    # aT.featureAndTrain([truth_audio_path,lie_audio_path], 1.0,1.0, aT.shortTermWindow, aT.shortTermStep, "extratrees", "deceptionExtraTrees", False)
 
-
-
-
-    #classify wav files in directory
-    # classify_dir("../deception-audio/testing_data", "deceptionSvm", "svm")
-    # classify_dir("../deception-audio/testing_data", "deceptionKNN", "knn")
-    # classify_dir("../deception-audio/testing_data", "deceptionRandomForest", "randomforest")
-    # classify_dir("../deception-audio/testing_data", "deceptionGradientBoosting", "gradientboosting")
-    # classify_dir("../deception-audio/testing_data", "deceptionExtraTrees", "extratrees")
-
-
-
+    # classify wav files in directory
+    classify_dir(dir = classify_location,trained_machine_name= "deceptionSvm",trained_machine_algorithm= "svm",classification = classification)
+    classify_dir(dir = classify_location,trained_machine_name= "deceptionKNN",trained_machine_algorithm= "knn",classification = classification)
+    classify_dir(dir = classify_location,trained_machine_name= "deceptionRandomForest",trained_machine_algorithm= "randomforest",classification = classification)
+    classify_dir(dir = classify_location,trained_machine_name= "deceptionGradientBoosting",trained_machine_algorithm= "gradientboosting",classification = classification)
+    classify_dir(dir = classify_location,trained_machine_name= "deceptionExtraTrees",trained_machine_algorithm= "extratrees",classification = classification)
 
 
 main()
+

@@ -5,15 +5,14 @@ name = "pypi"
 
 [packages]
 flask = "*"
-numpy = "*"
-matplotlib = "*"
-scipy = "*"
-sklearn = "*"
-hmmlearn = "*"
-simplejson = "*"
-"eyed3" = "*"
-pydub = "*"
 pyaudioanalysis = "==0.2.4"
+numpy = "*"
+scipy = "*"
+matplotlib = "*"
+"eyed3" = "*"
+sklearn = "*"
+python-magic-bin = "==0.4.14"
+pydub = "*"
 
 [dev-packages]
 pylint = "*"
