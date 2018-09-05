@@ -1,4 +1,4 @@
-Correct classification: 2 out of 5
+Correct classification: 1 out of 5
 Expected: truth
 ['Truth', 'Lie']
-[0.276 0.724]
+[0.46 0.54]
