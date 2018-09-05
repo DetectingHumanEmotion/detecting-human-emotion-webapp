@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "f366b9f24766889d147630b6adc5f973cd68b0165db120b8b32d909f20537983"
+            "sha256": "e5c5cab90243d016a35cabe137ef420bd87dc8e376cb3d96a1609e76842fbd6b"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -38,6 +38,13 @@
             "index": "pypi",
             "version": "==0.8.7"
         },
+        "ffmpeg-python": {
+            "hashes": [
+                "sha256:721db04120ad110619c17dd7a72db8d21a6738d721be1b3b4c72a7516e6b07f4"
+            ],
+            "index": "pypi",
+            "version": "==0.1.16"
+        },
         "flask": {
             "hashes": [
                 "sha256:2271c0070dbcb5275fad4a82e29f23ab92682dc45f9dfbc22c02ba9b9322ce48",
@@ -45,6 +52,12 @@
             ],
             "index": "pypi",
             "version": "==1.0.2"
+        },
+        "future": {
+            "hashes": [
+                "sha256:e39ced1ab767b5936646cedba8bcce582398233d6a627067d4c6a454c90cfedb"
+            ],
+            "version": "==0.16.0"
         },
         "itsdangerous": {
             "hashes": [
@@ -168,11 +181,11 @@
         },
         "pyaudioanalysis": {
             "hashes": [
-                "sha256:4b83c168365515ac5015a24cde727a779c2cd7dcd08786a9b039515efea71a02",
-                "sha256:e5acd0a89165c333b977540b9e339d50645f81ea24464578bbc0b9ea8f1e8a0f"
+                "sha256:816844191de03cc208add5513db1a7d41d90fbc340aac2ae0400d73c4c8f2efb",
+                "sha256:b8b7f8d662632019fe81d1638b73bc7faf87501c8bef31dcac3967f523f1a6af"
             ],
             "index": "pypi",
-            "version": "==0.2.4"
+            "version": "==0.2.5"
         },
         "pydub": {
             "hashes": [

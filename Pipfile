@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 flask = "*"
-pyaudioanalysis = "==0.2.4"
+pyaudioanalysis = "==0.2.5"
 numpy = "*"
 scipy = "*"
 matplotlib = "*"
@@ -13,6 +13,7 @@ matplotlib = "*"
 sklearn = "*"
 python-magic-bin = "==0.4.14"
 pydub = "*"
+ffmpeg-python = "*"
 
 [dev-packages]
 pylint = "*"

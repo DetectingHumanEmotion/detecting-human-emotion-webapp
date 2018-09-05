@@ -117,66 +117,67 @@ def main():
     lie_audio_path = "../../training-data/deception-audio/lie_audio_edited"
     classify_location = "../../training-data/deception-audio/testing_data"
     classification = ["Truth", "Lie"]
+    test_path = "../../training-data/deception-audio/test"
 
 
     # train model
-    aT.featureAndTrain(
-        list_of_dirs=[truth_audio_path, lie_audio_path],
-        mt_win=1.0,
-        mt_step=1.0,
-        st_win=aT.shortTermWindow,
-        st_step=aT.shortTermStep,
-        classifier_type="svm",
-        model_name="deceptionSvm_edi ted",
-        compute_beat=False,
-    )
-    aT.featureAndTrain(
-        list_of_dirs=[truth_audio_path, lie_audio_path],
-        mt_win=1.0,
-        mt_step=1.0,
-        st_win=aT.shortTermWindow,
-        st_step=aT.shortTermStep,
-        classifier_type="knn",
-        model_name="deceptionKNN_edited",
-        compute_beat=False,
-    )
-    aT.featureAndTrain(
-        list_of_dirs=[truth_audio_path, lie_audio_path],
-        mt_win=1.0,
-        mt_step=1.0,
-        st_win=aT.shortTermWindow,
-        st_step=aT.shortTermStep,
-        classifier_type="randomforest",
-        model_name="deceptionRandomForest_edited",
-        compute_beat=False,
-    )
-    aT.featureAndTrain(
-        list_of_dirs=[truth_audio_path, lie_audio_path],
-        mt_win=1.0,
-        mt_step=1.0,
-        st_win=aT.shortTermWindow,
-        st_step=aT.shortTermStep,
-        classifier_type="gradientboosting",
-        model_name="deceptionGradientBoosting_edited",
-        compute_beat=False,
-    )
-    aT.featureAndTrain(
-        list_of_dirs=[truth_audio_path, lie_audio_path],
-        mt_win=1.0,
-        mt_step=1.0,
-        st_win=aT.shortTermWindow,
-        st_step=aT.shortTermStep,
-        classifier_type="extratrees",
-        model_name="deceptionExtraTrees_edited",
-        compute_beat=False,
-    )
+    # aT.featureAndTrain(
+    #     list_of_dirs=[truth_audio_path,lie_audio_path],
+    #     mt_win=1.0,
+    #     mt_step=1.0,
+    #     st_win=aT.shortTermWindow,
+    #     st_step=aT.shortTermStep,
+    #     classifier_type="svm",
+    #     model_name="deceptionSvm_edited",
+    #     compute_beat=False,
+    # )
+    # aT.featureAndTrain(
+    #     list_of_dirs=[truth_audio_path, lie_audio_path],
+    #     mt_win=1.0,
+    #     mt_step=1.0,
+    #     st_win=aT.shortTermWindow,
+    #     st_step=aT.shortTermStep,
+    #     classifier_type="knn",
+    #     model_name="deceptionKNN_edited",
+    #     compute_beat=False,
+    # )
+    # aT.featureAndTrain(
+    #     list_of_dirs=[truth_audio_path, lie_audio_path],
+    #     mt_win=1.0,
+    #     mt_step=1.0,
+    #     st_win=aT.shortTermWindow,
+    #     st_step=aT.shortTermStep,
+    #     classifier_type="randomforest",
+    #     model_name="deceptionRandomForest_edited",
+    #     compute_beat=False,
+    # )
+    # aT.featureAndTrain(
+    #     list_of_dirs=[truth_audio_path, lie_audio_path],
+    #     mt_win=1.0,
+    #     mt_step=1.0,
+    #     st_win=aT.shortTermWindow,
+    #     st_step=aT.shortTermStep,
+    #     classifier_type="gradientboosting",
+    #     model_name="deceptionGradientBoosting_edited",
+    #     compute_beat=False,
+    # )
+    # aT.featureAndTrain(
+    #     list_of_dirs=[truth_audio_path, lie_audio_path],
+    #     mt_win=1.0,
+    #     mt_step=1.0,
+    #     st_win=aT.shortTermWindow,
+    #     st_step=aT.shortTermStep,
+    #     classifier_type="extratrees",
+    #     model_name="deceptionExtraTrees_edited",
+    #     compute_beat=False,
+    # )
 
     # classify wav files in directory
-    # classify_dir(dir = classify_location,trained_machine_name= "deceptionSvm_edited",trained_machine_algorithm= "svm",classification = classification)
-    # classify_dir(dir = classify_location,trained_machine_name= "deceptionKNN_edited",trained_machine_algorithm= "knn",classification = classification)
-    # classify_dir(dir = classify_location,trained_machine_name= "deceptionRandomForest_edited",trained_machine_algorithm= "randomforest",classification = classification)
-    # classify_dir(dir = classify_location,trained_machine_name= "deceptionGradientBoosting_edited",trained_machine_algorithm= "gradientboosting",classification = classification)
-    # classify_dir(dir = classify_location,trained_machine_name= "deceptionExtraTrees_edited",trained_machine_algorithm= "extratrees",classification = classification)
+    classify_dir(dir = classify_location,trained_machine_name= "deceptionSvm_edited",trained_machine_algorithm= "svm",classification = classification)
+    classify_dir(dir = classify_location,trained_machine_name= "deceptionKNN_edited",trained_machine_algorithm= "knn",classification = classification)
+    classify_dir(dir = classify_location,trained_machine_name= "deceptionRandomForest_edited",trained_machine_algorithm= "randomforest",classification = classification)
+    classify_dir(dir = classify_location,trained_machine_name= "deceptionGradientBoosting_edited",trained_machine_algorithm= "gradientboosting",classification = classification)
+    classify_dir(dir = classify_location,trained_machine_name= "deceptionExtraTrees_edited",trained_machine_algorithm= "extratrees",classification = classification)
 
 
 main()
