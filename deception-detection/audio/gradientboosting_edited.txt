@@ -1,0 +1,40 @@
+Totall number of correct classifications: 4 out of 6
+Model Used:deceptionGradientBoosting_edited
+Algorithm Used:gradientboosting
+
+trial_lie_046.wav
+['Truth', 'Lie']
+[0.00725734 0.99274266]
+Result: lie
+Expected: lie
+
+trial_lie_055.wav
+['Truth', 'Lie']
+[0.00725734 0.99274266]
+Result: truth
+Expected: lie
+
+trial_lie_061.wav
+['Truth', 'Lie']
+[0.00725734 0.99274266]
+Result: lie
+Expected: lie
+
+trial_lie_061b.wav
+['Truth', 'Lie']
+[0.00725734 0.99274266]
+Result: lie
+Expected: lie
+
+trial_truth_059.wav
+['Truth', 'Lie']
+[0.00725734 0.99274266]
+Result: truth
+Expected: truth
+
+trial_truth_060.wav
+['Truth', 'Lie']
+[0.00725734 0.99274266]
+Result: lie
+Expected: truth
+

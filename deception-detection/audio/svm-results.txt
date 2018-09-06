@@ -1,4 +1,0 @@
-Correct classification: 2 out of 5
-Expected: truth
-['Truth', 'Lie']
-[0.46656845 0.53343155]

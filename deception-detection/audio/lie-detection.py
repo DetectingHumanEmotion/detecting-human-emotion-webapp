@@ -40,6 +40,7 @@ def classify_dir(
     trained_machine_name,
     trained_machine_algorithm,
     classification,
+    output_file_name="-result.txt",
     file_extension=".wav",
 ):
     """
@@ -56,21 +57,28 @@ def classify_dir(
 
     # get all files in the directory
     files_in_directory = get_files_in_directory(dir, file_extension)
-    output_file_name = trained_machine_algorithm + "-results" + ".txt"
+    output_file_name = trained_machine_algorithm + output_file_name
 
-    results = {
+    correct = 0
+
+    model_info = {
         "output_file": output_file_name,
         "trained_model_name": trained_machine_name,
         "algorithm": trained_machine_algorithm,
         "classification": classification,
+        "files_in_directory":len(files_in_directory),
+        "correct_classifications": 0
     }
 
+
     # clear old file
-    with open(results["output_file"], "w") as f:
-        f.write("")
+    # with open(machine_info["output_file"], "w") as f:
+    #     f.write("")
 
     # counts the number of correctly predicted emotions
     correct = 0
+
+    results_list = []
 
     # loop through all the files in the directory
     for file_path in files_in_directory:
@@ -83,33 +91,41 @@ def classify_dir(
 
         dominate_result, statistics, paths = aT.fileClassification(
             inputFile=file_path,
-            model_name=results["trained_model_name"],
-            model_type=results["algorithm"],
+            model_name=model_info["trained_model_name"],
+            model_type=model_info["algorithm"],
         )
 
         dominate_result = str(format(dominate_result, ".1f"))
+        results = {
+            "dominate_result":EXPECTED.get(dominate_result),
+            "results":statistics,
+            "classification_paths":paths,
+            "tested_filename":fname,
+            "expected_result":expected
+        }
 
-        results["dominate_result"] = EXPECTED.get(dominate_result)
-        results["results"] = statistics
-        results["classification_paths"] = paths
-        results["tested_filename"] = fname
-        results["expected_result"] = expected
-        results["number_of_results"] = len(files_in_directory)
         # make sure dominate_result has tenth location then convert to string (this is used when finding hte key in the EMOTIONS map)
 
         # print(expected, results['dominate_result'])
         if results["expected_result"] == results["dominate_result"]:
-            correct += 1
+            model_info["correct_classifications"] += 1
 
-        results["correct"] = correct
-        print(results["correct"])
 
-        formated_results = f'Correct classification: {results["correct"]} out of {results["number_of_results"]}\nExpected: {results["expected_result"]}\n{results["classification"]}\n{results["results"]}'
-        with open(results["output_file"], "w") as f:
+        # formated_results = f'Correct classification: {results["correct"]} out of {results["number_of_results"]}\nExpected: {results["expected_result"]}\n{results["classification"]}\n{results["results"]}'
+        results_list.append(results)
 
-            f.write(formated_results)
+    print(results_list)
+    formated_results = f'Totall number of correct classifications: {model_info["correct_classifications"]} out of {model_info["files_in_directory"]}\nModel Used:{model_info["trained_model_name"]}\nAlgorithm Used:{model_info["algorithm"]}\n\n'
+    for result in results_list:
+        formated_results += f'{result["tested_filename"]}\n{model_info["classification"]}\n{results["results"]}\nResult: {result["dominate_result"]}\nExpected: {result["expected_result"]}\n\n'
 
-        print(formated_results)
+    print(formated_results)
+    with open(model_info["output_file"], "w") as f:
+
+        f.write(formated_results)
+
+
+    # print(formated_results)
 
 
 def main():
@@ -172,12 +188,19 @@ def main():
     #     compute_beat=False,
     # )
 
-    # classify wav files in directory
-    classify_dir(dir = classify_location,trained_machine_name= "deceptionSvm_edited",trained_machine_algorithm= "svm",classification = classification)
-    classify_dir(dir = classify_location,trained_machine_name= "deceptionKNN_edited",trained_machine_algorithm= "knn",classification = classification)
-    classify_dir(dir = classify_location,trained_machine_name= "deceptionRandomForest_edited",trained_machine_algorithm= "randomforest",classification = classification)
-    classify_dir(dir = classify_location,trained_machine_name= "deceptionGradientBoosting_edited",trained_machine_algorithm= "gradientboosting",classification = classification)
-    classify_dir(dir = classify_location,trained_machine_name= "deceptionExtraTrees_edited",trained_machine_algorithm= "extratrees",classification = classification)
+    # classify wav files for edited trained machine in directory
+    classify_dir(dir = classify_location,trained_machine_name= "deceptionSvm_edited",trained_machine_algorithm= "svm",output_file_name="_edited.txt",classification = classification)
+    classify_dir(dir = classify_location,trained_machine_name= "deceptionKNN_edited",trained_machine_algorithm= "knn",output_file_name="_edited.txt",classification = classification)
+    classify_dir(dir = classify_location,trained_machine_name= "deceptionRandomForest_edited",trained_machine_algorithm= "randomforest",output_file_name="_edited.txt",classification = classification)
+    classify_dir(dir = classify_location,trained_machine_name= "deceptionGradientBoosting_edited",trained_machine_algorithm= "gradientboosting",output_file_name="_edited.txt",classification = classification)
+    classify_dir(dir = classify_location,trained_machine_name= "deceptionExtraTrees_edited",trained_machine_algorithm= "extratrees",output_file_name="_edited.txt",classification = classification)
+
+    # classify wav files for unedited trained machine in directory
+    classify_dir(dir = classify_location,trained_machine_name= "deceptionSvm",trained_machine_algorithm= "svm",classification = classification)
+    classify_dir(dir = classify_location,trained_machine_name= "deceptionKNN",trained_machine_algorithm= "knn",classification = classification)
+    classify_dir(dir = classify_location,trained_machine_name= "deceptionRandomForest",trained_machine_algorithm= "randomforest",classification = classification)
+    classify_dir(dir = classify_location,trained_machine_name= "deceptionGradientBoosting",trained_machine_algorithm= "gradientboosting",classification = classification)
+    classify_dir(dir = classify_location,trained_machine_name= "deceptionExtraTrees",trained_machine_algorithm= "extratrees",classification = classification)
 
 
 main()
