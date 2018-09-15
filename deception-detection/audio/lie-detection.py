@@ -85,7 +85,8 @@ def classify_dir(
 
         # classify the .wav file
         # dominate_result: dominate emotion in classification
-        (fname, fname) = file_path.split("\\")
+        print(file_path.split("\\"))
+        (junk,junk,junk,junk,junk,fname) = file_path.split("/")
 
         (trash, expected, trash) = fname.split("_")
 
