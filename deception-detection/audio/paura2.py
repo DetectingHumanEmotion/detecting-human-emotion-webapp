@@ -224,6 +224,7 @@ def recordAudioSegments(BLOCKSIZE, Fs = 16000, showSpectrogram = False, showChro
                 print( f'{errorcount} Error recording:')
 
 if __name__ == "__main__":
+    #cli commands to run paura2: python paura2.py recordAndAnalyze --blocksize 0.3 --spectrogram --chromagram --recordactivity
     args = parse_arguments()
     if args.task == "recordAndAnalyze":
 
