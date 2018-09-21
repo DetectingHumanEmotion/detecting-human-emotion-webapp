@@ -42,6 +42,7 @@ def parse_arguments():
     recordAndAnalyze.add_argument("--chromagram", action="store_true", help="Show chromagram")
     recordAndAnalyze.add_argument("--spectrogram", action="store_true", help="Show spectrogram")
     recordAndAnalyze.add_argument("--recordactivity", action="store_true", help="Record detected sounds to wavs")
+    recordAndAnalyze.add_argument("--model", help="Name of the trained model used for analyzing the real time data. Note: must be a MEANS file.")
     return parser.parse_args()
 
 '''
@@ -91,22 +92,22 @@ def plotCV(Fun, Width, Height, MAX):
     hist = numpy.int32(numpy.around(hist_item))
 
     for x,y in enumerate(hist):        
-            cv2.line(h,(x,Height/2),(x,Height-y),(255,0,255))        
+            cv2.line(h, (x,int(Height/2)),(x,Height-y),(255,0,255))
 
     return h
 
 '''
 Basic functionality:
 '''
-def recordAudioSegments(BLOCKSIZE, Fs = 16000, showSpectrogram = False, showChromagram = False, recordActivity = False):    
-
+def recordAudioSegments(BLOCKSIZE,model, Fs = 16000, showSpectrogram = False, showChromagram = False, recordActivity = False,):
+    print(BLOCKSIZE,model,Fs,showSpectrogram,showChromagram,recordActivity)
     midTermBufferSize = int(Fs*BLOCKSIZE)
 
     print ("Press Ctr+C to stop recording")
 
     startDateTimeStr = datetime.datetime.now().strftime("%Y_%m_%d_%I:%M%p")
 
-    MEAN, STD = loadMEANS("svmMovies8classesMEANS")                                             # load MEAN feature values 
+    MEAN, STD = loadMEANS(model)   # load MEAN feature values
 
     pa = pyaudio.PyAudio()                             
                                                        
@@ -224,9 +225,21 @@ def recordAudioSegments(BLOCKSIZE, Fs = 16000, showSpectrogram = False, showChro
                 print( f'{errorcount} Error recording:')
 
 if __name__ == "__main__":
-    #cli commands to run paura2: python paura2.py recordAndAnalyze --blocksize 0.3 --spectrogram --chromagram --recordactivity
+    #cli commands to run paura2: python paura2.py recordAndAnalyze --blocksize 0.3 --spectrogram --chromagram --recordactivity --model "deceptionSvm_editedMEANS"
     args = parse_arguments()
     if args.task == "recordAndAnalyze":
 
         Fs = args.samplingrate
-        recordAudioSegments(args.blocksize, args.samplingrate, args.spectrogram, args.chromagram, args.recordactivity)        
+        recordAudioSegments(BLOCKSIZE= args.blocksize,model= args.model,Fs= args.samplingrate,showSpectrogram= args.spectrogram,showChromagram= args.chromagram,recordActivity= args.recordactivity)
+    else:
+        MODEL = "deceptionSvm_editedMEANS"
+        BLOCKSIZE = .3
+        FS = 16000
+        SHOWSPECTOGRAM = True
+        SHOWCHROMOGRAM = True
+        RECORDACTIVITY = True
+
+
+        # 0.3 deceptionSvm_editedMEANS 16000 True True True
+
+        recordAudioSegments(BLOCKSIZE=BLOCKSIZE, model= MODEL, Fs=FS, showSpectrogram=SHOWSPECTOGRAM, showChromagram=SHOWCHROMOGRAM, recordActivity=RECORDACTIVITY)
