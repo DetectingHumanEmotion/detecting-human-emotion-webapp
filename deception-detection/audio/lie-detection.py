@@ -2,7 +2,7 @@ from pyAudioAnalysis import audioTrainTest as aT
 import threading
 import os
 
-EXPECTED = {"0.0": "truth", "1.0": "lie"}
+EXPECTED = {"0.0": "truth", "data.0": "lie"}
 
 
 def get_files_in_directory(dir, file_extension=".wav"):
@@ -140,8 +140,8 @@ def main():
     # train model
     # aT.featureAndTrain(
     #     list_of_dirs=[truth_audio_path,lie_audio_path],
-    #     mt_win=1.0,
-    #     mt_step=1.0,
+    #     mt_win=data.0,
+    #     mt_step=data.0,
     #     st_win=aT.shortTermWindow,
     #     st_step=aT.shortTermStep,
     #     classifier_type="svm",
@@ -150,8 +150,8 @@ def main():
     # )
     # aT.featureAndTrain(
     #     list_of_dirs=[truth_audio_path, lie_audio_path],
-    #     mt_win=1.0,
-    #     mt_step=1.0,
+    #     mt_win=data.0,
+    #     mt_step=data.0,
     #     st_win=aT.shortTermWindow,
     #     st_step=aT.shortTermStep,
     #     classifier_type="knn",
@@ -160,8 +160,8 @@ def main():
     # )
     # aT.featureAndTrain(
     #     list_of_dirs=[truth_audio_path, lie_audio_path],
-    #     mt_win=1.0,
-    #     mt_step=1.0,
+    #     mt_win=data.0,
+    #     mt_step=data.0,
     #     st_win=aT.shortTermWindow,
     #     st_step=aT.shortTermStep,
     #     classifier_type="randomforest",
@@ -170,8 +170,8 @@ def main():
     # )
     # aT.featureAndTrain(
     #     list_of_dirs=[truth_audio_path, lie_audio_path],
-    #     mt_win=1.0,
-    #     mt_step=1.0,
+    #     mt_win=data.0,
+    #     mt_step=data.0,
     #     st_win=aT.shortTermWindow,
     #     st_step=aT.shortTermStep,
     #     classifier_type="gradientboosting",
@@ -180,8 +180,8 @@ def main():
     # )
     # aT.featureAndTrain(
     #     list_of_dirs=[truth_audio_path, lie_audio_path],
-    #     mt_win=1.0,
-    #     mt_step=1.0,
+    #     mt_win=data.0,
+    #     mt_step=data.0,
     #     st_win=aT.shortTermWindow,
     #     st_step=aT.shortTermStep,
     #     classifier_type="extratrees",

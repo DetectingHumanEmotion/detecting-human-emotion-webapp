@@ -18,6 +18,8 @@ opencv-python = "*"
 hmmlearn = "*"
 pysound = "*"
 pyaudio = "*"
+behavioral-signals-cli = "*"
+to = "*"
 
 [dev-packages]
 pylint = "*"
