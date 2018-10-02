@@ -20,6 +20,7 @@ simplejson = "*"
 python-magic = "*"
 hmmlearn = "*"
 scikit-learn = "==0.19.2"
+pyaudio = "*"
 
 [dev-packages]
 pylint = "*"
