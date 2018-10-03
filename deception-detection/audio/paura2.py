@@ -109,6 +109,7 @@ def recordAudioSegments(BLOCKSIZE,model, Fs = 16000, showSpectrogram = False, sh
 
     MEAN, STD = loadMEANS(model)   # load MEAN feature values
 
+
     pa = pyaudio.PyAudio()                             
                                                        
     stream = pa.open(format = FORMAT,                  
@@ -233,7 +234,7 @@ if __name__ == "__main__":
         recordAudioSegments(BLOCKSIZE= args.blocksize,model= args.model,Fs= args.samplingrate,showSpectrogram= args.spectrogram,showChromagram= args.chromagram,recordActivity= args.recordactivity)
     else:
         MODEL = "deceptionSvm_editedMEANS"
-        BLOCKSIZE = .3
+        BLOCKSIZE = .10
         FS = 16000
         SHOWSPECTOGRAM = True
         SHOWCHROMOGRAM = True
