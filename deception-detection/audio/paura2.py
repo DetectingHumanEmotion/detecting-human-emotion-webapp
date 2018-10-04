@@ -14,7 +14,9 @@ import datetime
 import signal
 import pyaudio      # PORT-AUDIO-BASED
 import struct
+import click
 import math
+
 
 Fs = 16000
 
@@ -22,7 +24,7 @@ FORMAT = pyaudio.paInt16
 allData = []
 HeightPlot = 150  
 WidthPlot = 720
-statusHeight = 150;
+statusHeight = 150
 minActivityDuration = 1.0
 
 def signal_handler(signal, frame):
@@ -43,6 +45,8 @@ def parse_arguments():
     recordAndAnalyze.add_argument("--spectrogram", action="store_true", help="Show spectrogram")
     recordAndAnalyze.add_argument("--recordactivity", action="store_true", help="Record detected sounds to wavs")
     recordAndAnalyze.add_argument("--model", help="Name of the trained model used for analyzing the real time data. Note: must be a MEANS file.")
+    recordAndAnalyze.add_argument("--algorithm", help="algorithm used to classify the data")
+
     return parser.parse_args()
 
 '''
@@ -99,15 +103,15 @@ def plotCV(Fun, Width, Height, MAX):
 '''
 Basic functionality:
 '''
-def recordAudioSegments(BLOCKSIZE,model, Fs = 16000, showSpectrogram = False, showChromagram = False, recordActivity = False,):
-    print(BLOCKSIZE,model,Fs,showSpectrogram,showChromagram,recordActivity)
+def recordAudioSegments(BLOCKSIZE,model,algorithm, Fs = 16000, showSpectrogram = False, showChromagram = False, recordActivity = False,):
     midTermBufferSize = int(Fs*BLOCKSIZE)
 
     print ("Press Ctr+C to stop recording")
 
     startDateTimeStr = datetime.datetime.now().strftime("%Y_%m_%d_%I:%M%p")
 
-    MEAN, STD = loadMEANS(model)   # load MEAN feature values
+    # MEAN, STD = loadMEANS(model)   # load MEAN feature values
+
 
 
     pa = pyaudio.PyAudio()                             
@@ -199,6 +203,8 @@ def recordAudioSegments(BLOCKSIZE,model, Fs = 16000, showSpectrogram = False, sh
                                     wavFileName = startDateTimeStr + "_activity_{0:.2f}_{1:.2f}.wav".format(activeT1, activeT2)
                                     if recordActivity:
                                         wavfile.write(wavFileName, Fs, numpy.int16(curActiveWindow))# write current active window to file
+                                        dominate_result, statistics, paths= aT.fileClassification(wavFileName,model, "svm")
+                                        print(dominate_result,statistics,paths)
                                 curActiveWindow = numpy.array([])                               # delete current active window
                         else:
                             if curActiveWindow.shape[0] == 0:                                   # this is a new active window!
@@ -226,21 +232,22 @@ def recordAudioSegments(BLOCKSIZE,model, Fs = 16000, showSpectrogram = False, sh
                 print( f'{errorcount} Error recording:')
 
 if __name__ == "__main__":
-    #cli commands to run paura2: python paura2.py recordAndAnalyze --blocksize 0.3 --spectrogram --chromagram --recordactivity --model "deceptionSvm_editedMEANS"
+    #cli commands to run paura2: python paura2.py recordAndAnalyze --blocksize 0.3 --spectrogram --chromagram --recordactivity --model "deceptionSvm_edited" --algorithm "svm"
     args = parse_arguments()
     if args.task == "recordAndAnalyze":
 
         Fs = args.samplingrate
-        recordAudioSegments(BLOCKSIZE= args.blocksize,model= args.model,Fs= args.samplingrate,showSpectrogram= args.spectrogram,showChromagram= args.chromagram,recordActivity= args.recordactivity)
+        recordAudioSegments(BLOCKSIZE= args.blocksize,model= args.model,algorithm=args.algorithm,Fs= args.samplingrate,showSpectrogram= args.spectrogram,showChromagram= args.chromagram,recordActivity= args.recordactivity)
     else:
-        MODEL = "deceptionSvm_editedMEANS"
+        MODEL = "deceptionSvm_edited"
         BLOCKSIZE = .10
         FS = 16000
         SHOWSPECTOGRAM = True
         SHOWCHROMOGRAM = True
         RECORDACTIVITY = True
+        ALGORITHM = "svm"
 
 
         # 0.3 deceptionSvm_editedMEANS 16000 True True True
 
-        recordAudioSegments(BLOCKSIZE=BLOCKSIZE, model= MODEL, Fs=FS, showSpectrogram=SHOWSPECTOGRAM, showChromagram=SHOWCHROMOGRAM, recordActivity=RECORDACTIVITY)
+        recordAudioSegments(BLOCKSIZE=BLOCKSIZE, model= MODEL,algorithm=ALGORITHM, Fs=FS, showSpectrogram=SHOWSPECTOGRAM, showChromagram=SHOWCHROMOGRAM, recordActivity=RECORDACTIVITY)
