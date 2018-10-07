@@ -1,11 +1,24 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 
 @app.route('/')
-def hello_world():
-    return 'Hello World!'
+def home():
+    data = getLineFromTextFile('Questions.rtf')
+
+    return render_template('index.html', data = data)
+
+
+def getLineFromTextFile(FileName):
+    data = ''
+
+    with open(FileName, 'r') as file:
+
+        for line in file:
+            data += line
+
+    return data
 
 
 if __name__ == '__main__':
