@@ -93,6 +93,8 @@ def classify_dir(
         dominate_result, statistics, paths = aT.fileClassification(
             inputFile=file_path,
             model_name=model_info["trained_model_name"],
+            \
+
             model_type=model_info["algorithm"],
         )
 
