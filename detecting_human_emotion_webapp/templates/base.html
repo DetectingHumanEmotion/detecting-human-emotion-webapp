@@ -3,29 +3,29 @@
 <head>
     <meta charset="UTF-8">
     {% block head %}
-        {%if title %}
+        {% if title %}
             <title>{{ title }}</title>
         {% endif %}
+        {% include "universal_imports.html" %}
     {% endblock %}
 </head>
 <body>
 
-    {% block sidebar %}
-    {% endblock %}
+<main>
+    <div>
+        {% block header %}
+            {% include "header.html" %}
+        {% endblock %}
+    </div>
 
-    <main >
-        <div>
-            {% block header %}
-            {% endblock %}
-        </div>
-
-        <div>
-            {% block content %}{% endblock %}
-        </div>
-        <div>
-            {% block footer %}
-            {% endblock %}
-        </div>
-    </main>
+    <div>
+        {% block content %}{% endblock %}
+    </div>
+    <div>
+        {% block footer %}
+            {% include "footer.html" %}
+        {% endblock %}
+    </div>
+</main>
 </body>
 </html>

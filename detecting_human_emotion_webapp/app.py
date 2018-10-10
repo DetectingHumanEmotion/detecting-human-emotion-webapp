@@ -6,14 +6,15 @@ import os
 
 @app.route("/",methods=["GET"])
 def home():
+
     header = 'Detecting Human Emotion'
     data = getLineFromTextFile('detecting_human_emotion_webapp/questions.txt')
+    print(data)
     template_name = "index.html"
     return render_template(template_name_or_list=template_name,data =data, title = header)
 
 
 def getLineFromTextFile(fileName):
-    print(os.path.exists(fileName))
     data = ''
 
     with open(fileName, 'r') as file:
