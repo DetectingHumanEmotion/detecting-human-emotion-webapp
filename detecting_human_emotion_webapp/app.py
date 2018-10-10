@@ -1,5 +1,6 @@
 from flask import render_template
 from detecting_human_emotion_webapp import app
+from detecting_human_emotion_webapp.forms import UserInfoForm
 import os
 
 
@@ -12,6 +13,13 @@ def home():
     print(data)
     template_name = "index.html"
     return render_template(template_name_or_list=template_name,data =data, title = header)
+
+@app.route("/get_user_info",methods=["GET"])
+def userInfo():
+    header = 'Get User Info'
+    userInfo = UserInfoForm()
+    template_name = "get_user_info.html"
+    return render_template(template_name_or_list=template_name,userInfoForm= userInfo, title = header)
 
 
 def getLineFromTextFile(fileName):

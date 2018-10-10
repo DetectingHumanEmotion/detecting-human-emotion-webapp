@@ -5,3 +5,86 @@
     </div>
 
 {%- endmacro %}
+
+{% macro render_field(field) %}
+    <div class="form-group">
+        <label class="col-md-4 control-label">{{ field.label }}</label>
+        <div class="col-md-4">
+            {#            <input id="firstnameinput" name="firstnameinput" type="text" placeholder="John"#}
+            {#                   class="form-control input-md" required="">#}
+            {{ field(**kwargs)|safe }}
+        </div>
+    </div>
+{%- endmacro %}
+{% macro render_user_info_form(field) %}
+    <form class="form-horizontal">
+        <fieldset>
+
+            <!-- Form Name -->
+            {% call render_field(field.first_name) %}
+            {% endcall %}
+
+            {% call render_field(field.last_name) %}
+            {% endcall %}
+
+            {% call render_field(field.race) %}
+            {% endcall %}
+
+            {% call render_field(field.gender) %}
+            {% endcall %}
+
+            {% call render_field(field.age) %}
+            {% endcall %}
+
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="singlebutton"></label>
+                <div class="col-md-4">
+                    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+
+            {#            <!-- Text input-->#}
+            {#            <div class="form-group">#}
+            {#                <label class="col-md-4 control-label" for="lastnameinput">Last Name</label>#}
+            {#                <div class="col-md-4">#}
+            {#                    <input id="lastnameinput" name="lastnameinput" type="text" placeholder="Doe"#}
+            {#                           class="form-control input-md" required="">#}
+            {##}
+            {#                </div>#}
+            {#            </div>#}
+            {##}
+            {#            <!-- Text input-->#}
+            {#            <div class="form-group">#}
+            {#                <label class="col-md-4 control-label" for="age">age</label>#}
+            {#                <div class="col-md-2">#}
+            {#                    <input id="age" name="age" type="text" placeholder="22" class="form-control input-md" required="">#}
+            {##}
+            {#                </div>#}
+            {#            </div>#}
+            {##}
+            {#            <!-- Text input-->#}
+            {#            <div class="form-group">#}
+            {#                <label class="col-md-4 control-label" for="raceinput">Race</label>#}
+            {#                <div class="col-md-4">#}
+            {#                    <input id="raceinput" name="raceinput" type="text" placeholder="Hispanic"#}
+            {#                           class="form-control input-md">#}
+            {##}
+            {#                </div>#}
+            {#            </div>#}
+            {##}
+            {#            <!-- Text input-->#}
+            {#            <div class="form-group">#}
+            {#                <label class="col-md-4 control-label" for="genderinput">Gender</label>#}
+            {#                <div class="col-md-4">#}
+            {#                    <input id="genderinput" name="genderinput" type="text" placeholder="Male"#}
+            {#                           class="form-control input-md" required="">#}
+            {##}
+            {#                </div>#}
+            {#            </div>#}
+
+        </fieldset>
+    </form>
+
+
+{%- endmacro %}

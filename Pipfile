@@ -21,6 +21,8 @@ python-magic = "*"
 hmmlearn = "*"
 scikit-learn = "==0.19.2"
 pyaudio = "*"
+wtforms = "*"
+flask-wtf = "*"
 
 [dev-packages]
 pylint = "*"
