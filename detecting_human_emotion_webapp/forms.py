@@ -39,7 +39,7 @@ class UserInfoForm(FlaskForm):
         "Gender",
         default="",
         render_kw={
-            "placeholder": "gender"
+            "placeholder": "Male"
         }
     )
     age = IntegerField(
