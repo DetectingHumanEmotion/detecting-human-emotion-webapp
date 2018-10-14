@@ -1,16 +1,67 @@
 {% extends "base.html" %}
 {% block content %}
 
+<style xmlns="http://www.w3.org/1999/html">
 
-    <!--Imports CSS-->
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/questionnaire.css') }}">
+/*<!--* {-->*/
+/*<!--margin: 0;-->*/
+/*<!--padding: 0;-->*/
+/*!*<!--}-->*!*/
+
+body {
+    background-color: orange;
+}
+
+.question {
+    border-style: solid;
+    border-color: blue;
+    width: 300px;
+    height: 200px;
+    padding: 25px;
+}
+
+.nextButton {
+    <!--position: relative;-->
+    <!--top: 3px;-->
+    <!--left: 135px;-->
+    <!--position: relative;-->
+    <!--top: 3px;-->
+    <!--right: 135px;-->
+    color: #666666;
+    background-color: #f9f9f9;
+}
+
+.nextButton, .nextButton.active {
+    color: #666666;
+    background-color: #f9f9f9;
+}
+
+.startButton {
+    position: relative;
+    <!--top: 3px;-->
+    <!--right: 135px;-->
+    color: #666666;
+    background-color: #f9f9f9;
+}
+
+.startButton, .startButton.active {
+    color: #666666;
+    background-color: #f9f9f9;
+}
+
+</style>
+    <!--<link rel="stylesheet" href="{{ url_for('static',filename='css/questionnaire.css') }}">-->
     <!--<script src="{{ url_for('static',filename='js/questionnaire.js') }}"></script>-->
     {% from "form_macros.html" import render_question %}
 
 
     <body>
 
-    <div id="numberofquestionsleft"></div>
+    <div id="numberofquestionsleft">text
+        </br>
+        text
+    </div>
+
 
 
     <div class="" style="text-align:center">
@@ -23,8 +74,8 @@
             {#        </div>#}
 
 
-            <button onclick="onClick()" type="button" class="startButton">Start</button>
-            <button type="button" onclick="NextQuestion()" class="nextButton">Next</button>
+            <button onclick="startQuestion()" type="button" class = "startButton"id="StartButton">Start</button>
+            <button type="button" onclick="nextQuestion()" class="nextButton" id="NextButton">Next</button>
             <!--<button type="button" class="stopButton" onclick="stop()" value="">Stop </button>-->
         </center>
     </div>
@@ -43,45 +94,61 @@
         var size = array.length;
 
         console.log(question);
-        console.log("printing the array");
-        console.log(array);
+        console.log("printing the time");
+        console.log(time);
 
-        function onClick() {
+        function startQuestion() {
+           <!--document.getElementById("numberofquestionsleft").innerHTML = "Number of questions left: " + counter + 1 + "/" + size;;-->
+
+
+
             <!--"Number of questions left:"  need to make a new line. text at the top next line is questions 1/18+-->
-            document.getElementById("numberofquestionsleft").innerHTML = counter + 1 + "/" + size;
-            reset();
-            if (counter == size) {
-                document.getElementById("begin").innerHTML = "You are done!";
-            }
-            else {
-                document.getElementById("begin").innerHTML = array[counter++];
 
+            reset();
+
+
+
+                document.getElementById("begin").innerHTML = array[counter++];
+                document.getElementById("numberofquestionsleft").innerHTML = "Number of questions: <br>" + counter + "/" + size;
+
+                document.getElementById("StartButton").style.visibility = "hidden";
+                document.getElementById("NextButton").style.visibility = "visible";
                 start();
-            }
+
 
         }
 
-        function NextQuestion() {
+        function nextQuestion() {
+        if (counter === size) {
+                document.getElementById("numberofquestionsleft").innerHTML = "Number of questions: <br>" + counter + "/" + size;
+                document.getElementById("begin").innerHTML = "You are done!";
+                document.getElementById("StartButton").style.visibility = "hidden";
+                document.getElementById("NextButton").style.visibility = "hidden";
+
+                reset();
+            }
+            else {
             document.getElementById("begin").innerHTML = "Press start to begin the next question";
             stop();
             console.log(time);
+            document.getElementById("NextButton").style.visibility = "hidden";
+            document.getElementById("StartButton").style.visibility = "visible";
+}
+
 
         }
 
         var status = 0; // 0:stop 1:running
-        var time = 0;
-        var startBtn = document.getElementById("begin");
+        var time = 0.0;
         var timerLabel = document.getElementById('timerLabel');
 
         function start() {
             status = 1;
-            startBtn.disabled = true;
             timer();
         }
 
         function stop() {
             status = 0;
-            startBtn.disabled = false;
             var savedTime = time; //saved time is off by one here
             console.log(savedTime);
         }
@@ -90,7 +157,6 @@
             status = 0;
             time = 0;
             timerLabel.innerHTML = '00:00:00';
-            startBtn.disabled = false;
         }
 
         function timer() {
