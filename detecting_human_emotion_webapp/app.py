@@ -16,6 +16,7 @@ def home():
 
 @app.route("/get_user_info",methods=["GET"])
 def userInfo():
+
     header = 'Get User Info'
     userInfo = UserInfoForm()
     template_name = "get_user_info.html"

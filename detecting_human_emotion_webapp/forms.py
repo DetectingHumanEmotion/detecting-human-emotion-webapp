@@ -10,12 +10,14 @@ from wtforms.fields import (
     TextAreaField,
     IntegerField,
 )
+from wtforms.validators import DataRequired
 
 class UserInfoForm(FlaskForm):
 
     first_name = StringField(
         "First Name",
         default="",
+        validators=[DataRequired()],
         render_kw={
             "placeholder": "John"
         }
@@ -23,6 +25,7 @@ class UserInfoForm(FlaskForm):
     last_name = StringField(
         "Last Name",
         default="",
+        validators=[DataRequired()],
         render_kw={
             "placeholder": "Doe"
         }
@@ -31,6 +34,7 @@ class UserInfoForm(FlaskForm):
     race = StringField(
         "Race",
         default="",
+        validators=[DataRequired()],
         render_kw={
             "placeholder": "hispanic"
         }
@@ -38,13 +42,14 @@ class UserInfoForm(FlaskForm):
     gender = StringField(
         "Gender",
         default="",
+        validators=[DataRequired()],
         render_kw={
             "placeholder": "Male"
         }
     )
     age = IntegerField(
         "Age",
-
+        validators=[DataRequired()],
         render_kw={
             "placeholder": "22"
         }
