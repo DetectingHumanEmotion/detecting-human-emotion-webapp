@@ -17,7 +17,7 @@
     </div>
 {%- endmacro %}
 {% macro render_user_info_form(field) %}
-    <form class="form-horizontal">
+    <form class="form-horizontal" method="POST">
         <fieldset>
 
             <!-- Form Name -->
@@ -40,12 +40,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="singlebutton"></label>
                 <div class="col-md-4">
-
-                        <!--<a href=”/detecting”><button-->
-                                <!--&gt;Submit</a>-->
-
-                    <button  id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
-
+                    <button id="singlebutton" type="submit" name="singlebutton" class="btn btn-primary">Submit</button>
                 </div>
             </div>
 
