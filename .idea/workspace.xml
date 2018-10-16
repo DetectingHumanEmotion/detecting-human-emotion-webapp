@@ -2,14 +2,69 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7117db77-9648-430e-94cc-bb4ecbedc4f0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/templates/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/detecting-human-emotion-webapp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/detecting-human-emotion-webapp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/2018_10_02_07:39PM_activity_29.29_32.77.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/2018_10_02_07:39PM_activity_32.82_34.32.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/2018_10_02_07:39PM_activity_34.66_38.41.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/2018_10_02_07:39PM_activity_5.44_28.90.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionExtraTrees" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionExtraTrees" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionExtraTrees.arff" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionExtraTrees.arff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionExtraTreesMEANS" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionExtraTreesMEANS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionExtraTrees_edited" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionExtraTrees_edited" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionExtraTrees_edited.arff" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionExtraTrees_edited.arff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionExtraTrees_editedMEANS" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionExtraTrees_editedMEANS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionGradientBoosting" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionGradientBoosting" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionGradientBoosting.arff" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionGradientBoosting.arff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionGradientBoostingMEANS" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionGradientBoostingMEANS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionGradientBoosting_edited" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionGradientBoosting_edited" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionGradientBoosting_edited.arff" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionGradientBoosting_edited.arff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionGradientBoosting_editedMEANS" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionGradientBoosting_editedMEANS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionKNN" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionKNN" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionKNN.arff" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionKNN.arff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionKNN_edited" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionKNN_edited" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionKNN_edited.arff" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionKNN_edited.arff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionRandomForest" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionRandomForest" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionRandomForest.arff" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionRandomForest.arff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionRandomForestMEANS" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionRandomForestMEANS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionRandomForest_edited" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionRandomForest_edited" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionRandomForest_edited.arff" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionRandomForest_edited.arff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionRandomForest_editedMEANS" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionRandomForest_editedMEANS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionSvm" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionSvm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionSvm.arff" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionSvm.arff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionSvmMEANS" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionSvmMEANS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionSvm_edi ted" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionSvm_edi ted" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionSvm_edi ted.arff" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionSvm_edi ted.arff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionSvm_edi tedMEANS" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionSvm_edi tedMEANS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionSvm_edited" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionSvm_edited" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionSvm_edited.arff" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionSvm_edited.arff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionSvm_editedMEANS" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionSvm_editedMEANS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/extratrees-result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/extratrees-result.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/extratrees_edited.txt" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/extratrees_edited.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/gradientboosting-result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/gradientboosting-result.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/gradientboosting_edited.txt" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/gradientboosting_edited.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/knn-result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/knn-result.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/knn_edited.txt" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/knn_edited.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/lie-detection.py" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/lie-detection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/output.wav" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/output.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/paura2.py" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/paura2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/randomforest-result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/randomforest-result.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/randomforest_edited.txt" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/randomforest_edited.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/svm-result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/svm-result.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deception-detection/audio/svm_edited.txt" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/svm_edited.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/detecting_human_emotion_webapp/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/detecting_human_emotion_webapp/templates/questionnaire.html" beforeDir="false" afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/templates/questionnaire.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/detecting_human_emotion_webapp$Detecting_human_emotion_Flask_Server.coverage" NAME="Detecting-human-emotion-Flask-Server Coverage Results" MODIFIED="1539554217686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1197734625">
@@ -33,58 +88,42 @@
         </counts>
       </usages-collector>
     </session>
-    <session id="-1193218404">
+    <session id="1944155308">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.4" value="4" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="Pipfile" value="1" />
-          <entry key="css" value="3" />
-          <entry key="gitignore" value="1" />
-          <entry key="html" value="50" />
-          <entry key="js" value="4" />
+          <entry key="html" value="13" />
           <entry key="lock" value="1" />
-          <entry key="md" value="1" />
-          <entry key="py" value="19" />
+          <entry key="py" value="7" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="3" />
-          <entry key="HTML" value="50" />
-          <entry key="JavaScript" value="4" />
-          <entry key="Markdown" value="1" />
-          <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Python" value="19" />
+          <entry key="HTML" value="13" />
+          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="Python" value="7" />
           <entry key="TOML file" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="17" />
-          <entry key="html" value="1115" />
-          <entry key="md" value="54" />
-          <entry key="py" value="309" />
-          <entry key="txt" value="43" />
+          <entry key="html" value="108" />
+          <entry key="py" value="273" />
+          <entry key="txt" value="87" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="17" />
-          <entry key="HTML" value="1115" />
-          <entry key="Markdown" value="54" />
-          <entry key="PLAIN_TEXT" value="43" />
-          <entry key="Python" value="309" />
+          <entry key="HTML" value="108" />
+          <entry key="PLAIN_TEXT" value="87" />
+          <entry key="Python" value="273" />
         </counts>
       </usages-collector>
     </session>
@@ -92,87 +131,93 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/results_page.html">
+        <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-595">
-              <caret line="12" column="4" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+            <state relative-caret-position="-96">
+              <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
               <folding>
-                <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1539553947003" expanded="true" signature="714:719" ph="..." />
+                <marker date="1539553947003" expanded="true" signature="714:749" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/form_macros.html">
+        <entry file="file://$USER_HOME$/.virtualenvs/detecting-human-emotion-webapp-ks0v-hRh/Lib/site-packages/flask/cli.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="36" column="25" lean-forward="true" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
+            <state relative-caret-position="142">
+              <caret line="241" selection-start-line="241" selection-end-line="241" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/index.html">
+        <entry file="file://$USER_HOME$/.virtualenvs/detecting-human-emotion-webapp-ks0v-hRh/Lib/site-packages/magic.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="149">
+              <caret line="180" selection-start-line="180" selection-end-line="180" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.virtualenvs/detecting-human-emotion-webapp-ks0v-hRh/Lib/site-packages/eyed3/utils/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="149">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deception_detection/audio/paura2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="298">
+              <caret line="245" column="85" selection-start-line="245" selection-start-column="85" selection-end-line="245" selection-end-column="85" />
+              <folding>
+                <element signature="e#0#83#0" expanded="true" />
+                <marker date="1539553788238" expanded="true" signature="12439:12872" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/universal_imports.html">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/app.py">
+        <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/questionnaire.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="44" column="24" lean-forward="true" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
-              <folding>
-                <element signature="e#0#42#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.local/share/virtualenvs/DetectingHumanEmotion-v5U439y1/lib/python3.6/site-packages/flask/app.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="1220" selection-start-line="1220" selection-end-line="1220" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/footer.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/dashboard.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" selection-start-line="7" selection-end-line="8" selection-end-column="16" />
+            <state relative-caret-position="256">
+              <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/get_user_info.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="41" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="6" column="27" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/header.html">
           <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/form_macros.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="96">
+              <caret line="42" column="59" selection-start-line="42" selection-start-column="59" selection-end-line="42" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/test.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="2" selection-start-column="2" selection-end-column="2" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -180,19 +225,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Python Script" />
         <option value="HTML File" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>startBtn</find>
-      <find>onkeydown</find>
-      <find>dataTablePage</find>
-      <find>dashBoard</find>
-      <find>UserInfoForm</find>
-      <find>getLineFromTextFile</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -203,22 +239,24 @@
         <option value="$PROJECT_DIR$/detecting-human-emotion-webapp/detecting-human-emotion-webapp/templates/index.html" />
         <option value="$PROJECT_DIR$/detecting-human-emotion-webapp/detecting-human-emotion-webapp/app.py" />
         <option value="$PROJECT_DIR$/detecting_human_emotion_webapp/forms.py" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/detecting_human_emotion_webapp/static/css/questionnaire.css" />
-        <option value="$PROJECT_DIR$/detecting_human_emotion_webapp/templates/questionnaire.html" />
-        <option value="$PROJECT_DIR$/detecting_human_emotion_webapp/templates/dashboard.html" />
-        <option value="$USER_HOME$/.local/share/virtualenvs/DetectingHumanEmotion-v5U439y1/lib/python3.6/site-packages/flask/app.py" />
-        <option value="$PROJECT_DIR$/detecting_human_emotion_webapp/templates/results_page.html" />
-        <option value="$PROJECT_DIR$/detecting_human_emotion_webapp/templates/form_macros.html" />
+        <option value="$PROJECT_DIR$/detecting_human_emotion_webapp/templates/test.html" />
+        <option value="$PROJECT_DIR$/deception_detection/audio/paura2.py" />
         <option value="$PROJECT_DIR$/detecting_human_emotion_webapp/app.py" />
+        <option value="$PROJECT_DIR$/detecting_human_emotion_webapp/templates/form_macros.html" />
+        <option value="$PROJECT_DIR$/detecting_human_emotion_webapp/templates/questionnaire.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="23" />
-    <option name="y" value="23" />
-    <option name="width" value="1400" />
-    <option name="height" value="781" />
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="951" />
+    <option name="width" value="978" />
+    <option name="height" value="1039" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -230,39 +268,40 @@
         <subPane>
           <expand>
             <path>
-              <item name="DetectingHumanEmotion" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DetectingHumanEmotion" type="462c0819:PsiDirectoryNode" />
+              <item name="detecting-human-emotion-webapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="detecting-human-emotion-webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="DetectingHumanEmotion" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DetectingHumanEmotion" type="462c0819:PsiDirectoryNode" />
+              <item name="detecting-human-emotion-webapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="detecting-human-emotion-webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="deception_detection" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="detecting-human-emotion-webapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="detecting-human-emotion-webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="deception_detection" type="462c0819:PsiDirectoryNode" />
+              <item name="audio" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="detecting-human-emotion-webapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="detecting-human-emotion-webapp" type="462c0819:PsiDirectoryNode" />
               <item name="detecting_human_emotion_webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="DetectingHumanEmotion" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DetectingHumanEmotion" type="462c0819:PsiDirectoryNode" />
-              <item name="detecting_human_emotion_webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DetectingHumanEmotion" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DetectingHumanEmotion" type="462c0819:PsiDirectoryNode" />
-              <item name="detecting_human_emotion_webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DetectingHumanEmotion" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DetectingHumanEmotion" type="462c0819:PsiDirectoryNode" />
+              <item name="detecting-human-emotion-webapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="detecting-human-emotion-webapp" type="462c0819:PsiDirectoryNode" />
               <item name="detecting_human_emotion_webapp" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="DetectingHumanEmotion" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DetectingHumanEmotion" type="462c0819:PsiDirectoryNode" />
+              <item name="detecting-human-emotion-webapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="detecting-human-emotion-webapp" type="462c0819:PsiDirectoryNode" />
               <item name="detecting_human_emotion_webapp" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="detecting-human-emotion-webapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -273,125 +312,15 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/detecting_human_emotion_webapp/app.py" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.templateLanguages.PyTemplateLanguageModulesConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tybruno\development\detecting-human-emotion-webapp\detecting_human_emotion_webapp\templates" />
       <recent name="$PROJECT_DIR$/detecting-human-emotion-webapp/detecting-human-emotion-webapp" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/detecting_human_emotion_webapp/app.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/detecting_human_emotion_webapp/templates/form_macros.html</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -405,28 +334,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.app (1)">
-    <configuration name="app (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="detecting-human-emotion-webapp" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/detecting_human_emotion_webapp" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/detecting_human_emotion_webapp/app.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Flask server.Detecting-human-emotion-Flask-Server">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="detecting-human-emotion-webapp" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -439,6 +347,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/detecting-human-emotion-webapp/detecting-human-emotion-webapp/app.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -448,13 +357,48 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Detecting-human-emotion-Flask-Server" type="Python.FlaskServer" factoryName="Flask server">
+      <option name="additionalOptions" value="" />
+      <option name="application" value="" />
+      <option name="flaskDebug" value="true" />
+      <module name="detecting-human-emotion-webapp" />
+      <option name="target" value="C:\Users\tybruno\development\detecting-human-emotion-webapp\detecting_human_emotion_webapp\app.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="C:\Users\tybruno\.virtualenvs\detecting-human-emotion-webapp-ks0v-hRh\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.FlaskServer" factoryName="Flask server">
+      <option name="additionalOptions" value="" />
+      <option name="application" value="" />
+      <option name="flaskDebug" value="true" />
+      <module name="detecting-human-emotion-webapp" />
+      <option name="target" value="C:\Users\tybruno\development\detecting-human-emotion-webapp\detecting_human_emotion_webapp\__init__.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="C:\Users\tybruno\.virtualenvs\detecting-human-emotion-webapp-ks0v-hRh\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
     <list>
+      <item itemvalue="Flask server.Detecting-human-emotion-Flask-Server" />
       <item itemvalue="Python.app" />
-      <item itemvalue="Python.app (1)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.app (1)" />
         <item itemvalue="Python.app" />
       </list>
     </recent_temporary>
@@ -470,204 +414,173 @@
       <option name="presentableId" value="Default" />
       <updated>1538941445081</updated>
     </task>
-    <task id="LOCAL-00001" summary="adding changes to the detecting page.">
-      <created>1539555440275</created>
+    <task id="LOCAL-00001" summary="added the ability for the get user info form to redirect to index.">
+      <created>1539547876525</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1539555440275</updated>
+      <updated>1539547876525</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added the ability for the get user info form to redirect to index.">
+      <created>1539550121395</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1539550121395</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="23" y="23" width="1400" height="781" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49888143" visible="true" weight="0.24945612" />
-      <window_info id="Structure" order="1" sideWeight="0.50111854" side_tool="true" weight="0.24945612" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25838926" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49891225" visible="true" weight="0.2087087" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32765958" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49963742" weight="0.2012012" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5010877" side_tool="true" weight="0.3033033" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32907802" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="SciView" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <ignored-roots>
-      <path value="$PROJECT_DIR$/api-cli" />
-    </ignored-roots>
-    <MESSAGE value="adding changes to the detecting page." />
-    <MESSAGE value="Merge branch 'master' of https://github.com/DetectingHumanEmotion/detecting-human-emotion-webapp&#10;&#10;# Conflicts:&#10;#&#9;detecting_human_emotion_webapp/app.py&#10;#&#9;detecting_human_emotion_webapp/templates/form_macros.html" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/DetectingHumanEmotion/detecting-human-emotion-webapp&#10;&#10;# Conflicts:&#10;#&#9;detecting_human_emotion_webapp/app.py&#10;#&#9;detecting_human_emotion_webapp/templates/form_macros.html" />
+    <MESSAGE value="added the ability for the get user info form to redirect to index." />
+    <option name="LAST_COMMIT_MESSAGE" value="added the ability for the get user info form to redirect to index." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/detecting-human-emotion-webapp/detecting-human-emotion-webapp/__init__.py" />
     <entry file="file://$PROJECT_DIR$/detecting-human-emotion-webapp/detecting-human-emotion-webapp/templates/index.html" />
     <entry file="file://$PROJECT_DIR$/detecting-human-emotion-webapp/detecting-human-emotion-webapp/app.py" />
-    <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/static/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Pipfile">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Pipfile.lock">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="150">
-            <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/Pipfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-48">
+          <caret line="6" column="11" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/static/js/bootstrap.min.js">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$USER_HOME$/.virtualenvs/detecting-human-emotion-webapp-ks0v-hRh/Lib/site-packages/werkzeug/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-571">
+          <caret line="343" column="4" selection-start-line="343" selection-start-column="4" selection-end-line="343" selection-end-column="4" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/questions.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/static/js/questionnaire.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="80" column="18" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/static/css/questionnaire.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/.local/share/virtualenvs/DetectingHumanEmotion-v5U439y1/lib/python3.6/site-packages/werkzeug/routing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26340">
-          <caret line="1773" column="74" selection-start-line="1773" selection-start-column="74" selection-end-line="1773" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/.local/share/virtualenvs/DetectingHumanEmotion-v5U439y1/lib/python3.6/site-packages/jinja2/environment.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="803" selection-start-line="803" selection-end-line="803" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.local/share/virtualenvs/DetectingHumanEmotion-v5U439y1/lib/python3.6/site-packages/jinja2/loaders.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="112" selection-start-line="112" selection-end-line="112" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.local/share/virtualenvs/DetectingHumanEmotion-v5U439y1/lib/python3.6/site-packages/flask/templating.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/universal_imports.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/questionnaire.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="66" column="25" lean-forward="true" selection-start-line="66" selection-start-column="25" selection-end-line="66" selection-end-column="25" />
+        <state relative-caret-position="816">
+          <caret line="51" column="36" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
           <folding>
-            <element signature="n#style#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/index.html">
+    <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/footer.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/header.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/get_user_info.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="41" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/form_macros.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="25" lean-forward="true" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/footer.html">
+    <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/index.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="8" selection-end-column="16" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/universal_imports.html">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/base.html">
+    <entry file="file://$PROJECT_DIR$/deception_detection/audio/paura2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="6" column="27" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.local/share/virtualenvs/DetectingHumanEmotion-v5U439y1/lib/python3.6/site-packages/flask/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="1220" selection-start-line="1220" selection-end-line="1220" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/results_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-595">
-          <caret line="12" column="4" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+        <state relative-caret-position="298">
+          <caret line="245" column="85" selection-start-line="245" selection-start-column="85" selection-end-line="245" selection-end-column="85" />
           <folding>
-            <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#0#83#0" expanded="true" />
+            <marker date="1539553788238" expanded="true" signature="12439:12872" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/detecting-human-emotion-webapp-ks0v-hRh/Lib/site-packages/flask/cli.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="241" selection-start-line="241" selection-end-line="241" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/detecting-human-emotion-webapp-ks0v-hRh/Lib/site-packages/magic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="180" selection-start-line="180" selection-end-line="180" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/detecting-human-emotion-webapp-ks0v-hRh/Lib/site-packages/eyed3/utils/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="2" selection-start-column="2" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="44" column="24" lean-forward="true" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
+        <state relative-caret-position="-96">
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
           <folding>
-            <element signature="e#0#42#0" expanded="true" />
+            <marker date="1539553947003" expanded="true" signature="714:719" ph="..." />
+            <marker date="1539553947003" expanded="true" signature="714:749" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/get_user_info.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/form_macros.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="42" column="59" selection-start-line="42" selection-start-column="59" selection-end-line="42" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/detecting_human_emotion_webapp/templates/questionnaire.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
         </state>
       </provider>
     </entry>

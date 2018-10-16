@@ -231,6 +231,20 @@ def recordAudioSegments(BLOCKSIZE,model,algorithm, Fs = 16000, showSpectrogram =
 
                 print( f'{errorcount} Error recording:')
 
+def run():
+    MODEL = "deceptionSvm_edited"
+    BLOCKSIZE = .10
+    FS = 16000
+    SHOWSPECTOGRAM = True
+    SHOWCHROMOGRAM = True
+    RECORDACTIVITY = True
+    ALGORITHM = "svm"
+
+    # 0.3 deceptionSvm_editedMEANS 16000 True True True
+
+    recordAudioSegments(BLOCKSIZE=BLOCKSIZE, model=MODEL, algorithm=ALGORITHM, Fs=FS, showSpectrogram=SHOWSPECTOGRAM,
+                        showChromagram=SHOWCHROMOGRAM, recordActivity=RECORDACTIVITY)
+
 if __name__ == "__main__":
     #cli commands to run paura2: python paura2.py recordAndAnalyze --blocksize 0.3 --spectrogram --chromagram --recordactivity --model "deceptionSvm_edited" --algorithm "svm"
     args = parse_arguments()
