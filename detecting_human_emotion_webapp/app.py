@@ -5,18 +5,32 @@ import os
 
 
 
-@app.route("/",methods=["GET"])
-def home():
 
+@app.route("/",methods=["GET"])
+def userInfo():
+    header = 'Get User Info'
+    userInfo = UserInfoForm()
+    template_name = "get_user_info.html"
+    return render_template(template_name_or_list=template_name,userInfoForm= userInfo, title = header)
+
+@app.route("/detecting",methods=["GET"])
+def home():
     header = 'Detecting Human Emotion'
-    data = getLineFromTextFile('detecting_human_emotion_webapp/questions.txt')
+    data = getLineFromTextFile('questions.txt')
     print(data)
     template_name = "index.html"
     return render_template(template_name_or_list=template_name,data =data, title = header)
 
+
+
+@app.route("/dashboard",methods=["GET"])
+def dashBoard():
+    template_name = "dashboard.html"
+    return render_template(template_name_or_list=template_name)
+
+
 @app.route("/get_user_info",methods=["GET"])
 def userInfo():
-
     header = 'Get User Info'
     userInfo = UserInfoForm()
     template_name = "get_user_info.html"
@@ -29,6 +43,16 @@ def userInfoPost():
     print(userInfo.first_name.data)
 
     return redirect("/")
+
+@app.route("/results",methods=["GET"])
+def resultsPage():
+    header = 'Results Page'
+    # userInfo = UserInfoForm()
+    template_name = "results_page.html"
+    data = getLineFromTextFile('questions.txt')
+
+
+    return render_template(template_name_or_list=template_name, data = data, title = header)
 
 
 def getLineFromTextFile(fileName):
