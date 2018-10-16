@@ -13,10 +13,18 @@ def userInfo():
     template_name = "get_user_info.html"
     return render_template(template_name_or_list=template_name,userInfoForm= userInfo, title = header)
 
+@app.route("/",methods=["POST"])
+def userInfoPost():
+    userInfo = UserInfoForm()
+    #this is an example how you print data from a form
+    print(userInfo.first_name.data)
+
+    return redirect("/detecting")
+
 @app.route("/detecting",methods=["GET"])
 def home():
     header = 'Detecting Human Emotion'
-    data = getLineFromTextFile('questions.txt')
+    data = getLineFromTextFile('detecting_human_emotion_webapp/questions.txt')
     print(data)
     template_name = "index.html"
     return render_template(template_name_or_list=template_name,data =data, title = header)
@@ -27,22 +35,6 @@ def home():
 def dashBoard():
     template_name = "dashboard.html"
     return render_template(template_name_or_list=template_name)
-
-
-@app.route("/get_user_info",methods=["GET"])
-def userInfo():
-    header = 'Get User Info'
-    userInfo = UserInfoForm()
-    template_name = "get_user_info.html"
-    return render_template(template_name_or_list=template_name,userInfoForm= userInfo, title = header)
-
-@app.route("/get_user_info",methods=["POST"])
-def userInfoPost():
-    userInfo = UserInfoForm()
-
-    print(userInfo.first_name.data)
-
-    return redirect("/")
 
 @app.route("/results",methods=["GET"])
 def resultsPage():
