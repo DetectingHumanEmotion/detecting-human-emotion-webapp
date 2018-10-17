@@ -13,13 +13,13 @@ def userInfo():
     template_name = "get_user_info.html"
     return render_template(template_name_or_list=template_name,userInfoForm= userInfo, title = header)
 
-# @app.route("/",methods=["POST"])
-# def userInfoPost():
-#     userInfo = UserInfoForm()
-#     #this is an example how you print data from a form
-#     print(userInfo.first_name.data)
-#
-#     return redirect("/detecting")
+@app.route("/",methods=["POST"])
+def userInfoPost():
+    userInfo = UserInfoForm()
+    #this is an example how you print data from a form
+    print(userInfo.first_name.data)
+
+    return redirect("/detecting")
 
 @app.route("/detecting",methods=["GET"])
 def home():
