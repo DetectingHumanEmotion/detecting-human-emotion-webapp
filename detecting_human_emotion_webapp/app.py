@@ -24,7 +24,7 @@ def userInfoPost():
 @app.route("/detecting",methods=["GET"])
 def home():
     header = 'Detecting Human Emotion'
-    data = getLineFromTextFile('questions.txt')
+    data = getLineFromTextFile('detecting_human_emotion_webapp\questions.txt')
     print(data)
     template_name = "index.html"
     return render_template(template_name_or_list=template_name,data =data, title = header)
@@ -41,7 +41,7 @@ def resultsPage():
     header = 'Results Page'
     # userInfo = UserInfoForm()
     template_name = "results_page.html"
-    data = getLineFromTextFile('questions.txt')
+    data = getLineFromTextFile('detecting_human_emotion_webapp\questions.txt')
 
 
     return render_template(template_name_or_list=template_name, data = data, title = header)
