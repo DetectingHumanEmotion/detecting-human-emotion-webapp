@@ -21,21 +21,24 @@ def userInfoPost():
 
     users.append(User(firstname=userInfo.first_name.data, lastname=userInfo.last_name.data, race=userInfo.race.data,
                       gender=userInfo.gender.data, age=userInfo.age.data))
-    print(users)
     # this is an example how you print data from a form
     return redirect("/detecting")
 
 
 @app.route("/detecting", methods=["GET"])
 def home():
+
     header = 'Detecting Human Emotion'
     data = getListFromTextFile('detecting_human_emotion_webapp\questions.txt')
     users[-1].questions = data
+    user = users[-1]
+
+
 
     print(users[-1].print_data())
 
     template_name = "index.html"
-    return render_template(template_name_or_list=template_name, data=data, title=header)
+    return render_template(template_name_or_list=template_name,user = user, data=data, title=header)
 
 
 @app.route("/dashboard", methods=["GET"])

@@ -82,7 +82,7 @@ body {
 
     <script>
         {#var question = {{data|tojson}};#}
-        var array = {{data|tojson}};
+        var array = {{user.questions|tojson}};
         var counter = 0;
         var size = array.length;
         console.log(array);
