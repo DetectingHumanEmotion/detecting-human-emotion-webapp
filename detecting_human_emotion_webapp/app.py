@@ -65,7 +65,8 @@ def getListFromTextFile(fileName):
     l = []
     with open(fileName, 'r') as file:
         for line in file:
-            l.append(line)
+            formatted_line = line.strip('\n')
+            l.append(formatted_line)
 
     return l
 
