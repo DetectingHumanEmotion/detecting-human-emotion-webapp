@@ -81,11 +81,11 @@ body {
 
 
     <script>
-        var question = {{data|tojson}};
-        var array = question.split("\n");
+        {#var question = {{data|tojson}};#}
+        var array = {{data|tojson}};
         var counter = 0;
         var size = array.length;
-        console.log(question);
+        console.log(array);
         console.log("printing the time");
         console.log(time);
         function startQuestion() {
