@@ -1,6 +1,9 @@
 from flask import render_template, redirect
 from detecting_human_emotion_webapp import app
 from detecting_human_emotion_webapp.forms import UserInfoForm
+from deception_detection.audio.paura2 import  recordAudioSegments
+
+
 
 import os
 import platform
@@ -14,6 +17,20 @@ else:
     from user import User
 
     QUESTIONS = 'questions.txt'
+
+
+#This is the python script that should be ran n the html code
+def recordAudioSegments():
+    MODEL = "deceptionSvm_edited"
+    BLOCKSIZE = .10
+    FS = 16000
+    SHOWSPECTOGRAM = True
+    SHOWCHROMOGRAM = True
+    RECORDACTIVITY = True
+    ALGORITHM = "svm"
+    recordAudioSegments(BLOCKSIZE=BLOCKSIZE, model=MODEL, algorithm=ALGORITHM, Fs=FS, showSpectrogram=SHOWSPECTOGRAM,
+                        showChromagram=SHOWCHROMOGRAM, recordActivity=RECORDACTIVITY)
+
 
 @app.route("/", methods=["GET"])
 def userInfo():
