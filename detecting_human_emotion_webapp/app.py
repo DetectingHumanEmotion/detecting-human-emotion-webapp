@@ -1,15 +1,17 @@
 from flask import render_template, redirect
 from detecting_human_emotion_webapp import app
 from detecting_human_emotion_webapp.forms import UserInfoForm
-from .user import User
+
 import os
 import platform
 
 users = []
 
 if platform.system() is "Windows":
+    from .user import User
     QUESTIONS = 'detecting_human_emotion_webapp/questions.txt'
 else:
+    from user import User
 
     QUESTIONS = 'questions.txt'
 
