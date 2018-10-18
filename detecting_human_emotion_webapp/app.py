@@ -1,11 +1,17 @@
 from flask import render_template, redirect
 from detecting_human_emotion_webapp import app
 from detecting_human_emotion_webapp.forms import UserInfoForm
-from user import User
+from .user import User
 import os
+import platform
 
 users = []
 
+if platform.system() is "Windows":
+    QUESTIONS = 'detecting_human_emotion_webapp/questions.txt'
+else:
+
+    QUESTIONS = 'questions.txt'
 
 @app.route("/", methods=["GET"])
 def userInfo():
@@ -30,7 +36,7 @@ def home():
 
     header = 'Detecting Human Emotion'
 
-    data = getListFromTextFile('questions.txt')
+    data = getListFromTextFile(QUESTIONS)
     users[-1].questions = data
     user = users[-1]
 
@@ -57,7 +63,7 @@ def resultsPage():
     # userInfo = UserInfoForm()
     template_name = "results_page.html"
     #passing in as an array
-    data = getLineFromTextFile('questions.txt').split("\n")
+    data = getLineFromTextFile(QUESTIONS).split("\n")
     return render_template(template_name_or_list=template_name, data = data, title = header)
 
 
