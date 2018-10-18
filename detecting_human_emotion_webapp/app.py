@@ -40,6 +40,9 @@ def home():
     template_name = "index.html"
     return render_template(template_name_or_list=template_name,user = user, data=data, title=header)
 
+@app.route("/detecting", methods=["POST"])
+def homePost():
+    print("testing that it posted")
 
 @app.route("/dashboard", methods=["GET"])
 def dashBoard():
