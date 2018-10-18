@@ -1,7 +1,7 @@
 from flask import render_template, redirect
 from detecting_human_emotion_webapp import app
 from detecting_human_emotion_webapp.forms import UserInfoForm
-from .user import User
+from user import User
 import os
 
 users = []
@@ -29,7 +29,8 @@ def userInfoPost():
 def home():
 
     header = 'Detecting Human Emotion'
-    data = getListFromTextFile('detecting_human_emotion_webapp\questions.txt')
+
+    data = getListFromTextFile('questions.txt')
     users[-1].questions = data
     user = users[-1]
 
@@ -50,14 +51,14 @@ def dashBoard():
     return render_template(template_name_or_list=template_name)
 
 
-@app.route("/results", methods=["GET"])
+@app.route("/results",methods=["GET"])
 def resultsPage():
     header = 'Results Page'
     # userInfo = UserInfoForm()
     template_name = "results_page.html"
-    data = getLineFromTextFile('detecting_human_emotion_webapp\questions.txt')
-
-    return render_template(template_name_or_list=template_name, data=data, title=header)
+    #passing in as an array
+    data = getLineFromTextFile('questions.txt').split("\n")
+    return render_template(template_name_or_list=template_name, data = data, title = header)
 
 
 def getLineFromTextFile(fileName):

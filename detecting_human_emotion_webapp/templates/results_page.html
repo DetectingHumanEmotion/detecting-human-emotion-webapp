@@ -45,7 +45,6 @@ th, td {
 
 
   <tr>
-
       <th>Questions</th>
       <th >Audio Deception</th>
       <th>Video Deception</th>
@@ -55,18 +54,29 @@ th, td {
       <th>Happy</th>
       <th>Sad</th>
       <th>Angry</th>
+    <tr>
 
     <tr>
-    <tr>
-    <td>Question 1 </td>
-    <td>85%</td>
-    <td>70%</td>
-     <td>2%</td>
-     <td>30%</td>
-     <td>35%</td>
-     <td>2%</td>
-     <td>3%</td>
-     <td>5%</td>
+
+
+    <!--iterates thorugh the list of data and creates a new row-->
+    {% for d in data %}
+
+    <td>{{ d }}</td>
+    <tr></tr>
+    {% endfor %}
+
+
+
+
+    <!--<td>85%</td>-->
+    <!--<td>70%</td>-->
+     <!--<td>2%</td>-->
+     <!--<td>30%</td>-->
+     <!--<td>35%</td>-->
+     <!--<td>2%</td>-->
+     <!--<td>3%</td>-->
+     <!--<td>5%</td>-->
   </tr>
 </table>
 
