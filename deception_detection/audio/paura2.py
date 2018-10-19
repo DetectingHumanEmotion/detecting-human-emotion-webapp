@@ -233,8 +233,7 @@ def recordAudioSegments(BLOCKSIZE,model,algorithm, Fs = 16000, showSpectrogram =
             except IOError:
 
                 print( f'{errorcount} Error recording:')
-
-    return results
+    # return results
 
 def run():
     MODEL = "deceptionSvm_edited"
