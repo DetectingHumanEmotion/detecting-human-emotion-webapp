@@ -28,7 +28,7 @@ def recordAudioSegments():
     SHOWCHROMOGRAM = True
     RECORDACTIVITY = True
     ALGORITHM = "svm"
-    recordAudioSegments(BLOCKSIZE=BLOCKSIZE, model=MODEL, algorithm=ALGORITHM, Fs=FS, showSpectrogram=SHOWSPECTOGRAM,
+    return recordAudioSegments(BLOCKSIZE=BLOCKSIZE, model=MODEL, algorithm=ALGORITHM, Fs=FS, showSpectrogram=SHOWSPECTOGRAM,
                         showChromagram=SHOWCHROMOGRAM, recordActivity=RECORDACTIVITY)
 
 

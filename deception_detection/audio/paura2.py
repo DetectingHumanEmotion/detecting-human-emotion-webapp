@@ -130,6 +130,7 @@ def recordAudioSegments(BLOCKSIZE,model,algorithm, Fs = 16000, showSpectrogram =
     energy100_buffer_zero = []
     curActiveWindow = numpy.array([])    
     timeStart = time.time()
+    results = []
 
     while 1:            
             try:                                                   
@@ -138,7 +139,8 @@ def recordAudioSegments(BLOCKSIZE,model,algorithm, Fs = 16000, showSpectrogram =
                 format = "%dh"%(countB)
                 shorts = struct.unpack( format, block )                    
                 curWindow = list(shorts)
-                midTermBuffer = midTermBuffer + curWindow;                                      # copy to midTermBuffer
+                midTermBuffer = midTermBuffer + curWindow                                      # copy to midTermBuffer
+
                 del(curWindow)
                 #print len(midTermBuffer), midTermBufferSize
                 #if len(midTermBuffer) == midTermBufferSize:                                     # if midTermBuffer is full:
@@ -205,6 +207,7 @@ def recordAudioSegments(BLOCKSIZE,model,algorithm, Fs = 16000, showSpectrogram =
                                         wavfile.write(wavFileName, Fs, numpy.int16(curActiveWindow))# write current active window to file
                                         dominate_result, statistics, paths= aT.fileClassification(wavFileName,model, "svm")
                                         print(dominate_result,statistics,paths)
+                                        results.append((dominate_result,statistics,paths))
                                 curActiveWindow = numpy.array([])                               # delete current active window
                         else:
                             if curActiveWindow.shape[0] == 0:                                   # this is a new active window!
@@ -230,6 +233,8 @@ def recordAudioSegments(BLOCKSIZE,model,algorithm, Fs = 16000, showSpectrogram =
             except IOError:
 
                 print( f'{errorcount} Error recording:')
+
+    return results
 
 def run():
     MODEL = "deceptionSvm_edited"
