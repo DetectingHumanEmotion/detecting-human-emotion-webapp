@@ -23,6 +23,7 @@ scikit-learn = "==0.19.2"
 pyaudio = "*"
 wtforms = "*"
 flask-wtf = "*"
+python-magic-bin = "==0.4.14"
 
 [dev-packages]
 pylint = "*"

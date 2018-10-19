@@ -1,10 +1,29 @@
-{% macro render_question() %}
+{#{% macro render_question() %}#}
+{#    <div align="left" class="question" style="text-align: center">#}
+{#        <p>Question:</p>#}
+{#        <div id="begin">Press start to begin</div>#}
+{#    </div>#}
+{##}
+{#{%- endmacro %}#}
+
+{% macro render_question(question) %}
     <div align="left" class="question" style="text-align: center">
         <p>Question:</p>
-        <div id="begin">Press start to begin</div>
+        <div id="begin">{{ question }}</div>
     </div>
 
+    <!-- Button -->
+    <form action="" method="post">
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="startButton"></label>
+            <div class="col-md-4">
+                <button id="continueButton" name="continueButton" class="btn btn-primary">Continue</button>
+            </div>
+        </div>
+    </form>
+
 {%- endmacro %}
+
 
 {% macro render_field(field) %}
     <div class="form-group">
