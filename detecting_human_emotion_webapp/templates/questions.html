@@ -10,7 +10,7 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     {% from "form_macros.html" import render_question %}
-
+    {{ currentQuestionNumber+"/"+numberOfQuestions }}
      {{ render_question(question) }}
 
 {% endblock content %}

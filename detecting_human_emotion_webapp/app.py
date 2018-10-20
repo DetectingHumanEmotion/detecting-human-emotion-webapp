@@ -83,7 +83,7 @@ def recording_start_post():
 
 @app.route("/detecting/<int:questionNumber>", methods=["GET"])
 def question(questionNumber):
-    print(type(questionNumber))
+
     questions = getListFromTextFile(QUESTIONS)
     header = f'Question {questionNumber}'
     template_name = "questions.html"
@@ -91,12 +91,13 @@ def question(questionNumber):
     q= questions[questionNumber]
 
 
-    return render_template(template_name_or_list=template_name,title=header,question = q)
+    return render_template(template_name_or_list=template_name,title=header,question = q, numberOfQuestions = str(len(questions)),currentQuestionNumber = str(questionNumber ))
 
 #
 
 @app.route("/detecting/<int:questionNumber>", methods=["POST"])
 def question_post(questionNumber):
+
     questions = getListFromTextFile(QUESTIONS)
     questionNumber += 1
     if questionNumber < len(questions):
