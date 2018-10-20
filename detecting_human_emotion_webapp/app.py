@@ -91,7 +91,7 @@ def question(questionNumber):
     q= questions[questionNumber]
 
 
-    return render_template(template_name_or_list=template_name,title=header,question = q, numberOfQuestions = str(len(questions)),currentQuestionNumber = str(questionNumber ))
+    return render_template(template_name_or_list=template_name,title=header,question = q, numberOfQuestions = str(len(questions)),currentQuestionNumber = str(questionNumber + 1))
 
 #
 
