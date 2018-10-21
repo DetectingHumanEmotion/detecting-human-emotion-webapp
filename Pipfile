@@ -24,6 +24,9 @@ pyaudio = "*"
 wtforms = "*"
 flask-wtf = "*"
 python-magic-bin = "==0.4.14"
+flask-pymongo = "*"
+okta = "==0.0.4"
+flask-oidc = "*"
 
 [dev-packages]
 pylint = "*"

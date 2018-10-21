@@ -1,22 +1,26 @@
-from flask import render_template, redirect,url_for
+from flask import render_template, redirect,url_for, g
 from detecting_human_emotion_webapp import app
 from detecting_human_emotion_webapp.forms import UserInfoForm
-# from deception_detection.audio.paura2 import recordAudioSegments
-
-
-
-import os
+from okta import UsersClient
+from flask_oidc import OpenIDConnect
 import platform
+okta_client = UsersClient("https://dev-240328.oktapreview.com", "00Axbx-B_Dl0XMqSoQmZlURJv9djfBRjHQ9F2xQ4GT")
 
-users = []
-
+oidc = OpenIDConnect(app)
 if platform.system() is "Windows":
-    from .user import User
+
     QUESTIONS = 'detecting_human_emotion_webapp/questions.txt'
 else:
-    from user import User
 
     QUESTIONS = 'questions.txt'
+
+@app.before_request
+def before_request():
+    if oidc.user_loggedin:
+        g.user = okta_client.get_user(oidc.user_getfield("sub"))
+    else:
+        g.user = None
+
 
 class questions:
 
@@ -34,21 +38,24 @@ class questions:
         return question
 
 
-#This is the python script that should be ran n the html code
-def recordAudioSegments():
-    MODEL = "deceptionSvm_edited"
-    BLOCKSIZE = .10
-    FS = 16000
-    SHOWSPECTOGRAM = True
-    SHOWCHROMOGRAM = True
-    RECORDACTIVITY = True
-    ALGORITHM = "svm"
-    #
-    recordAudioSegments(BLOCKSIZE=BLOCKSIZE, model=MODEL, algorithm=ALGORITHM, Fs=FS, showSpectrogram=SHOWSPECTOGRAM,
-                        showChromagram=SHOWCHROMOGRAM, recordActivity=RECORDACTIVITY)
+@app.route("/")
+def index():
+    return render_template("index2.html")
 
-#
-@app.route("/", methods=["GET"])
+@app.route("/login")
+@oidc.require_login
+def login():
+    # return redirect(url_for(".dashboard"))
+    return redirect("/detecting")
+
+
+@app.route("/logout")
+def logout():
+    oidc.logout()
+    # return redirect(url_for(".login"))
+    return redirect("/")
+
+@app.route("/getUserInfo", methods=["GET"])
 def userInfo():
     header = 'Get User Info'
     userInfo = UserInfoForm()
@@ -56,13 +63,13 @@ def userInfo():
     return render_template(template_name_or_list=template_name, userInfoForm=userInfo, title=header)
 
 
-@app.route("/", methods=["POST"])
+@app.route("/getUserInfo", methods=["POST"])
 def userInfoPost():
     userInfo = UserInfoForm()
+    g.user.profile.race = userInfo.race.data
+    g.user.profile.gender = userInfo.gender.data
+    g.user.profile.age = userInfo.age
 
-    users.append(User(firstname=userInfo.first_name.data, lastname=userInfo.last_name.data, race=userInfo.race.data,
-                      gender=userInfo.gender.data, age=userInfo.age.data))
-    # this is an example how you print data from a form
     return redirect("/detecting")
 
 
@@ -77,30 +84,31 @@ def recording_start_get():
 
 @app.route("/detecting",methods=["POST"])
 def recording_start_post():
-    # questions = getListFromTextFile(QUESTIONS)
-    # print(questions)
+
+
+    g.user.profile.questions = getListFromTextFile(QUESTIONS)
+    print(g.user.profile.questions)
     return redirect(url_for('question', questionNumber = 0))
 
-@app.route("/detecting/<int:questionNumber>", methods=["GET"])
+@app.route(f"/detecting/<int:questionNumber>", methods=["GET"])
 def question(questionNumber):
-
-    questions = getListFromTextFile(QUESTIONS)
-    header = f'Question {questionNumber}'
+    g.user.profile.questions = getListFromTextFile(QUESTIONS)
+    # questions = getListFromTextFile(QUESTIONS)
+    header = f'Question {questionNumber + 1}'
     template_name = "questions.html"
+    #
+    q= g.user.profile.questions[questionNumber]
 
-    q= questions[questionNumber]
+    return render_template(template_name_or_list=template_name,title=header,question=q, numberOfQuestions = str(len(g.user.profile.questions)),currentQuestionNumber = str(questionNumber + 1))
 
-
-    return render_template(template_name_or_list=template_name,title=header,question = q, numberOfQuestions = str(len(questions)),currentQuestionNumber = str(questionNumber + 1))
-
-#
 
 @app.route("/detecting/<int:questionNumber>", methods=["POST"])
 def question_post(questionNumber):
-
-    questions = getListFromTextFile(QUESTIONS)
+    g.user.profile.questions = getListFromTextFile(QUESTIONS)
+    # questions = getListFromTextFile(QUESTIONS)
     questionNumber += 1
-    if questionNumber < len(questions):
+    print(questionNumber)
+    if questionNumber < len(g.user.profile.questions):
         return redirect(url_for('question', questionNumber = questionNumber))
     else:
         return redirect("/results")
@@ -114,28 +122,10 @@ def resultsPage():
     data = getLineFromTextFile(QUESTIONS).split("\n")
     return render_template(template_name_or_list=template_name, data = data, title = header)
 
-# @app.route("/detecting", methods=["GET"])
-# def home():
-#
-#     header = 'Detecting Human Emotion'
-#
-#     data = getListFromTextFile(QUESTIONS)
-#     users[-1].questions = data
-#     user = users[-1]
-#
-#
-#
-#     print(users[-1].print_data())
-#
-#     template_name = "index.html"
-#     return render_template(template_name_or_list=template_name,user = user, data=data, title=header)
-#
-# @app.route("/detecting", methods=["POST"])
-# def homePost():
-#     print("testing that it posted")
 
-
-
+@app.route("/dashboard")
+def dashboard():
+    return render_template("dashboard.html")
 
 def getLineFromTextFile(fileName):
     data = ''
@@ -155,5 +145,7 @@ def getListFromTextFile(fileName):
 
 
 
+
+
 if __name__ == '__main__':
-    app.run()
+    app.run(host="localhost",port= 5000)
