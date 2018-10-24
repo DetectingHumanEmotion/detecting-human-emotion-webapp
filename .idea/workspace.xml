@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7a85388-7fce-4c46-91c9-75b7489373aa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/detecting-human-emotion-webapp.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/emotion-detection/blink/blink-detect.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/emotion-detection/blink/shape_predictor_68_face_landmarks.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/emotion-detection/blink/facial-landmark-detection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,38 +13,41 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/detecting_human_emotion_webapp$app.coverage" NAME="app Coverage Results" MODIFIED="1538013243183" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/detecting-human-emotion-webapp/detecting-human-emotion-webapp" />
-    <SUITE FILE_PATH="coverage/detecting_human_emotion_webapp$blink_detect.coverage" NAME="blink-detect Coverage Results" MODIFIED="1538616068318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/emotion-detection/blink" />
+    <SUITE FILE_PATH="coverage/detecting_human_emotion_webapp$blink_detect.coverage" NAME="blink-detect Coverage Results" MODIFIED="1539829261423" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/emotion-detection/blink" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1582984728">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
-          <entry key="project.open.time.0" value="2" />
+          <entry key="project.closed" value="6" />
+          <entry key="project.open.time.0" value="3" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="4" />
+          <entry key="py" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="4" />
+          <entry key="Python" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="626" />
+          <entry key="py" value="683" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="626" />
+          <entry key="Python" value="683" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -59,14 +59,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/emotion-detection/blink/blink-detect.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+            <state relative-caret-position="255">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <element signature="e#51#70#0" expanded="true" />
                 <marker date="1538592040750" expanded="true" signature="293:295" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/emotion-detection/blink/facial-landmark-detection.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="918">
+              <caret line="54" column="19" lean-forward="true" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
+              <folding>
+                <element signature="e#1#38#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -82,6 +94,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Rebase.Settings">
+    <option name="ONTO" value="refs/heads/master" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -91,6 +106,7 @@
         <option value="$PROJECT_DIR$/emotion-detection/blink/blinkdetection.js" />
         <option value="$PROJECT_DIR$/emotion-detection/audio/vokaturi.py" />
         <option value="$PROJECT_DIR$/emotion-detection/blink/blink-detect.py" />
+        <option value="$PROJECT_DIR$/emotion-detection/blink/facial-landmark-detection.py" />
       </list>
     </option>
   </component>
@@ -101,9 +117,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="27" />
-    <option name="width" value="1098" />
+    <option name="x" value="-10" />
+    <option name="y" value="25" />
+    <option name="width" value="1100" />
     <option name="height" value="970" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -112,7 +128,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -175,6 +190,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -199,7 +215,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.blink-detect">
+  <component name="RunManager" selected="Python.facial-landmark-detection">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="detecting-human-emotion-webapp" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -266,12 +282,33 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="facial-landmark-detection" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="detecting-human-emotion-webapp" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/emotion-detection/blink" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/emotion-detection/blink/facial-landmark-detection.py" />
+      <option name="PARAMETERS" value="--shape-predictor shape_predictor_68_face_landmarks.dat" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.app" />
       <item itemvalue="Python.blink-detect" />
+      <item itemvalue="Python.facial-landmark-detection" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.facial-landmark-detection" />
         <item itemvalue="Python.blink-detect" />
         <item itemvalue="Python.app" />
       </list>
@@ -296,7 +333,7 @@
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.5020243" side_tool="true" weight="0.24697986" />
       <window_info id="Favorites" order="1" weight="0.3295302" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.4979757" visible="true" weight="0.13892618" />
+      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.4979757" visible="true" weight="0.14697987" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.23404256" />
@@ -308,8 +345,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067115" side_tool="true" weight="0.29929078" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3281493" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32765958" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32765958" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="12" visible="true" weight="0.2751773" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -371,11 +408,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/emotion-detection/blink/blink-detect.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+        <state relative-caret-position="255">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="e#51#70#0" expanded="true" />
             <marker date="1538592040750" expanded="true" signature="293:295" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/emotion-detection/blink/facial-landmark-detection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="54" column="19" lean-forward="true" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
+          <folding>
+            <element signature="e#1#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
