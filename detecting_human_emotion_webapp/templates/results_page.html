@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+    <style>
+.empty{
+    background-color: yellow;
+    }
+
+    <!--figure out how to remove border on empty cells -->
+    
+ table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    }
+th, td {
+    padding: 1px;
+    text-align: center;
+}
+
+
+    </style>
+
+
+
+<p>results</p>
+
+
+
+<h2>Cell that spans two columns</h2>
+<p>To make a cell span more than one column, use the colspan attribute.</p>
+
+<table style="width:50%">
+  <tr>
+      <th class="empty"></th>
+      <th class="empty"></th>
+      <th class="empty"></th>
+
+      <th colspan="3">Audio Emotion</th>
+      <th colspan="3">Video Emotion</th>
+  </tr>
+
+
+  <tr>
+      <th>Questions</th>
+      <th >Audio Deception</th>
+      <th>Video Deception</th>
+      <th>Happy</th>
+      <th>Sad</th>
+      <th>Angry</th>
+      <th>Happy</th>
+      <th>Sad</th>
+      <th>Angry</th>
+    <tr>
+
+    <tr>
+
+
+    <!--iterates thorugh the list of data and creates a new row-->
+    {% for d in data %}
+
+    <td>{{ d }}</td>
+    <tr></tr>
+    {% endfor %}
+
+
+
+
+    <!--<td>85%</td>-->
+    <!--<td>70%</td>-->
+     <!--<td>2%</td>-->
+     <!--<td>30%</td>-->
+     <!--<td>35%</td>-->
+     <!--<td>2%</td>-->
+     <!--<td>3%</td>-->
+     <!--<td>5%</td>-->
+  </tr>
+</table>
+
+
+
+{% endblock %}

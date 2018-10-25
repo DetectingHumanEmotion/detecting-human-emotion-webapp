@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+  <h1 class="text-center">Dashboard</h1>
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <p>Welcome to the dashboard, {{ g.user.profile.firstName }}!</p>
+      <p>Your user information has been pulled from the <code>g.user</code>
+      object, which makes accessing your user information simple. Your first
+      name, for example, is available via the <code>g.user.profile.firstName</code>
+      property. Your user id (<code>{{ g.user.id }}</code>), is pulled from the <code>g.user.id</code> property!</p>
+    </div>
+  </div>
+{% endblock %}

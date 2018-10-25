@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+        <style xmlns="http://www.w3.org/1999/html"></style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {% from "form_macros.html" import render_question %}
+    {{ currentQuestionNumber+"/"+numberOfQuestions }}
+     {{ render_question(question) }}
+
+{% endblock content %}
