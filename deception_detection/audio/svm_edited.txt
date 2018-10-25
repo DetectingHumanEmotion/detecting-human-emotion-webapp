@@ -2,39 +2,39 @@ Totall number of correct classifications: 1 out of 6
 Model Used:deceptionSvm_edited
 Algorithm Used:svm
 
-trial_lie_055.wav
+testing_data\trial_lie_046.wav
 ['Truth', 'Lie']
-[0.76980793 0.23019207]
-Result: truth
-Expected: lie
-
-trial_truth_060.wav
-['Truth', 'Lie']
-[0.76980793 0.23019207]
-Result: None
-Expected: truth
-
-trial_lie_061b.wav
-['Truth', 'Lie']
-[0.76980793 0.23019207]
-Result: truth
-Expected: lie
-
-trial_lie_046.wav
-['Truth', 'Lie']
-[0.76980793 0.23019207]
+[0.46656845 0.53343155]
 Result: None
 Expected: lie
 
-trial_truth_059.wav
+testing_data\trial_lie_055.wav
 ['Truth', 'Lie']
-[0.76980793 0.23019207]
+[0.46656845 0.53343155]
+Result: truth
+Expected: lie
+
+testing_data\trial_lie_061.wav
+['Truth', 'Lie']
+[0.46656845 0.53343155]
+Result: truth
+Expected: lie
+
+testing_data\trial_lie_061b.wav
+['Truth', 'Lie']
+[0.46656845 0.53343155]
+Result: truth
+Expected: lie
+
+testing_data\trial_truth_059.wav
+['Truth', 'Lie']
+[0.46656845 0.53343155]
 Result: truth
 Expected: truth
 
-trial_lie_061.wav
+testing_data\trial_truth_060.wav
 ['Truth', 'Lie']
-[0.76980793 0.23019207]
-Result: truth
-Expected: lie
+[0.46656845 0.53343155]
+Result: None
+Expected: truth
 
