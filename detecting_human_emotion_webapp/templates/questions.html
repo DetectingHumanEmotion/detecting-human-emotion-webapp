@@ -1,6 +1,54 @@
 {% extends "base.html" %}
 {% block content %}
 
+    <style>
+    body {
+  font: 14px "Open Sans", "Arial", sans-serif;
+}
+
+video {
+  margin-top: 2px;
+  border: 1px solid black;
+}
+
+.button {
+  cursor: pointer;
+  display: block;
+  width: 160px;
+  border: 1px solid black;
+  font-size: 16px;
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 4px;
+  color: white;
+  background-color: darkgreen;
+  text-decoration: none;
+}
+
+h2 {
+  margin-bottom: 4px;
+}
+
+.left {
+  margin-right: 10px;
+  float: left;
+  width: 160px;
+  padding: 0px;
+}
+
+.right {
+  margin-left: 10px;
+  float: left;
+  width: 160px;
+  padding: 0px;
+}
+
+.bottom {
+  clear: both;
+  padding-top: 10px;
+}
+    </style>
+
         <style xmlns="http://www.w3.org/1999/html"></style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -13,4 +61,147 @@
     {{ currentQuestionNumber+"/"+numberOfQuestions }}
      {{ render_question(question) }}
 
+<!-- Learn about this code on MDN: https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API/Recording_a_media_element -->
+
+<p>Click the "Start" button to begin video recording for a few seconds. You can stop
+   the video by clicking the creatively-named "Stop" button. The "Download"
+   button will download the received data (although it's in a raw, unwrapped form
+   that isn't very useful).
+</p>
+<br>
+    <button id="btn-start-recording">Start Recording</button>
+<button id="btn-stop-recording" disabled="disabled">Stop Recording</button>
+<a id="downloadButton" class="button">Download</a>
+
+
+<!--
+    2. Include a video element that will display the current video stream
+    and as well to show the recorded video at the end.
+ -->
+<hr>
+<video id="my-preview" controls autoplay></video>
+
+<!--
+3. Include the RecordRTC library and the latest adapter.
+Note that you may want to host these scripts in your own server -->
+<script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
+<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+{#<div class="left">#}
+{#  <div id="startButton" class="button">#}
+{#    Start#}
+{#  </div>#}
+{#  <h2>Preview</h2>#}
+{#  <video id="preview" width="160" height="120" autoplay muted></video>#}
+{#</div>#}
+{#<div class="right">#}
+{#  <div id="stopButton" class="button">#}
+{#    Stop#}
+{#  </div>#}
+{#  <h2>Recording</h2>#}
+{#  <video id="recording" width="160" height="120" controls></video>#}
+{#  <a id="downloadButton" class="button">#}
+{#    Download#}
+{#  </a>#}
+{#</div>#}
+{#<div class="bottom">#}
+{#  <pre id="log"></pre>#}
+{#</div>#}
+{##}
+
+
+
+
+    <!-- 1. Include action buttons play/stop -->
+
+<!--
+4. Initialize and prepare the video recorder logic -->
+<script>
+    // Store a reference of the preview video element and a global reference to the recorder instance
+    var video = document.getElementById('my-preview');
+    var recorder;
+    let downloadButton = document.getElementById("downloadButton");
+
+
+    // When the user clicks on start video recording
+    document.getElementById('btn-start-recording').addEventListener("click", function(){
+        // Disable start recording button
+        this.disabled = true;
+
+        // Request access to the media devices
+        navigator.mediaDevices.getUserMedia({
+            audio: true,
+            video: true
+        }).then(function(stream) {
+            // Display a live preview on the video element of the page
+            setSrcObject(stream, video);
+
+            // Start to display the preview on the video element
+            // and mute the video to disable the echo issue !
+            video.play();
+            video.muted = false;
+
+            // Initialize the recorder
+            recorder = new RecordRTCPromisesHandler(stream, {
+                mimeType: 'video/webm',
+                bitsPerSecond: 128000
+            });
+
+            // Start recording the video
+            recorder.startRecording().then(function() {
+                console.info('Recording video ...');
+            }).catch(function(error) {
+                console.error('Cannot start video recording: ', error);
+            });
+
+            // release stream on stopRecording
+            recorder.stream = stream;
+
+            // Enable stop recording button
+            document.getElementById('btn-stop-recording').disabled = false;
+        }).catch(function(error) {
+            console.error("Cannot access media devices: ", error);
+        });
+    }, false);
+
+    // When the user clicks on Stop video recording
+    document.getElementById('btn-stop-recording').addEventListener("click", function(){
+        this.disabled = true;
+
+        recorder.stopRecording().then(function() {
+            console.info('stopRecording success');
+
+
+
+            // let recordedBlob = new Blob(recordedChunks, { type: "video/webm" });
+            //  recording.src = URL.createObjectURL(recordedBlob);
+            // downloadButton.href = recording.src;
+            // downloadButton.download = "RecordedVideo.webm";
+
+            // log("Successfully recorded " + recordedBlob.size + " bytes of " +
+            //   recordedBlob.type + " media.");
+            // })
+
+            // Retrieve recorded video as blob and display in the preview element
+             var blob = recorder.getBlob();
+            video.src = URL.createObjectURL(blob);
+            video.play();
+            downloadButton.href = video.src;
+            downloadButton.download = "RecordedVideo.webm";
+            // video.play();
+
+            // Unmute video on preview
+            video.muted = false;
+
+            // Stop the device streaming
+            recorder.stream.stop();
+
+            // Enable record button again !
+            document.getElementById('btn-start-recording').disabled = false;
+        }).catch(function(error) {
+            console.error('stopRecording failure', error);
+        });
+      }, false);
+</script>
+
+    </script>
 {% endblock content %}

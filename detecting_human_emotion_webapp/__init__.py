@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.config["WTF_CSRF_SECRET_KEY"] = "To Be changed to a random key"
 # app.config["SECRET_KEY"] = b'<\xa4`\xb3G\x89>'
 
-app.config["OIDC_CLIENT_SECRETS"] = "detecting_human_emotion_webapp/client_secrets.json"
+app.config["OIDC_CLIENT_SECRETS"] = "client_secrets.json"
 
 #The OIDC_COOKIE_SECURE setting allows you to test out user login and registration in development
 # without using SSL. If you were going to run your site publicly, you would remove this option and use SSL on your site.
