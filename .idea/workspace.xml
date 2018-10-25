@@ -1,86 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7a85388-7fce-4c46-91c9-75b7489373aa" name="Default Changelist" comment="facial landmark">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deception_detection/audio/output.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/client_secrets.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/questions.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/static/js/questionnaire.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/templates/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/templates/dashboard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/templates/footer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/templates/form_macros.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/templates/get_user_info.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/templates/index2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/templates/layout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/templates/navbar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/templates/questionnaire.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/templates/questions.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/templates/results_page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/templates/startprompt.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/templates/test.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/templates/universal_imports.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitmodules" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webResources.xml" beforeDir="false" />
+    <list default="true" id="f7a85388-7fce-4c46-91c9-75b7489373aa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/emotion-detection/blink/facial-landmark-detection.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-cli" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionExtraTrees" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionExtraTrees" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionExtraTrees.arff" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionExtraTrees.arff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionExtraTreesMEANS" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionExtraTreesMEANS" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionExtraTrees_edited" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionExtraTrees_edited" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionExtraTrees_edited.arff" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionExtraTrees_edited.arff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionExtraTrees_editedMEANS" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionExtraTrees_editedMEANS" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionGradientBoosting" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionGradientBoosting" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionGradientBoosting.arff" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionGradientBoosting.arff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionGradientBoostingMEANS" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionGradientBoostingMEANS" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionGradientBoosting_edited" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionGradientBoosting_edited" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionGradientBoosting_edited.arff" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionGradientBoosting_edited.arff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionGradientBoosting_editedMEANS" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionGradientBoosting_editedMEANS" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionKNN" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionKNN" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionKNN.arff" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionKNN.arff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionKNN_edited" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionKNN_edited" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionKNN_edited.arff" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionKNN_edited.arff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionRandomForest" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionRandomForest" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionRandomForest.arff" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionRandomForest.arff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionRandomForestMEANS" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionRandomForestMEANS" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionRandomForest_edited" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionRandomForest_edited" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionRandomForest_edited.arff" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionRandomForest_edited.arff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionRandomForest_editedMEANS" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionRandomForest_editedMEANS" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionSvm" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionSvm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionSvm.arff" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionSvm.arff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionSvmMEANS" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionSvmMEANS" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionSvm_edi ted" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionSvm_edi ted" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionSvm_edi ted.arff" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionSvm_edi ted.arff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionSvm_edi tedMEANS" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionSvm_edi tedMEANS" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionSvm_edited" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionSvm_edited" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionSvm_edited.arff" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionSvm_edited.arff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/deceptionSvm_editedMEANS" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/deceptionSvm_editedMEANS" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/extratrees-result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/extratrees-result.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/extratrees_edited.txt" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/extratrees_edited.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/gradientboosting-result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/gradientboosting-result.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/gradientboosting_edited.txt" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/gradientboosting_edited.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/knn-result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/knn-result.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/knn_edited.txt" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/knn_edited.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/lie-detection.py" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/lie-detection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/output.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/paura2.py" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/paura2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/randomforest-result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/randomforest-result.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/randomforest_edited.txt" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/randomforest_edited.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/svm-result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/svm-result.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deception-detection/audio/svm_edited.txt" beforeDir="false" afterPath="$PROJECT_DIR$/deception_detection/audio/svm_edited.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/detecting-human-emotion-webapp/detecting-human-emotion-webapp/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/static/css/questionnaire.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/detecting-human-emotion-webapp/detecting-human-emotion-webapp/app.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/detecting-human-emotion-webapp/detecting-human-emotion-webapp/static/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/static/css/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/detecting-human-emotion-webapp/detecting-human-emotion-webapp/static/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/detecting_human_emotion_webapp/static/js/bootstrap.min.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -120,12 +43,10 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="py" value="683" />
-          <entry key="txt" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="15" />
           <entry key="Python" value="683" />
         </counts>
       </usages-collector>
@@ -138,11 +59,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/emotion-detection/blink/blink-detect.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="10" lean-forward="true" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+            <state relative-caret-position="255">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <element signature="e#51#70#0" expanded="true" />
                 <marker date="1538592040750" expanded="true" signature="293:295" ph="..." />
@@ -151,11 +72,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/emotion-detection/blink/facial-landmark-detection.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+            <state relative-caret-position="918">
+              <caret line="54" column="19" lean-forward="true" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
+              <folding>
+                <element signature="e#1#38#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -210,6 +134,29 @@
             <path>
               <item name="detecting-human-emotion-webapp" type="b2602c69:ProjectViewProjectNode" />
               <item name="detecting-human-emotion-webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="detecting-human-emotion-webapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="detecting-human-emotion-webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="deception-detection" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="detecting-human-emotion-webapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="detecting-human-emotion-webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="detecting-human-emotion-webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="detecting-human-emotion-webapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="detecting-human-emotion-webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="detecting-human-emotion-webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="detecting-human-emotion-webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="detecting-human-emotion-webapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="detecting-human-emotion-webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="detecting-human-emotion-webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="detecting-human-emotion-webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="detecting-human-emotion-webapp" type="b2602c69:ProjectViewProjectNode" />
@@ -378,22 +325,15 @@
       <option name="presentableId" value="Default" />
       <updated>1536454061651</updated>
     </task>
-    <task id="LOCAL-00001" summary="facial landmark">
-      <created>1540416076763</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1540416076763</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.5020243" side_tool="true" weight="0.24697986" />
       <window_info id="Favorites" order="1" weight="0.3295302" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.4979757" visible="true" weight="0.14697987" />
+      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.4979757" visible="true" weight="0.14697987" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.23404256" />
@@ -406,7 +346,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067115" side_tool="true" weight="0.29929078" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32765958" />
-      <window_info anchor="bottom" id="Python Console" order="12" visible="true" weight="0.2751773" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="12" visible="true" weight="0.2751773" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -445,10 +385,6 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="facial landmark" />
-    <option name="LAST_COMMIT_MESSAGE" value="facial landmark" />
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/emotion-detection/audio/vokaturi.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -470,20 +406,23 @@
         <state relative-caret-position="-2390" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/emotion-detection/blink/facial-landmark-detection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/emotion-detection/blink/blink-detect.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="10" lean-forward="true" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+        <state relative-caret-position="255">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="e#51#70#0" expanded="true" />
             <marker date="1538592040750" expanded="true" signature="293:295" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/emotion-detection/blink/facial-landmark-detection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="54" column="19" lean-forward="true" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
+          <folding>
+            <element signature="e#1#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
