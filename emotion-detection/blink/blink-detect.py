@@ -4,8 +4,7 @@
 # import the necessary packages
 import dlib as dlib
 from scipy.spatial import distance as dist
-from imutils.video import FileVideoStream
-from imutils.video import VideoStream
+from imutils.video import FileVideoStream, VideoStream
 from imutils import face_utils
 import argparse
 import imutils
