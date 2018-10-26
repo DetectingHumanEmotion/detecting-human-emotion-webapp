@@ -40,7 +40,12 @@ class questions:
 
 @app.route("/")
 def index():
-    return render_template("index2.html")
+
+    if oidc.user_loggedin is False:
+        return redirect("/login")
+    else:
+        return redirect("/detecting")
+
 
 @app.route("/login")
 @oidc.require_login
@@ -49,11 +54,13 @@ def login():
     return redirect("/detecting")
 
 
-@app.route("/logout")
+@app.route("/logout", methods=["GET","POSt"])
+@oidc.require_login
 def logout():
     oidc.logout()
+
     # return redirect(url_for(".login"))
-    return redirect("/")
+    return redirect("/login")
 
 @app.route("/getUserInfo", methods=["GET"])
 def userInfo():
