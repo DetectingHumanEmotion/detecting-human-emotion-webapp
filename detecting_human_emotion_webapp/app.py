@@ -82,12 +82,16 @@ def userInfoPost():
 
 @app.route("/detecting", methods=["GET"])
 def recording_start_get():
+
     header = "Start Detecting Human Emotion"
     template = "startprompt.html"
 
     prompt = "After clicking on the start button you will be asked a series of question. Once you have read the question please answer to the best of your ability and alaborate on your response."
 
     return render_template(template_name_or_list=template, header = header, prompt=prompt)
+
+
+
 
 @app.route("/detecting",methods=["POST"])
 def recording_start_post():
@@ -151,6 +155,25 @@ def getListFromTextFile(fileName):
     return l
 
 
+# this the uploading method
+@app.route("/upload", methods=["GET"])
+def upload():
+    header = "Uploading a file"
+    template = "uploading_page.html"
+
+    prompt = "Here you can upload a file to detect lying"
+    return render_template(template_name_or_list=template, header = header, prompt=prompt)
+
+@app.route("/uploading", methods=["GET"])
+def uploading():
+    header = "processing file"
+    template = "results_page.html"
+
+
+    # SAVE FILE HERE WHICH WAS INPUTED
+
+    print("inside uploading")
+    return render_template(template_name_or_list=template)
 
 
 
