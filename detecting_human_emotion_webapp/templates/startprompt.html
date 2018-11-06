@@ -8,15 +8,46 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <p>{{ prompt }}</p>
 
+    {#   <center> <p >{{ prompt }}</p></center>#}
+
+    <p >{{ prompt }}</p>
     <!-- Button -->
     <form action="" method="post">
         <div class="form-group">
             <label class="col-md-4 control-label" for="startButton"></label>
             <div class="col-md-4">
-                <button id="startButton" name="startButton" class="btn btn-primary">Start</button>
+                <button  id="startButton" name="startButton" class="btn btn-primary">Start</button>
+                {#                <div style="display:flex;justify-content:center;align-items:center;">Text Content</div>#}
+
             </div>
         </div>
     </form>
+
+
+    <style>
+        #startButton{
+
+            margin  : 5px auto;
+            display : block;
+        }
+
+        body {
+            background-color: orange;
+        }
+        p{
+            border-style: solid;
+            border-color: blue;
+            width: 300px;
+            height: 200px;
+            padding: 25px;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+        button{
+            text-align: center;
+        }
+
+    </style>
 {% endblock content %}
