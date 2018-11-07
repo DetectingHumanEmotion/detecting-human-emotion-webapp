@@ -8,6 +8,7 @@ import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
 app.config["WTF_CSRF_SECRET_KEY"] = "To Be changed to a random key"
+UPLOAD_FOLDER = "detecting_human_emotion_webapp/uploads"
 # app.config["SECRET_KEY"] = b'<\xa4`\xb3G\x89>'
 
 if platform.system() is "Windows":
@@ -23,4 +24,4 @@ app.config["OIDC_CALLBACK_ROUTE"] = "/oidc/callback"
 app.config["OIDC_SCOPES"] = ["openid", "email", "profile"]
 app.config["SECRET_KEY"] = "This is some long string for the secret key."
 app.config["OIDC_ID_TOKEN_COOKIE_NAME"] = "oidc_token"
-
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER

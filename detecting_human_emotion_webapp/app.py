@@ -1,10 +1,18 @@
-from flask import render_template, redirect,url_for, g
+from flask import render_template, redirect, url_for, request, g, flash, send_from_directory
+from werkzeug.utils import secure_filename
+import os
 from detecting_human_emotion_webapp import app
 from detecting_human_emotion_webapp.forms import UserInfoForm
 from okta import UsersClient
 from flask_oidc import OpenIDConnect
+from deception_detection.audio.lie_detection import classify_file
 import platform
 okta_client = UsersClient("https://dev-240328.oktapreview.com", "00Axbx-B_Dl0XMqSoQmZlURJv9djfBRjHQ9F2xQ4GT")
+
+ALLOWED_EXTENSIONS = ['wav','mp4','jpg','txt']
+
+
+AUDIO_DECEPTION_DOMINATE_RESULT = { 0: "Truth", 1: "Lie"}
 
 oidc = OpenIDConnect(app)
 if platform.system() is "Windows":
@@ -129,6 +137,7 @@ def resultsPage():
     header = 'Results Page'
     # userInfo = UserInfoForm()
     template_name = "results_page.html"
+
     #passing in as an array
     data = getLineFromTextFile(QUESTIONS).split("\n")
     return render_template(template_name_or_list=template_name, data = data, title = header)
@@ -155,6 +164,10 @@ def getListFromTextFile(fileName):
     return l
 
 
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 # this the uploading method
 @app.route("/upload", methods=["GET"])
 def upload():
@@ -164,16 +177,86 @@ def upload():
     prompt = "Here you can upload a file to detect lying"
     return render_template(template_name_or_list=template, header = header, prompt=prompt)
 
-@app.route("/uploading", methods=["GET"])
+@app.route('/uploads/<filename>')
+def uploaded_file(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'],
+                               filename)
+
+# @app.route('/uploader', methods=['GET', 'POST'])
+# def upload_file():
+#     if request.method == 'POST':
+#         f = request.files['file']
+#         f.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(f.filename)))
+#         return 'file uploaded successfully'
+
+@app.route("/upload", methods=["POST"])
 def uploading():
     header = "processing file"
     template = "results_page.html"
 
+    saved_file_location = ""
 
+    if 'file' not in request.files:
+        flash('No file part')
+        return redirect(request.url)
+
+    file = request.files['file']
+
+    # if user does not select file, browser also
+    # submit a empty part without filename
+    if file.filename == '':
+        flash('No selected file')
+        return redirect(request.url)
+    if file and allowed_file(file.filename):
+        saved_file_location = os.path.join(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(file.filename)))
+
+
+        file.save(saved_file_location)
+        # return redirect(url_for('uploaded_file',
+        #                         filename=file))
+    model_path = "deception_detection/audio/deceptionGradientBoosting"
+    print(saved_file_location)
+    print(os.path.isfile(saved_file_location))
+    # print(temp_file)
+
+    audio_deception_results = classify_file(file=saved_file_location,trained_machine_name=model_path)
+    audio_deception_results = parse_deception_audio_result(audio_deception_results)
+    print(audio_deception_results)
     # SAVE FILE HERE WHICH WAS INPUTED
+    results = {"audio_deception_detection": audio_deception_results}
+    print(results)
 
-    print("inside uploading")
-    return render_template(template_name_or_list=template)
+    return render_template(template_name_or_list="file_upload_results.html",results = results)
+
+#     # return redirect(url_for('file_results', results = 1))
+def parse_deception_audio_result(results):
+    dominate_result_int,result_statistics, paths = results
+    dominate_result = AUDIO_DECEPTION_DOMINATE_RESULT.get(dominate_result_int)
+
+    statistics = list(result_statistics)
+    new_statistics = []
+    for result in result_statistics:
+        temp_string = "{:.1%}".format(result)
+        new_statistics.append(temp_string)
+
+    return [dominate_result,new_statistics]
+
+
+#     return list(dominate_results[dominate_result],result_statistics)
+# @app.route("/file_results/<int:results>", methods=["POST"])
+# def file_results(results):
+#     header = 'Results Page'
+#     # userInfo = UserInfoForm()
+#     template_name = "file_upload_results.html"
+#
+#     print(results)
+
+
+    # return render_template(template_name_or_list=template_name, results = results)
+# @app.route('/upload')
+# def upload_files():
+#     return render_template('upload.html')
+
 
 
 
