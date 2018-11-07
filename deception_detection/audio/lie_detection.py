@@ -34,7 +34,8 @@ def get_files_in_directory(dir, file_extension=".wav"):
 
     return files
 
-
+def classify_file(file, trained_machine_name = "deceptionGradientBoosting",trained_machine_algorithm = "gradientboosting",classification = ["Truth","Lie"]):
+    return aT.fileClassification(inputFile= file,model_name=trained_machine_name,model_type=trained_machine_algorithm)
 def classify_dir(
     dir,
     trained_machine_name,
@@ -86,7 +87,7 @@ def classify_dir(
         # classify the .wav file
         # dominate_result: dominate emotion in classification
         print(file_path.split("\\"))
-        (junk,junk,junk,junk,junk,fname) = file_path.split("/")
+        (junk,junk,junk,junk,fname) = file_path.split("/")
 
         (trash, expected, trash) = fname.split("_")
 
@@ -190,20 +191,20 @@ def main():
     #     model_name="deceptionExtraTrees_edited",
     #     compute_beat=False,
     # )
-
+    print(classify_file("trial_lie_002.wav"))
     # classify wav files for edited trained machine in directory
-    classify_dir(dir = classify_location,trained_machine_name= "deceptionSvm_edited",trained_machine_algorithm= "svm",output_file_name="_edited.txt",classification = classification)
-    classify_dir(dir = classify_location,trained_machine_name= "deceptionKNN_edited",trained_machine_algorithm= "knn",output_file_name="_edited.txt",classification = classification)
-    classify_dir(dir = classify_location,trained_machine_name= "deceptionRandomForest_edited",trained_machine_algorithm= "randomforest",output_file_name="_edited.txt",classification = classification)
-    classify_dir(dir = classify_location,trained_machine_name= "deceptionGradientBoosting_edited",trained_machine_algorithm= "gradientboosting",output_file_name="_edited.txt",classification = classification)
-    classify_dir(dir = classify_location,trained_machine_name= "deceptionExtraTrees_edited",trained_machine_algorithm= "extratrees",output_file_name="_edited.txt",classification = classification)
-
-    # classify wav files for unedited trained machine in directory
-    classify_dir(dir = classify_location,trained_machine_name= "deceptionSvm",trained_machine_algorithm= "svm",classification = classification)
-    classify_dir(dir = classify_location,trained_machine_name= "deceptionKNN",trained_machine_algorithm= "knn",classification = classification)
-    classify_dir(dir = classify_location,trained_machine_name= "deceptionRandomForest",trained_machine_algorithm= "randomforest",classification = classification)
-    classify_dir(dir = classify_location,trained_machine_name= "deceptionGradientBoosting",trained_machine_algorithm= "gradientboosting",classification = classification)
-    classify_dir(dir = classify_location,trained_machine_name= "deceptionExtraTrees",trained_machine_algorithm= "extratrees",classification = classification)
+    # classify_dir(dir = classify_location,trained_machine_name= "deceptionSvm_edited",trained_machine_algorithm= "svm",output_file_name="_edited.txt",classification = classification)
+    # classify_dir(dir = classify_location,trained_machine_name= "deceptionKNN_edited",trained_machine_algorithm= "knn",output_file_name="_edited.txt",classification = classification)
+    # classify_dir(dir = classify_location,trained_machine_name= "deceptionRandomForest_edited",trained_machine_algorithm= "randomforest",output_file_name="_edited.txt",classification = classification)
+    # classify_dir(dir = classify_location,trained_machine_name= "deceptionGradientBoosting_edited",trained_machine_algorithm= "gradientboosting",output_file_name="_edited.txt",classification = classification)
+    # classify_dir(dir = classify_location,trained_machine_name= "deceptionExtraTrees_edited",trained_machine_algorithm= "extratrees",output_file_name="_edited.txt",classification = classification)
+    #
+    # # classify wav files for unedited trained machine in directory
+    # classify_dir(dir = classify_location,trained_machine_name= "deceptionSvm",trained_machine_algorithm= "svm",classification = classification)
+    # classify_dir(dir = classify_location,trained_machine_name= "deceptionKNN",trained_machine_algorithm= "knn",classification = classification)
+    # classify_dir(dir = classify_location,trained_machine_name= "deceptionRandomForest",trained_machine_algorithm= "randomforest",classification = classification)
+    # classify_dir(dir = classify_location,trained_machine_name= "deceptionGradientBoosting",trained_machine_algorithm= "gradientboosting",classification = classification)
+    # classify_dir(dir = classify_location,trained_machine_name= "deceptionExtraTrees",trained_machine_algorithm= "extratrees",classification = classification)
 
 
 main()
