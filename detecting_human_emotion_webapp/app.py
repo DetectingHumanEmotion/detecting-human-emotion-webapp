@@ -99,12 +99,8 @@ def recording_start_get():
     return render_template(template_name_or_list=template, header = header, prompt=prompt)
 
 
-
-
 @app.route("/detecting",methods=["POST"])
 def recording_start_post():
-
-
     g.user.profile.questions = getListFromTextFile(QUESTIONS)
     print(g.user.profile.questions)
     return redirect(url_for('question', questionNumber = 0))
@@ -121,6 +117,8 @@ def question(questionNumber):
     return render_template(template_name_or_list=template_name,title=header,question=q, numberOfQuestions = str(len(g.user.profile.questions)),currentQuestionNumber = str(questionNumber + 1))
 
 
+
+#send video recording file
 @app.route("/detecting/<int:questionNumber>", methods=["POST"])
 def question_post(questionNumber):
     g.user.profile.questions = getListFromTextFile(QUESTIONS)
