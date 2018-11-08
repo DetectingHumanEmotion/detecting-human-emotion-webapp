@@ -3,27 +3,27 @@
 
     <style>
     body {
-  font: 14px "Open Sans", "Arial", sans-serif;
+        font: 14px "Open Sans", "Arial", sans-serif;
+        background-color: orange;
+
 }
+    #action-buttons{
+        text-align: center;
+		margin: 0 auto;
+		display: block;
+		width: 500px;
+    }
 
 video {
-  margin-top: 2px;
-  border: 1px solid black;
+     margin-top: 2px;
+    border: 1px solid black;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    width: 500px;
 }
 
-.button {
-  cursor: pointer;
-  display: block;
-  width: 160px;
-  border: 1px solid black;
-  font-size: 16px;
-  text-align: center;
-  padding-top: 2px;
-  padding-bottom: 4px;
-  color: white;
-  background-color: darkgreen;
-  text-decoration: none;
-}
+
 
 h2 {
   margin-bottom: 4px;
@@ -49,29 +49,33 @@ h2 {
 }
     </style>
 
-        <style xmlns="http://www.w3.org/1999/html"></style>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+    <body onload="videoRecording()">
+{#    <style xmlns="http://www.w3.org/1999/html"></style>#}
+{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">#}
 
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <div id="questions"  >
+
+
     {% from "form_macros.html" import render_question %}
     {{ currentQuestionNumber+"/"+numberOfQuestions }}
      {{ render_question(question) }}
-
+</div>
 <!-- Learn about this code on MDN: https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API/Recording_a_media_element -->
 
-<p>Click the "Start" button to begin video recording for a few seconds. You can stop
-   the video by clicking the creatively-named "Stop" button. The "Download"
-   button will download the received data (although it's in a raw, unwrapped form
-   that isn't very useful).
-</p>
-<br>
-    <button id="btn-start-recording">Start Recording</button>
-<button id="btn-stop-recording" disabled="disabled">Stop Recording</button>
-<a id="downloadButton" class="button">Download</a>
+{#<p>Click the "Start" button to begin video recording for a few seconds. You can stop#}
+{#   the video by clicking the creatively-named "Stop" button. The "Download"#}
+{#   button will download the received data (although it's in a raw, unwrapped form#}
+{#   that isn't very useful).#}
+{#</p>#}
+{#<br>#}
+
 
 
 <!--
@@ -109,21 +113,29 @@ Note that you may want to host these scripts in your own server -->
 {##}
 
 
-
+    <div id="action-buttons">
+    <button id="btn-start-recording">Start Recording</button>
+    <button id="btn-stop-recording" disabled="disabled">Stop Recording</button>
+    <a id="downloadButton" class="button">Download</a>
+    </div>
+</body>
 
     <!-- 1. Include action buttons play/stop -->
 
 <!--
+
 4. Initialize and prepare the video recorder logic -->
-<script>
-    // Store a reference of the preview video element and a global reference to the recorder instance
+<script >
     var video = document.getElementById('my-preview');
     var recorder;
     let downloadButton = document.getElementById("downloadButton");
 
 
+function videoRecording() {
+    // Store a reference of the preview video element and a global reference to the recorder instance
+
     // When the user clicks on start video recording
-    document.getElementById('btn-start-recording').addEventListener("click", function(){
+    {#document.getElementById('btn-start-recording').addEventListener("click", function () {#}
         // Disable start recording button
         this.disabled = true;
 
@@ -131,7 +143,7 @@ Note that you may want to host these scripts in your own server -->
         navigator.mediaDevices.getUserMedia({
             audio: true,
             video: true
-        }).then(function(stream) {
+        }).then(function (stream) {
             // Display a live preview on the video element of the page
             setSrcObject(stream, video);
 
@@ -147,9 +159,9 @@ Note that you may want to host these scripts in your own server -->
             });
 
             // Start recording the video
-            recorder.startRecording().then(function() {
+            recorder.startRecording().then(function () {
                 console.info('Recording video ...');
-            }).catch(function(error) {
+            }).catch(function (error) {
                 console.error('Cannot start video recording: ', error);
             });
 
@@ -158,18 +170,17 @@ Note that you may want to host these scripts in your own server -->
 
             // Enable stop recording button
             document.getElementById('btn-stop-recording').disabled = false;
-        }).catch(function(error) {
+        }).catch(function (error) {
             console.error("Cannot access media devices: ", error);
         });
-    }, false);
 
+}
     // When the user clicks on Stop video recording
-    document.getElementById('btn-stop-recording').addEventListener("click", function(){
+    document.getElementById('btn-stop-recording').addEventListener("click", function () {
         this.disabled = true;
 
-        recorder.stopRecording().then(function() {
+        recorder.stopRecording().then(function () {
             console.info('stopRecording success');
-
 
 
             // let recordedBlob = new Blob(recordedChunks, { type: "video/webm" });
@@ -182,7 +193,7 @@ Note that you may want to host these scripts in your own server -->
             // })
 
             // Retrieve recorded video as blob and display in the preview element
-             var blob = recorder.getBlob();
+            var blob = recorder.getBlob();
             video.src = URL.createObjectURL(blob);
             video.play();
             downloadButton.href = video.src;
@@ -197,12 +208,13 @@ Note that you may want to host these scripts in your own server -->
 
             // Enable record button again !
             document.getElementById('btn-start-recording').disabled = false;
-        }).catch(function(error) {
+        }).catch(function (error) {
             console.error('stopRecording failure', error);
         });
-      }, false);
+    }, false);
+
 </script>
 
-
+    {#</script>#}
 {% endblock content %}
 
