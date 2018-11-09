@@ -51,7 +51,7 @@ h2 {
 
 
 
-    <body onload="videoRecording()">
+    <body onload="videoRecording()" >
 {#    <style xmlns="http://www.w3.org/1999/html"></style>#}
 {#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">#}
 
@@ -176,8 +176,15 @@ function videoRecording() {
 
 }
     // When the user clicks on Stop video recording
-    document.getElementById('btn-stop-recording').addEventListener("click", function () {
+
+
+
+    {#function downloadFunction(){#}
+    // changed btn-stop to continue button doesnt send to the next page or download it
+    document.getElementById('downloadButton').addEventListener("click", function () {
         this.disabled = true;
+        var request = new XMLHttpRequest();
+
 
         recorder.stopRecording().then(function () {
             console.info('stopRecording success');
@@ -195,23 +202,34 @@ function videoRecording() {
             // Retrieve recorded video as blob and display in the preview element
             var blob = recorder.getBlob();
             video.src = URL.createObjectURL(blob);
-            video.play();
+            {#video.play();#}
+
+            var formData = new FormData();
+            {#formData.append('video', video.src);#}
+            {#formData.submit();#}
             downloadButton.href = video.src;
             downloadButton.download = "RecordedVideo.webm";
+
+
             // video.play();
 
             // Unmute video on preview
-            video.muted = false;
+            {#video.muted = false;#}
 
             // Stop the device streaming
             recorder.stream.stop();
 
             // Enable record button again !
             document.getElementById('btn-start-recording').disabled = false;
+
+            {#request.open('POST', formData);#}
+            {#request.send(formData);#}
+
         }).catch(function (error) {
             console.error('stopRecording failure', error);
         });
     }, false);
+
 
 </script>
 
