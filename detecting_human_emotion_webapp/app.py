@@ -7,9 +7,11 @@ from okta import UsersClient
 from flask_oidc import OpenIDConnect
 from deception_detection.audio.lie_detection import classify_file
 import platform
-okta_client = UsersClient("https://dev-240328.oktapreview.com", "00Axbx-B_Dl0XMqSoQmZlURJv9djfBRjHQ9F2xQ4GT")
+from shutil import copy2
 
-ALLOWED_EXTENSIONS = ['wav','mp4','jpg','txt']
+okta_client = UsersClient("https://dev-240328.oktapreview.com", "00Axbx-B_Dl0XMqSoQmZlURJv9djfBRjHQ9F2xQ4GT")
+from pydub import AudioSegment
+ALLOWED_EXTENSIONS = ['wav','mp3','mp4']
 
 
 AUDIO_DECEPTION_DOMINATE_RESULT = { 0: "Truth", 1: "Lie"}
@@ -196,31 +198,47 @@ def uploading():
 
     saved_file_location = ""
 
+
     if 'file' not in request.files:
         flash('No file part')
         return redirect(request.url)
 
     file = request.files['file']
+    print(file)
 
     # if user does not select file, browser also
     # submit a empty part without filename
     if file.filename == '':
         flash('No selected file')
         return redirect(request.url)
+
+
+    model_path = "deception_detection/audio/deceptionGradientBoosting"
+
+
     if file and allowed_file(file.filename):
         saved_file_location = os.path.join(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(file.filename)))
-
-
         file.save(saved_file_location)
-        # return redirect(url_for('uploaded_file',
-        #                         filename=file))
-    model_path = "deception_detection/audio/deceptionGradientBoosting"
-    print(saved_file_location)
-    print(os.path.isfile(saved_file_location))
-    # print(temp_file)
 
-    audio_deception_results = classify_file(file=saved_file_location,trained_machine_name=model_path)
+    print(saved_file_location)
+
+    filename,extension = os.path.splitext(saved_file_location)
+    print(filename)
+    print(extension)
+    if extension is ".mp4":
+        mp3_conversion_file = os.path.join(filename,".mp3")
+        copy2(saved_file_location, mp3_conversion_file )
+        mp3_to_wav(mp3_conversion_file)
+        audio_deception_results = classify_file(file=mp3_conversion_file, trained_machine_name=model_path)
+    elif extension is ".mp3":
+        mp3_conversion_file = os.path.join(filename,".mp3")
+        mp3_to_wav(mp3_conversion_file)
+        audio_deception_results = classify_file(file=mp3_conversion_file, trained_machine_name=model_path)
+    else:
+        audio_deception_results = classify_file(file=saved_file_location, trained_machine_name=model_path)
+
     audio_deception_results = parse_deception_audio_result(audio_deception_results)
+
     print(audio_deception_results)
     # SAVE FILE HERE WHICH WAS INPUTED
     results = {"audio_deception_detection": audio_deception_results}
@@ -230,10 +248,10 @@ def uploading():
 
 #     # return redirect(url_for('file_results', results = 1))
 def parse_deception_audio_result(results):
+    print(results)
     dominate_result_int,result_statistics, paths = results
     dominate_result = AUDIO_DECEPTION_DOMINATE_RESULT.get(dominate_result_int)
 
-    statistics = list(result_statistics)
     new_statistics = []
     for result in result_statistics:
         temp_string = "{:.1%}".format(result)
@@ -241,7 +259,11 @@ def parse_deception_audio_result(results):
 
     return [dominate_result,new_statistics]
 
-
+def mp3_to_wav(file):
+    print(file)
+    print(os.path.isfile(file))
+    sound = AudioSegment.from_mp3(file)
+    print(sound.export(os.path.dirname(file)+"test.wav", format ="wav"))
 #     return list(dominate_results[dominate_result],result_statistics)
 # @app.route("/file_results/<int:results>", methods=["POST"])
 # def file_results(results):
