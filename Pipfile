@@ -28,6 +28,10 @@ flask-pymongo = "*"
 okta = "==0.0.4"
 flask-oidc = "*"
 imutils = "*"
+utils = "*"
+tensorflow = "*"
+cmake = "*"
+dlib = "*"
 
 [dev-packages]
 pylint = "*"
