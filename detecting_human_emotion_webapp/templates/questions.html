@@ -181,9 +181,9 @@ function videoRecording() {
 
     {#function downloadFunction(){#}
     // changed btn-stop to continue button doesnt send to the next page or download it
-    document.getElementById('downloadButton').addEventListener("click", function () {
+    document.getElementById('continueButton').addEventListener("click", function () {
         this.disabled = true;
-        var request = new XMLHttpRequest();
+        {#var request = new XMLHttpRequest();#}
 
 
         recorder.stopRecording().then(function () {
@@ -204,12 +204,12 @@ function videoRecording() {
             video.src = URL.createObjectURL(blob);
             {#video.play();#}
 
-            var formData = new FormData();
+            {#var formData = new FormData();#}
             {#formData.append('video', video.src);#}
             {#formData.submit();#}
             downloadButton.href = video.src;
             downloadButton.download = "RecordedVideo.webm";
-
+            {#console.log(video.src);#}
 
             // video.play();
 
@@ -222,14 +222,13 @@ function videoRecording() {
             // Enable record button again !
             document.getElementById('btn-start-recording').disabled = false;
 
-            {#request.open('POST', formData);#}
+            {#request.open('POST', '/');#}
             {#request.send(formData);#}
 
         }).catch(function (error) {
             console.error('stopRecording failure', error);
         });
     }, false);
-
 
 </script>
 
