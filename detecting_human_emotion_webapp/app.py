@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, request, g, flash, send_from_directory
+from flask import render_template, redirect, url_for, request, g, flash, send_from_directory,jsonify,Response
 from werkzeug.utils import secure_filename
 import os
 from detecting_human_emotion_webapp import app
@@ -7,6 +7,7 @@ from okta import UsersClient
 from flask_oidc import OpenIDConnect
 from deception_detection.audio.lie_detection import classify_file
 import platform
+from detecting_human_emotion_webapp.camera import VideoCamera
 from shutil import copy2
 
 okta_client = UsersClient("https://dev-240328.oktapreview.com", "00Axbx-B_Dl0XMqSoQmZlURJv9djfBRjHQ9F2xQ4GT")
@@ -15,6 +16,9 @@ ALLOWED_EXTENSIONS = ['wav','mp3','mp4']
 
 
 AUDIO_DECEPTION_DOMINATE_RESULT = { 0: "Truth", 1: "Lie"}
+
+video_camera = None
+global_frame = None
 
 oidc = OpenIDConnect(app)
 if platform.system() is "Windows":
@@ -47,6 +51,53 @@ class questions:
 
         return question
 
+
+
+
+
+
+
+@app.route('/record_status', methods=['POST'])
+def record_status():
+    global video_camera
+    if video_camera == None:
+        video_camera = VideoCamera()
+
+    json = request.get_json()
+
+    status = json['status']
+
+    if status == "true":
+        video_camera.start_record()
+        return jsonify(result="started")
+    else:
+        video_camera.stop_record()
+        return jsonify(result="stopped")
+
+
+def video_stream():
+    global video_camera
+    global global_frame
+
+    if video_camera == None:
+        video_camera = VideoCamera()
+
+    while True:
+        frame = video_camera.get_frame()
+
+        if frame != None:
+            global_frame = frame
+            yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+        else:
+            yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + global_frame + b'\r\n\r\n')
+
+
+@app.route('/video_viewer')
+def video_viewer():
+    return Response(video_stream(),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
 
 @app.route("/")
 def index():
