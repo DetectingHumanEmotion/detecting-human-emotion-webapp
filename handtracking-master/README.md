@@ -1,5 +1,5 @@
-Need to modify, but to run right now:
- detect_multi_threaded.py --source 0 --shape-predictor shape_predictor_68_face_landmarks.dat
+Removed the cmd line args, to run right now:
+ python3 detect_multi_threaded.py
 
 
 
