@@ -243,18 +243,24 @@ def recordAudioSegments(BLOCKSIZE,model,algorithm,emotion_model,emotion_algorith
                 print( f'{errorcount} Error recording:')
     # return results
 
-def run():
+def run_audio_deception_stream():
+    # model and algorithm for deception detection
     MODEL = "deceptionSvm_edited"
+    ALGORITHM = "svm"
+
+    # Model and algorithm for emotion detection
+    EMOTION_MODEL = "emotionExtraTrees"
+    EMOTION_ALGORITHM = "extraTrees"
     BLOCKSIZE = .10
     FS = 16000
     SHOWSPECTOGRAM = True
     SHOWCHROMOGRAM = True
     RECORDACTIVITY = True
-    ALGORITHM = "svm"
 
     # 0.3 deceptionSvm_editedMEANS 16000 True True True
 
-    recordAudioSegments(BLOCKSIZE=BLOCKSIZE, model=MODEL, algorithm=ALGORITHM, Fs=FS, showSpectrogram=SHOWSPECTOGRAM,
+    recordAudioSegments(BLOCKSIZE=BLOCKSIZE, model=MODEL, algorithm=ALGORITHM, emotion_model=EMOTION_MODEL,
+                        emotion_algorithm=EMOTION_ALGORITHM, Fs=FS, showSpectrogram=SHOWSPECTOGRAM,
                         showChromagram=SHOWCHROMOGRAM, recordActivity=RECORDACTIVITY)
 
 if __name__ == "__main__":
@@ -265,21 +271,4 @@ if __name__ == "__main__":
         Fs = args.samplingrate
         recordAudioSegments(BLOCKSIZE= args.blocksize,model= args.model,algorithm=args.algorithm,Fs= args.samplingrate,showSpectrogram= args.spectrogram,showChromagram= args.chromagram,recordActivity= args.recordactivity)
     else:
-        #model and algorithm for deception detection
-        MODEL = "deceptionSvm_edited"
-        ALGORITHM = "svm"
-
-        #Model and algorithm for emotion detection
-        EMOTION_MODEL = "emotionExtraTrees"
-        EMOTION_ALGORITHM = "extraTrees"
-        BLOCKSIZE = .10
-        FS = 16000
-        SHOWSPECTOGRAM = True
-        SHOWCHROMOGRAM = True
-        RECORDACTIVITY = True
-
-
-
-        # 0.3 deceptionSvm_editedMEANS 16000 True True True
-
-        recordAudioSegments(BLOCKSIZE=BLOCKSIZE, model= MODEL,algorithm=ALGORITHM,emotion_model=EMOTION_MODEL, emotion_algorithm=EMOTION_ALGORITHM,Fs=FS, showSpectrogram=SHOWSPECTOGRAM, showChromagram=SHOWCHROMOGRAM, recordActivity=RECORDACTIVITY)
+        run_audio_deception_stream()

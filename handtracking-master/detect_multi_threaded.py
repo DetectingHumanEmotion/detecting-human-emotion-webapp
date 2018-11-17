@@ -1,4 +1,4 @@
-from utils import detector_utils as detector_utils 
+from utils import detector_utils as detector_utils
 import cv2
 import tensorflow as tf
 # import multiprocessing
@@ -6,7 +6,9 @@ from multiprocessing import Queue, Pool
 # import time
 from utils.detector_utils import WebcamVideoStream
 import datetime
-
+import threading
+from multiprocessing import Process
+from deception_detection.audio.paura2 import run_audio_deception_stream
 import argparse
 from scipy.spatial import distance as dist
 # from imutils.video import FileVideoStream
@@ -63,8 +65,10 @@ def worker(input_q, output_q, cap_params, frame_processed):
             output_q.put(frame)
     sess.close()
 
+def record():
+    # To run program run the following in cli from this directory
+    # python detect_multi_threaded.py --source 0 --shape-predictor shape_predictor_68_face_landmarks.dat
 
-if __name__ == '__main__':
 
     # parser = argparse.ArgumentParser()
     # parser.add_argument('-src', '--source', dest='video_source', type=int,
@@ -262,3 +266,43 @@ if __name__ == '__main__':
     pool.terminate()
     video_capture.stop()
     cv2.destroyAllWindows()
+
+
+if __name__ == '__main__':
+
+
+    ## Multiprocessing way
+    try:
+        process1 = Process(target=record)
+
+        process2 = Process(target=run_audio_deception_stream)
+
+        process1.start()
+        print("Proecss 1 started")
+        process2.start()
+        print("Process 2 started")
+
+        process1.join()
+        process2.join()
+
+    except:
+        print("process failed")
+
+    ## This is the Threading way
+    # try:
+    #     thread1 = threading.Thread(target=record)
+    #
+    #     thread2 = threading.Thread(target=run)
+    #
+    #
+    #     thread1.start()
+    #      print("Thread 1 started")
+    #     thread2.start()
+    #     print("Thread 2 started")
+    #
+    #     thread1.join()
+    #     thread2.join()
+    #
+    # except:
+    #     print("Thread failed")
+
