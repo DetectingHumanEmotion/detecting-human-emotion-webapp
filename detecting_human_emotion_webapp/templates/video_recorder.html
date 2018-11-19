@@ -9,8 +9,9 @@
     <button id="record">Record</button>
     <button id="stop">Stop</button>
     <a id="download"></a>
-    <script type="text/javascript" src="{{ url_for('static', filename='recorder.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/recorder.js') }}"></script>
   </div>
-  <img id="video" src="{{ url_for('video_viewer') }}">
+{#  <img id="video" src="{{ url_for('video_viewer') }}">#}
+<img id="video" src="{{ url_for('video_viewer') }}">
 </body>
 </html>
