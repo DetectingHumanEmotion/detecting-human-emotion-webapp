@@ -19,6 +19,9 @@ from imutils import face_utils
 # import time
 import dlib
 
+#use the space bar as a "signal/new question" for testing
+import keyboard
+
 def eye_aspect_ratio(eye):
 	# compute the euclidean distances between the two sets of
 	# vertical eye landmarks (x, y)-coordinates
@@ -292,3 +295,44 @@ def record():
     pool.terminate()
     video_capture.stop()
     cv2.destroyAllWindows()
+
+	
+
+if __name__ == '__main__':
+
+#Process2 (audio was commented out for testing visual)
+
+    ## Multiprocessing way
+    try:
+        process1 = Process(target=record)
+
+#        process2 = Process(target=run_audio_deception_stream)
+
+        process1.start()
+        print("Proecss 1 started")
+#        process2.start()
+#        print("Process 2 started")
+
+        process1.join()
+#        process2.join()
+
+    except:
+        print("process failed")
+
+    ## This is the Threading way
+    # try:
+    #     thread1 = threading.Thread(target=record)
+    #
+    #     thread2 = threading.Thread(target=run)
+    #
+    #
+    #     thread1.start()
+    #      print("Thread 1 started")
+    #     thread2.start()
+    #     print("Thread 2 started")
+    #
+    #     thread1.join()
+    #     thread2.join()
+    #
+    # except:
+    #     print("Thread failed")

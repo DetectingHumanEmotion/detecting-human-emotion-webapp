@@ -67,30 +67,6 @@ def load_inference_graph():
     print(">  ====== Hand Inference graph loaded.")
     
     return detection_graph, sess
-# def draw_face(width,height,image_np):
-#     center_x = width/2
-#     center_y = height/2
-#     print("Center: " , center_x, " , " , center_y)
-#     cv2.ellipse(image_np,(150,100),(45,85),0,  0,180,255, 1)
-#     return face_pts
-#
-#     # print(face_pts)
-#     # int 	delta,
-#     # std::vector< Point > & 	pts
-#     # )
-# 	#	(InputOutputArray img, Point center, Size axes, double 	angle,
-# 	# double startAngle, double endAngle, const Scalar &color,
-# 	# int thickness = 1, int lineType = LINE_8, int shift = 0 )
-# 	 #One argument is the center location (x,y).
-# 	 #Next argument is axes lengths (major axis length, minor axis length).
-# 	 #angle is the angle of rotation of ellipse in anti-clockwise direction.
-# 	 #startAngle and endAngle denotes the starting and ending of ellipse arc measured in clockwise direction from major axis. i.e. giving values 0 and 360 gives the full ellipse.
-
-
-# print(im_width,im_height)
-# cv2.ellipse(image_np, (im_width/2, im_height/2), (45, 85), 0, 0, 180, 255, 1)
-# face_pts = cv2.ellipse2Poly(((im_width / 2), (im_height / 2)), (45, 85), 0, 0, 180, 5)
-# number_of_points = len(face_pts)
 
 face_pts = cv2.ellipse2Poly( (150,100), (45, 85), 0, 0, 180, 5)
 # cv2.polylines(,1,RGBA(0.,1.,0.,1.))
@@ -103,7 +79,7 @@ number_of_points = len(face_pts)
 # draw the detected bounding boxes on the images
 # You can modify this to also draw a label.
 def draw_box_on_image(num_hands_detect, score_thresh, scores, boxes, im_width, im_height, image_np):
-    cv2.ellipse(image_np, (150, 100), (45, 85), 0, 0, 180, 255, 1)
+    # cv2.ellipse(image_np, (150, 100), (45, 85), 0, 0, 180, 255, 1)
     for i in range(num_hands_detect):
         if (scores[i] > score_thresh):
             (left, right, top, bottom) = (boxes[i][1] * im_width, boxes[i][3] * im_width,
@@ -154,19 +130,6 @@ def draw_box_on_image(num_hands_detect, score_thresh, scores, boxes, im_width, i
                     print("found", str(datetime.now()))
 
                 j = j+1
-
-            # for face_pt in face_pts:
-            #     (x,y)=face_pt
-            #     # if (p1==(x,y)) or (p2==(x,y)):
-            #     if (x>left) and (x<right) and (y<top) and (y>bottom):
-            # # if np.logical_and(p1, face_pts):
-            #         print("hand touched face")
-            #         print("Top left corner: ", p1)
-            #         print("Bottom right corner: ", p2)
-            #         print("--------------")
-    # p1 = (int (0), int (0))
-    # p2 = (int (50), int (100))
-    # cv2.rectangle(image_np, p1, p2, (77, 255, 9), 3, 1)
 
 
 # Show fps value on image.d
