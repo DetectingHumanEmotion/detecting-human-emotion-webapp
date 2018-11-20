@@ -250,7 +250,7 @@ def run_audio_deception_stream():
 
     # Model and algorithm for emotion detection
     EMOTION_MODEL = "emotionExtraTrees"
-    EMOTION_ALGORITHM = "extraTrees"
+    EMOTION_ALGORITHM = "extratrees"
     BLOCKSIZE = .10
     FS = 16000
     SHOWSPECTOGRAM = True
