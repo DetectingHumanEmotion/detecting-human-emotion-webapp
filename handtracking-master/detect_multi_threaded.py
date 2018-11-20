@@ -1,3 +1,5 @@
+from typing import List, Any
+
 from utils import detector_utils as detector_utils
 import cv2
 import tensorflow as tf
@@ -22,6 +24,7 @@ import dlib
 #use the space bar as a "signal/new question" for testing
 import keyboard
 
+
 def eye_aspect_ratio(eye):
 	# compute the euclidean distances between the two sets of
 	# vertical eye landmarks (x, y)-coordinates
@@ -39,6 +42,10 @@ def eye_aspect_ratio(eye):
 	return ear
 
 
+# left = (0,0)
+# right = (0,0)
+# top = (0,0)
+# bottom = (0,0)
 
 
 frame_processed = 0
@@ -48,6 +55,13 @@ score_thresh = 0.2
 # does detection on images in an input queue and puts it on an output queue
 
 def worker(input_q, output_q, cap_params, frame_processed):
+    # global left
+    # global right
+    # global top
+    # global bottom
+# def worker(input_q, output_q, cap_params, frame_processed, face_pts):
+# def worker(input_q, output_q, cap_params, frame_processed, left, right, top, bottom):
+
     print(">> loading frozen model for worker")
     detection_graph, sess = detector_utils.load_inference_graph()
     sess = tf.Session(graph=detection_graph)
@@ -59,8 +73,67 @@ def worker(input_q, output_q, cap_params, frame_processed):
             boxes, scores = detector_utils.detect_objects(
                 frame, detection_graph, sess)
             # draw bounding boxes
-            detector_utils.draw_box_on_image(
-                cap_params['num_hands_detect'], cap_params["score_thresh"], scores, boxes, cap_params['im_width'], cap_params['im_height'], frame)
+            # detector_utils.draw_box_on_image(
+            #     cap_params['num_hands_detect'], cap_params["score_thresh"], scores, boxes, cap_params['im_width'], cap_params['im_height'], frame)
+
+            face_pts = cv2.ellipse2Poly((150, 100), (45, 85), 0, 0, 180, 5)
+            # face_pts = jaw_ #NOT WORKING YET
+            # print(face_pts)
+            number_of_points = len(face_pts)
+            # print(number_of_points)
+
+            for i in range(cap_params['num_hands_detect']):
+                # print(jaw_) #jaw_ is still [], does not update to the value from record()
+
+                if (scores[i] > cap_params["score_thresh"]):
+                    (left, right, top, bottom) = (boxes[i][1] * cap_params['im_width'], boxes[i][3] * cap_params['im_width'],
+                                                  boxes[i][0] * cap_params['im_height'], boxes[i][2] * cap_params['im_height'])
+                    p1 = (int(left), int(top))
+                    p2 = (int(right), int(bottom))
+                    cv2.rectangle(frame, p1, p2, (77, 255, 9), 3, 1)
+                    j = 0
+                    # CHECK IF HANDS ARE TOUCHING THE FACE
+                    while j < (number_of_points / 4 + 4):
+                        (x1, y1) = face_pts[j]
+                        (x2, y2) = face_pts[j + 1]
+                        (x3, y3) = face_pts[-j - 2]
+                        (x4, y4) = face_pts[-j - 1]
+                        """
+                        x4,y4 -- x1,y1          L,T -- L+(R-L/2),T -- R,T
+                          |        |             |                     |
+                        x3,y3 -- x2,y2        L,T+(B-T/2)          R,T+(B-T/2)
+                        """
+                        # print(i,face_pts[i], face_pts[i+1],face_pts[-i-1], face_pts[-i])
+                        x_half = (right - left) / 2
+                        y_half = (bottom - top) / 2
+                        #check if top left of box is touching face
+                        xx = left
+                        yy = top
+                        if ((xx <= x2) and (xx >= x3) and (yy >= y1) and (yy <= y2)):
+                            print("found", str(datetime.datetime.now()))
+                        #check if top mid of box is touching face
+                        xx = left + x_half
+                        if ((xx <= x2) and (xx >= x3) and (yy >= y1) and (yy <= y2)):
+                            print("found", str(datetime.datetime.now()))
+                        #check if top right of box is touching face
+                        xx = right
+                        yy = top
+                        if ((xx <= x2) and (xx >= x3) and (yy >= y1) and (yy <= y2)):
+                            print("found", str(datetime.datetime.now()))
+                        #check if mid left of box is touching face
+                        xx = left
+                        yy = top + y_half
+                        if ((xx <= x2) and (xx >= x3) and (yy >= y1) and (yy <= y2)):
+                            print("found", str(datetime.datetime.now()))
+                        #check if mid right of box is touching face
+                        xx = right
+                        yy = top + y_half
+                        if ((xx <= x2) and (xx >= x3) and (yy >= y1) and (yy <= y2)):
+                            print("found", str(datetime.datetime.now()))
+
+                        j = j + 1
+
+
             # add frame annotated with bounding box to queue
             output_q.put(frame)
             frame_processed += 1
@@ -69,6 +142,7 @@ def worker(input_q, output_q, cap_params, frame_processed):
     sess.close()
 
 def record():
+    global jaw_
     # To run program run the following in cli from this directory
     # python detect_multi_threaded.py --source 0 --shape-predictor shape_predictor_68_face_landmarks.dat
 
@@ -143,11 +217,23 @@ def record():
 
     # print(cap_params, args)
 
+    # Assume face is exact center until found using dlib
+    jaw_ = cv2.ellipse2Poly((150, 100), (45, 85), 0, 0, 180, 5)
+
+
     # spin up workers to paralleize detection.
     # pool = Pool(args.num_workers, worker,
     #             (input_q, output_q, cap_params, frame_processed))
+
     pool = Pool(4, worker,
                 (input_q, output_q, cap_params, frame_processed))
+
+    # left = 0
+    # right = 0
+    # top = 0
+    # bottom = 0
+    # pool = Pool(4, worker,
+    #             (input_q, output_q, cap_params, frame_processed,left, right, top, bottom))
 
 
     num_frames = 0
@@ -163,11 +249,14 @@ def record():
     show_blinks = 1
     show_face = 1   #show_face means to show the jaw or not
 
+
+
     if(show_display>0):
         cv2.namedWindow('Multi-Threaded Detection', cv2.WINDOW_NORMAL)
     start_time = datetime.datetime.now()
     start_time_quest = datetime.datetime.now()
     while True:
+
         frame = video_capture.read()
         frame = cv2.flip(frame, 1)
         index += 1
@@ -191,13 +280,20 @@ def record():
             try:  # used try so that if user pressed other than the given key error will not be shown
                 if keyboard.is_pressed(' '):  # if space bar is pressed
                 # IF SIGNAL IS RECIEVED, i.e. new question
-                    elapsed_time = (datetime.datetime.now() - start_time_quest).total_seconds()
-                    current_blink_ratio = TOTAL_BLINKS / elapsed_time
+                    elapsed_time_quest = (datetime.datetime.now() - start_time_quest).total_seconds()
+                    print("frames processed: ", index, "elapsed time: ",
+                                elapsed_time_quest, "fps: ", str(int(fps)))
+                    # BLINKING -- LIE OR NOT
+                    current_blink_ratio = TOTAL_BLINKS / elapsed_time_quest
                     if (current_blink_ratio > thresh_blink_ratio):
-                        print("Blinking: possible lie {}/{}={}",TOTAL_BLINKS,elapsed_time,current_blink_ratio)
+                        print("Blinking: possibly a lie ",TOTAL_BLINKS," / ",elapsed_time_quest," = ",current_blink_ratio)
                     else:
-                        print("Blinking: not lie {}/{}={}",TOTAL_BLINKS,elapsed_time,current_blink_ratio)
+                        print("Blinking: not a lie ",TOTAL_BLINKS," / ",elapsed_time_quest," = ",current_blink_ratio)
                     TOTAL_BLINKS = 0
+
+                    # HAND TOUCHING FACE -- LIE OR NOT
+
+                    start_time_quest = datetime.datetime.now()
                 else:
                     pass
             except:
@@ -223,6 +319,7 @@ def record():
                 rightEAR = eye_aspect_ratio(rightEye)
 
                 jaw_ = shape[lStartjaw:rEndjaw]
+                # print(jaw_)
 
                 # average the eye aspect ratio together for both eyes
                 ear = (leftEAR + rightEAR) / 2.0
@@ -243,36 +340,37 @@ def record():
                     # reset the eye frame counter
                     BLINK_COUNTER = 0
 
-            # if (args.display > 0):
-            #     if (args.fps > 0):
-            if (show_display > 0):
-                if (show_fps > 0):
-                    detector_utils.draw_fps_on_image("FPS : " + str(int(fps)), output_frame)
+                # if (args.display > 0):
+                #     if (args.fps > 0):
+                if (show_display > 0):
+                    if (show_fps > 0):
+                        detector_utils.draw_fps_on_image("FPS : " + str(int(fps)), output_frame)
 
-                    # center=( int(args.width/2), int(args.height/2))
-                    # cv2.ellipse(output_frame,center , (45, 85), 0, 0, 180, 255, 1)
-                    # face_pts = cv2.ellipse2Poly((150, 100), (45, 85), 0, 0, 180, 5)
-                    # cv2.polylines(output_frame, [face_pts], 1, (0, 255, 0))
-                if (show_blinks > 0):
-                    # compute the convex hull for the left and right eye, then
-                    # visualize each of the eyes
-                    leftEyeHull = cv2.convexHull(leftEye)
-                    rightEyeHull = cv2.convexHull(rightEye)
-                    cv2.drawContours(output_frame, [leftEyeHull], -1, (0, 255, 0), 1)
-                    cv2.drawContours(output_frame, [rightEyeHull], -1, (0, 255, 0), 1)
+                        # center=( int(args.width/2), int(args.height/2))
+                        # cv2.ellipse(output_frame,center , (45, 85), 0, 0, 180, 255, 1)
+                        # face_pts = cv2.ellipse2Poly((150, 100), (45, 85), 0, 0, 180, 5)
+                        # cv2.polylines(output_frame, [face_pts], 1, (0, 255, 0))
+                    if (show_blinks > 0):
+                        # compute the convex hull for the left and right eye, then
+                        # visualize each of the eyes
+                        leftEyeHull = cv2.convexHull(leftEye)
+                        rightEyeHull = cv2.convexHull(rightEye)
+                        cv2.drawContours(output_frame, [leftEyeHull], -1, (0, 255, 0), 1)
+                        cv2.drawContours(output_frame, [rightEyeHull], -1, (0, 255, 0), 1)
 
-                    # draw the total number of blinks on the frame along with
-                    # the computed eye aspect ratio for the frame
-                    cv2.putText(output_frame, "Blinks: {}".format(TOTAL_BLINKS), (50, 30),
-                                cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
-                    cv2.putText(output_frame, "EAR: {:.2f}".format(ear), (200, 30),
-                                cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
-                if (show_face > 0):
-                    # compute the convex hull for the jaw, then
-                    # visualize the jaw
-                    jawHull = cv2.convexHull(jaw_)
-                    cv2.drawContours(output_frame, [jawHull], -1, (0, 255, 0), 1)
+                        # draw the total number of blinks on the frame along with
+                        # the computed eye aspect ratio for the frame
+                        cv2.putText(output_frame, "Blinks: {}".format(TOTAL_BLINKS), (50, 30),
+                                    cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+                        cv2.putText(output_frame, "EAR: {:.2f}".format(ear), (200, 30),
+                                    cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+                    if (show_face > 0):
+                        # compute the convex hull for the jaw, then
+                        # visualize the jaw
+                        jawHull = cv2.convexHull(jaw_)
+                        cv2.drawContours(output_frame, [jawHull], -1, (0, 255, 0), 1)
 
+                # print(left, right, top, bottom)
 
                 cv2.imshow('Multi-Threaded Detection', output_frame)
                 if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -281,9 +379,9 @@ def record():
                 if (num_frames == 400):
                     num_frames = 0
                     start_time = datetime.datetime.now()
-                else:
-                    print("frames processed: ", index, "elapsed time: ",
-                          elapsed_time, "fps: ", str(int(fps)))
+                # else:
+                #     print("frames processed: ", index, "elapsed time: ",
+                #           elapsed_time, "fps: ", str(int(fps)))
 
         else:
             # print("video end")

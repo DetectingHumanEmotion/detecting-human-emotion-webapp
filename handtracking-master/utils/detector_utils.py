@@ -11,27 +11,6 @@ from utils import label_map_util
 from collections import defaultdict
 
 
-# void cv::ellipse2Poly	(	Point 	center,
-# Size 	axes,
-# int 	angle,
-# int 	arcStart,
-# int 	arcEnd,
-# int 	delta,
-# std::vector< Point > & 	pts
-# )
-# Approximates an elliptic arc with a polyline.
-#
-# The function ellipse2Poly computes the vertices of a polyline that approximates the specified elliptic arc. It is used by cv::ellipse.
-#
-# Parameters
-# center	Center of the arc.
-# axes	Half of the size of the ellipse main axes. See the ellipse for details.
-# angle	Rotation angle of the ellipse in degrees. See the ellipse for details.
-# arcStart	Starting angle of the elliptic arc in degrees.
-# arcEnd	Ending angle of the elliptic arc in degrees.
-# delta	Angle between the subsequent polyline vertices. It defines the approximation accuracy.
-# pts	Output vector of polyline vertices.
-
 detection_graph = tf.Graph()
 sys.path.append("..")
 
@@ -72,13 +51,10 @@ face_pts = cv2.ellipse2Poly( (150,100), (45, 85), 0, 0, 180, 5)
 # cv2.polylines(,1,RGBA(0.,1.,0.,1.))
 number_of_points = len(face_pts)
 
-# print(face_pts)
-# (x,y)=face_pts
-# print("x:",x,"y:",y)
-# print("THIRDDDDDDDDDDDDDDDD: ",face_pts[3])
+
 # draw the detected bounding boxes on the images
 # You can modify this to also draw a label.
-def draw_box_on_image(num_hands_detect, score_thresh, scores, boxes, im_width, im_height, image_np):
+def draw_box_on_image(num_hands_detect, score_thresh, scores, boxes, im_width, im_height, image_np, face_points):
     # cv2.ellipse(image_np, (150, 100), (45, 85), 0, 0, 180, 255, 1)
     for i in range(num_hands_detect):
         if (scores[i] > score_thresh):
@@ -90,7 +66,8 @@ def draw_box_on_image(num_hands_detect, score_thresh, scores, boxes, im_width, i
             # print(number_of_points)
 
             j=0
-
+            # print(face_pts)
+            # CHECK IF HANDS ARE TOUCHING THE FACE
             while j < (number_of_points/4+4):
                 (x1, y1) = face_pts[j]
                 (x2, y2) = face_pts[j+1]
