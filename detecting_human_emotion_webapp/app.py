@@ -16,6 +16,7 @@ ALLOWED_EXTENSIONS = ['wav','mp3','mp4']
 
 
 AUDIO_DECEPTION_DOMINATE_RESULT = { 0: "Truth", 1: "Lie"}
+AUDIO_EMOTION_DOMINATE_RESULT = { 0: "Neatural", 1: "Calm", 2:"Happy", 3:"Sad",4:"Angry",5:"Fear",6:"Disgust",8:"Surprise"}
 
 video_camera = None
 global_frame = None
@@ -240,6 +241,20 @@ def uploaded_file(filename):
 #         f.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(f.filename)))
 #         return 'file uploaded successfully'
 
+def get_audio_results(file):
+    deception_model_path = "deception_detection/audio/deceptionGradientBoosting"
+    deception_algorithm = "gradientboosting"
+    emotion_model_path = "deception_detection/audio/emotionExtraTrees"
+    emotion_algorithm = "extratrees"
+
+    audio_deception_results = classify_file(file=file, trained_machine_name=deception_model_path,
+                                            trained_machine_algorithm=deception_algorithm)
+
+    audio_emotion_results = classify_file(file = file, trained_machine_name=emotion_model_path,trained_machine_algorithm=emotion_algorithm)
+
+    return audio_deception_results,audio_emotion_results
+
+
 @app.route("/upload", methods=["POST"])
 def uploading():
     header = "processing file"
@@ -262,7 +277,10 @@ def uploading():
         return redirect(request.url)
 
 
-    model_path = "deception_detection/audio/deceptionGradientBoosting"
+    deception_model_path = "deception_detection/audio/deceptionGradientBoosting"
+    deception_algorithm = "gradientboosting"
+    emotion_model_path = "deception_detection/audio/emotionExtraTrees"
+    emotion_algorithm = "extratrees"
 
 
     if file and allowed_file(file.filename):
@@ -278,24 +296,42 @@ def uploading():
         mp3_conversion_file = os.path.join(filename,".mp3")
         copy2(saved_file_location, mp3_conversion_file )
         mp3_to_wav(mp3_conversion_file)
-        audio_deception_results = classify_file(file=mp3_conversion_file, trained_machine_name=model_path)
+        # audio_deception_results = classify_file(file=mp3_conversion_file, trained_machine_name=deception_model_path,trained_machine_algorithm=deception_algorithm)
+        audio_deception_results,audio_emotion_results = get_audio_results(file = mp3_conversion_file)
     elif extension is ".mp3":
         mp3_conversion_file = os.path.join(filename,".mp3")
         mp3_to_wav(mp3_conversion_file)
-        audio_deception_results = classify_file(file=mp3_conversion_file, trained_machine_name=model_path)
+        # audio_deception_results = classify_file(file=mp3_conversion_file, trained_machine_name=deception_model_path,trained_machine_algorithm=deception_algorithm)
+        audio_deception_results,audio_emotion_results = get_audio_results(file= mp3_conversion_file)
+
     else:
-        audio_deception_results = classify_file(file=saved_file_location, trained_machine_name=model_path)
+        audio_deception_results,audio_emotion_results = get_audio_results(file= saved_file_location)
+
+        # audio_deception_results = classify_file(file=saved_file_location, trained_machine_name=deception_model_path)
 
     audio_deception_results = parse_deception_audio_result(audio_deception_results)
 
     print(audio_deception_results)
     # SAVE FILE HERE WHICH WAS INPUTED
-    results = {"audio_deception_detection": audio_deception_results}
+    results = {"audio_deception_detection": audio_deception_results,"audio_emotion_detection":audio_emotion_results}
     print(results)
 
     return render_template(template_name_or_list="file_upload_results.html",results = results)
 
 #     # return redirect(url_for('file_results', results = 1))
+
+def parse_emotion_audio_result(results):
+    print(results)
+    dominate_result_int, result_statistics, paths = results
+    dominate_result = AUDIO_EMOTION_DOMINATE_RESULT.get(dominate_result_int)
+
+    new_statistics = []
+    for result in result_statistics:
+        temp_string = "{:.1%}".format(result)
+        new_statistics.append(temp_string)
+
+    return [dominate_result, new_statistics]
+
 def parse_deception_audio_result(results):
     print(results)
     dominate_result_int,result_statistics, paths = results

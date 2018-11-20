@@ -191,7 +191,11 @@ def main():
     #     model_name="deceptionExtraTrees_edited",
     #     compute_beat=False,
     # )
-    print(classify_file("trial_lie_002.wav"))
+    # print(classify_file("trial_lie_002.wav"))
+    file="trial_lie_002.wav"
+    print(classify_file(file, trained_machine_name="deceptionGradientBoosting", trained_machine_algorithm="gradientboosting"))
+    print(classify_file(file, trained_machine_name="emotionExtraTrees", trained_machine_algorithm="extratrees"))
+
     # classify wav files for edited trained machine in directory
     # classify_dir(dir = classify_location,trained_machine_name= "deceptionSvm_edited",trained_machine_algorithm= "svm",output_file_name="_edited.txt",classification = classification)
     # classify_dir(dir = classify_location,trained_machine_name= "deceptionKNN_edited",trained_machine_algorithm= "knn",output_file_name="_edited.txt",classification = classification)
