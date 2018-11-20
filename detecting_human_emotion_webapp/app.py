@@ -310,6 +310,7 @@ def uploading():
         # audio_deception_results = classify_file(file=saved_file_location, trained_machine_name=deception_model_path)
 
     audio_deception_results = parse_deception_audio_result(audio_deception_results)
+    audio_emotion_results = parse_emotion_audio_result(audio_emotion_results)
 
     print(audio_deception_results)
     # SAVE FILE HERE WHICH WAS INPUTED
