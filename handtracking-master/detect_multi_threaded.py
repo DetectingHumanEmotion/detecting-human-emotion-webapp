@@ -8,7 +8,7 @@ from utils.detector_utils import WebcamVideoStream
 import datetime
 import threading
 from multiprocessing import Process
-from deception_detection.audio.paura2 import run_audio_deception_stream
+#from deception_detection.audio.paura2 import run_audio_deception_stream
 import argparse
 from scipy.spatial import distance as dist
 # from imutils.video import FileVideoStream
@@ -70,6 +70,7 @@ def record():
     # python detect_multi_threaded.py --source 0 --shape-predictor shape_predictor_68_face_landmarks.dat
 
 
+
     # parser = argparse.ArgumentParser()
     # parser.add_argument('-src', '--source', dest='video_source', type=int,
     #                     default=0, help='Device index of the camera.')
@@ -115,7 +116,7 @@ def record():
     # right eye, respectively
     (lStart, lEnd) = face_utils.FACIAL_LANDMARKS_IDXS["left_eye"]
     (rStart, rEnd) = face_utils.FACIAL_LANDMARKS_IDXS["right_eye"]
-    # (leftjawstart,rightjawend)  = face_utils.FACIAL_LANDMARKS_IDXS["jaw"]
+    (lStartjaw,rEndjaw)  = face_utils.FACIAL_LANDMARKS_IDXS["jaw"]
 
     # input_q = Queue(maxsize=args.queue_size)
     # output_q = Queue(maxsize=args.queue_size)
@@ -151,12 +152,18 @@ def record():
     index = 0
     BLINK_COUNTER = 0
     TOTAL_BLINKS = 0
-    show_display =1
+    current_blink_ratio = 0 #Blinks/second possible lie or not
+    thresh_blink_ratio = 26/60
+
+    show_display =1 #show display must be enabled in order for other show_x below to work
     show_fps = 1
     show_blinks = 1
+    show_face = 1   #show_face means to show the jaw or not
+
     if(show_display>0):
         cv2.namedWindow('Multi-Threaded Detection', cv2.WINDOW_NORMAL)
     start_time = datetime.datetime.now()
+    start_time_quest = datetime.datetime.now()
     while True:
         frame = video_capture.read()
         frame = cv2.flip(frame, 1)
@@ -178,6 +185,21 @@ def record():
         # print("frame ",  index, num_frames, elapsed_time, fps)
 
         if (output_frame is not None):
+            try:  # used try so that if user pressed other than the given key error will not be shown
+                if keyboard.is_pressed(' '):  # if space bar is pressed
+                # IF SIGNAL IS RECIEVED, i.e. new question
+                    elapsed_time = (datetime.datetime.now() - start_time_quest).total_seconds()
+                    current_blink_ratio = TOTAL_BLINKS / elapsed_time
+                    if (current_blink_ratio > thresh_blink_ratio):
+                        print("Blinking: possible lie {}/{}={}",TOTAL_BLINKS,elapsed_time,current_blink_ratio)
+                    else:
+                        print("Blinking: not lie {}/{}={}",TOTAL_BLINKS,elapsed_time,current_blink_ratio)
+                    TOTAL_BLINKS = 0
+                else:
+                    pass
+            except:
+                pass
+
 
             # detect faces in the grayscale frame
             rects = detector(gray, 0)
@@ -187,8 +209,6 @@ def record():
                 # determine the facial landmarks for the face region, then
                 # convert the facial landmark (x, y)-coordinates to a NumPy
                 # array
-                # print("rect type: ", type(rect))
-                # print("output_frame type: ", type(output_frame))
                 shape = predictor(output_frame, rect)
                 shape = face_utils.shape_to_np(shape)
 
@@ -198,17 +218,11 @@ def record():
                 rightEye = shape[rStart:rEnd]
                 leftEAR = eye_aspect_ratio(leftEye)
                 rightEAR = eye_aspect_ratio(rightEye)
-                jaw = shape[0:17]
+
+                jaw_ = shape[lStartjaw:rEndjaw]
 
                 # average the eye aspect ratio together for both eyes
                 ear = (leftEAR + rightEAR) / 2.0
-
-                # compute the convex hull for the left and right eye, then
-                # visualize each of the eyes
-                leftEyeHull = cv2.convexHull(leftEye)
-                rightEyeHull = cv2.convexHull(rightEye)
-                cv2.drawContours(output_frame, [leftEyeHull], -1, (0, 255, 0), 1)
-                cv2.drawContours(output_frame, [rightEyeHull], -1, (0, 255, 0), 1)
 
                 # check to see if the eye aspect ratio is below the blink
                 # threshold, and if so, increment the blink frame counter
@@ -234,15 +248,27 @@ def record():
 
                     # center=( int(args.width/2), int(args.height/2))
                     # cv2.ellipse(output_frame,center , (45, 85), 0, 0, 180, 255, 1)
-                    face_pts = cv2.ellipse2Poly((150, 100), (45, 85), 0, 0, 180, 5)
-                    cv2.polylines(output_frame, [face_pts], 1, (0, 255, 0))
+                    # face_pts = cv2.ellipse2Poly((150, 100), (45, 85), 0, 0, 180, 5)
+                    # cv2.polylines(output_frame, [face_pts], 1, (0, 255, 0))
                 if (show_blinks > 0):
+                    # compute the convex hull for the left and right eye, then
+                    # visualize each of the eyes
+                    leftEyeHull = cv2.convexHull(leftEye)
+                    rightEyeHull = cv2.convexHull(rightEye)
+                    cv2.drawContours(output_frame, [leftEyeHull], -1, (0, 255, 0), 1)
+                    cv2.drawContours(output_frame, [rightEyeHull], -1, (0, 255, 0), 1)
+
                     # draw the total number of blinks on the frame along with
                     # the computed eye aspect ratio for the frame
                     cv2.putText(output_frame, "Blinks: {}".format(TOTAL_BLINKS), (50, 30),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
                     cv2.putText(output_frame, "EAR: {:.2f}".format(ear), (200, 30),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+                if (show_face > 0):
+                    # compute the convex hull for the jaw, then
+                    # visualize the jaw
+                    jawHull = cv2.convexHull(jaw_)
+                    cv2.drawContours(output_frame, [jawHull], -1, (0, 255, 0), 1)
 
 
                 cv2.imshow('Multi-Threaded Detection', output_frame)
@@ -266,43 +292,3 @@ def record():
     pool.terminate()
     video_capture.stop()
     cv2.destroyAllWindows()
-
-
-if __name__ == '__main__':
-
-
-    ## Multiprocessing way
-    try:
-        process1 = Process(target=record)
-
-        process2 = Process(target=run_audio_deception_stream)
-
-        process1.start()
-        print("Proecss 1 started")
-        process2.start()
-        print("Process 2 started")
-
-        process1.join()
-        process2.join()
-
-    except:
-        print("process failed")
-
-    ## This is the Threading way
-    # try:
-    #     thread1 = threading.Thread(target=record)
-    #
-    #     thread2 = threading.Thread(target=run)
-    #
-    #
-    #     thread1.start()
-    #      print("Thread 1 started")
-    #     thread2.start()
-    #     print("Thread 2 started")
-    #
-    #     thread1.join()
-    #     thread2.join()
-    #
-    # except:
-    #     print("Thread failed")
-
