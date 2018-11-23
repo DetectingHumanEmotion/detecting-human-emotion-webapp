@@ -9,7 +9,7 @@ from multiprocessing import Queue, Pool
 from utils.detector_utils import WebcamVideoStream
 import datetime
 import threading
-from multiprocessing import Process
+from multiprocessing import Process, Pipe
 #from deception_detection.audio.paura2 import run_audio_deception_stream
 import argparse
 from scipy.spatial import distance as dist
@@ -18,7 +18,7 @@ from scipy.spatial import distance as dist
 from imutils import face_utils
 # import numpy as np
 # import imutils
-# import time
+import time
 import dlib
 
 #use the space bar as a "signal/new question" for testing
@@ -53,21 +53,18 @@ score_thresh = 0.2
 
 # Create a worker thread that loads graph and
 # does detection on images in an input queue and puts it on an output queue
-
 def worker(input_q, output_q, cap_params, frame_processed):
-    # global left
-    # global right
-    # global top
-    # global bottom
-# def worker(input_q, output_q, cap_params, frame_processed, face_pts):
-# def worker(input_q, output_q, cap_params, frame_processed, left, right, top, bottom):
-
     print(">> loading frozen model for worker")
     detection_graph, sess = detector_utils.load_inference_graph()
     sess = tf.Session(graph=detection_graph)
+    thresh_touch_ratio=0.3
+    frames_touch = 0
+    prev_frame_processed = 0
     while True:
-        #print("> ===== in worker loop, frame ", frame_processed)
-        frame = input_q.get()
+        # print("> ===== in worker loop, frame ", frame_processed)
+        (frame,face_pts) = input_q.get()
+        # print(face_pts)
+        touch_detected = False
         if (frame is not None):
             # actual detection
             boxes, scores = detector_utils.detect_objects(
@@ -76,14 +73,11 @@ def worker(input_q, output_q, cap_params, frame_processed):
             # detector_utils.draw_box_on_image(
             #     cap_params['num_hands_detect'], cap_params["score_thresh"], scores, boxes, cap_params['im_width'], cap_params['im_height'], frame)
 
-            face_pts = cv2.ellipse2Poly((150, 100), (45, 85), 0, 0, 180, 5)
-            # face_pts = jaw_ #NOT WORKING YET
-            # print(face_pts)
             number_of_points = len(face_pts)
             # print(number_of_points)
 
             for i in range(cap_params['num_hands_detect']):
-                # print(jaw_) #jaw_ is still [], does not update to the value from record()
+                # print(jaw_)
 
                 if (scores[i] > cap_params["score_thresh"]):
                     (left, right, top, bottom) = (boxes[i][1] * cap_params['im_width'], boxes[i][3] * cap_params['im_width'],
@@ -94,55 +88,93 @@ def worker(input_q, output_q, cap_params, frame_processed):
                     j = 0
                     # CHECK IF HANDS ARE TOUCHING THE FACE
                     while j < (number_of_points / 4 + 4):
-                        (x1, y1) = face_pts[j]
-                        (x2, y2) = face_pts[j + 1]
-                        (x3, y3) = face_pts[-j - 2]
-                        (x4, y4) = face_pts[-j - 1]
                         """
-                        x4,y4 -- x1,y1          L,T -- L+(R-L/2),T -- R,T
+                        x1,y1 -- x4,y4          L,T -- L+(R-L/2),T -- R,T
                           |        |             |                     |
-                        x3,y3 -- x2,y2        L,T+(B-T/2)          R,T+(B-T/2)
+                        x2,y2 -- x3,y3        L,T+(B-T/2)          R,T+(B-T/2)
                         """
-                        # print(i,face_pts[i], face_pts[i+1],face_pts[-i-1], face_pts[-i])
+                        (x1, y1) = face_pts[-j-1]
+                        (x2, y2) = face_pts[-j-2]
+                        (x3, y3) = face_pts[j+1]
+                        (x4, y4) = face_pts[j]
+
                         x_half = (right - left) / 2
                         y_half = (bottom - top) / 2
                         #check if top left of box is touching face
-                        xx = left
-                        yy = top
-                        if ((xx <= x2) and (xx >= x3) and (yy >= y1) and (yy <= y2)):
-                            print("found", str(datetime.datetime.now()))
+                        # xx = left
+                        xL_half = left + x_half
+                        # yy = top
+                        yT_half = top + y_half
+                        if ((left <= x2) and (left >= x3) and (top >= y1) and (top <= y2)):
+                            # print("found", str(datetime.datetime.now()))
+                            touch_detected = True
                         #check if top mid of box is touching face
-                        xx = left + x_half
-                        if ((xx <= x2) and (xx >= x3) and (yy >= y1) and (yy <= y2)):
-                            print("found", str(datetime.datetime.now()))
+                        # xx = left + x_half
+                        elif ((xL_half <= x2) and (xL_half >= x3) and (top >= y1) and (top <= y2)):
+                            # print("found", str(datetime.datetime.now()))
+                            touch_detected = True
                         #check if top right of box is touching face
-                        xx = right
-                        yy = top
-                        if ((xx <= x2) and (xx >= x3) and (yy >= y1) and (yy <= y2)):
-                            print("found", str(datetime.datetime.now()))
+                        # xx = right
+                        # yy = top
+                        # if ((xx <= x2) and (xx >= x3) and (yy >= y1) and (yy <= y2)):
+                        elif ((right <= x2) and (right >= x3) and (top >= y1) and (top <= y2)):
+                            # print("found", str(datetime.datetime.now()))
+                            touch_detected = True
                         #check if mid left of box is touching face
-                        xx = left
-                        yy = top + y_half
-                        if ((xx <= x2) and (xx >= x3) and (yy >= y1) and (yy <= y2)):
-                            print("found", str(datetime.datetime.now()))
+                        # xx = left
+                        # yy = top + y_half
+                        elif ((left <= x2) and (left >= x3) and (yT_half >= y1) and (yT_half <= y2)):
+                            # print("found", str(datetime.datetime.now()))
+                            touch_detected = True
                         #check if mid right of box is touching face
-                        xx = right
-                        yy = top + y_half
-                        if ((xx <= x2) and (xx >= x3) and (yy >= y1) and (yy <= y2)):
-                            print("found", str(datetime.datetime.now()))
+                        # xx = right
+                        # yy = top + y_half
+                        elif ((right <= x2) and (right >= x3) and (yT_half >= y1) and (yT_half <= y2)):
+                            # print("found", str(datetime.datetime.now()))
+                            touch_detected = True
+                        else:
+                            pass
 
                         j = j + 1
+            if touch_detected:
+                frames_touch = frames_touch + 1
+            # print("touched: ", frames_touch)
 
 
             # add frame annotated with bounding box to queue
+            # output_q.put(frame,frames_touch)
             output_q.put(frame)
             frame_processed += 1
         else:
             output_q.put(frame)
+            # output_q.put(frame, frames_touch)
+        try:  # used try so that if user pressed other than the given key error will not be shown
+            if keyboard.is_pressed(' '):  # if space bar is pressed
+                # IF SIGNAL IS RECIEVED, i.e. new question
+                # HAND TOUCHING FACE -- LIE OR NOT
+                num_frame_processed = frame_processed - prev_frame_processed
+                current_touch_ratio = frames_touch/num_frame_processed
+                # print("frames w/ hand touching face / frames processed", frames_touch," / ",frame_processed , " = ", current_touch_ratio )
+                if (current_touch_ratio > thresh_touch_ratio):
+                    print("HANDS-FACE: possibly a lie ", frames_touch," / ",num_frame_processed , " = ", current_touch_ratio)
+                else:
+                    print("HANDS-FACE: possibly NOT a lie ", frames_touch," / ",num_frame_processed , " = ", current_touch_ratio)
+                frames_touch = 0
+                prev_frame_processed = frame_processed
+
+                # BLINKING -- LIE OR NOT is at record()
+
+            else:
+                pass
+        except:
+            pass
     sess.close()
 
 def record():
-    global jaw_
+    # global jaw_
+    # parent_conn, child_conn = Pipe()
+    # child to parent pipeline
+
     # To run program run the following in cli from this directory
     # python detect_multi_threaded.py --source 0 --shape-predictor shape_predictor_68_face_landmarks.dat
 
@@ -198,7 +230,7 @@ def record():
     # input_q = Queue(maxsize=args.queue_size)
     # output_q = Queue(maxsize=args.queue_size)
     input_q = Queue(maxsize=5)
-    output_q = Queue(maxsize=5)
+    output_q = Queue(maxsize=7)
 
     # video_capture = WebcamVideoStream(src=args.video_source,
     #                                   width=args.width,
@@ -253,6 +285,8 @@ def record():
 
     if(show_display>0):
         cv2.namedWindow('Multi-Threaded Detection', cv2.WINDOW_NORMAL)
+
+    time.sleep(1)
     start_time = datetime.datetime.now()
     start_time_quest = datetime.datetime.now()
     while True:
@@ -261,8 +295,13 @@ def record():
         frame = cv2.flip(frame, 1)
         index += 1
 
-        input_q.put(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+        input_q.put((cv2.cvtColor(frame, cv2.COLOR_BGR2RGB),jaw_))
         output_frame = output_q.get()
+
+        # (output_frame,touch_detected) = output_frame #VALUEERROR:Too many things to unpack
+
+
+        # print("got output frame")
 
         gray = cv2.cvtColor(output_frame, cv2.COLOR_BGR2GRAY)
         output_frame = cv2.cvtColor(output_frame, cv2.COLOR_RGB2BGR)
@@ -281,8 +320,7 @@ def record():
                 if keyboard.is_pressed(' '):  # if space bar is pressed
                 # IF SIGNAL IS RECIEVED, i.e. new question
                     elapsed_time_quest = (datetime.datetime.now() - start_time_quest).total_seconds()
-                    print("frames processed: ", index, "elapsed time: ",
-                                elapsed_time_quest, "fps: ", str(int(fps)))
+                    print("elapsed time for the question: ",elapsed_time_quest)
                     # BLINKING -- LIE OR NOT
                     current_blink_ratio = TOTAL_BLINKS / elapsed_time_quest
                     if (current_blink_ratio > thresh_blink_ratio):
@@ -291,7 +329,7 @@ def record():
                         print("Blinking: not a lie ",TOTAL_BLINKS," / ",elapsed_time_quest," = ",current_blink_ratio)
                     TOTAL_BLINKS = 0
 
-                    # HAND TOUCHING FACE -- LIE OR NOT
+                    # HAND TOUCHING FACE -- LIE OR NOT is at the worker()
 
                     start_time_quest = datetime.datetime.now()
                 else:
@@ -319,6 +357,7 @@ def record():
                 rightEAR = eye_aspect_ratio(rightEye)
 
                 jaw_ = shape[lStartjaw:rEndjaw]
+                # parent_conn.send(jaw_)
                 # print(jaw_)
 
                 # average the eye aspect ratio together for both eyes
@@ -372,9 +411,9 @@ def record():
 
                 # print(left, right, top, bottom)
 
-                cv2.imshow('Multi-Threaded Detection', output_frame)
-                if cv2.waitKey(1) & 0xFF == ord('q'):
-                    break
+            cv2.imshow('Multi-Threaded Detection', output_frame)
+            if cv2.waitKey(1) & 0xFF == ord('q'):
+                break
             else:
                 if (num_frames == 400):
                     num_frames = 0
@@ -390,6 +429,7 @@ def record():
                     start_time).total_seconds()
     fps = num_frames / elapsed_time
     print("fps", fps)
+    # parent_conn.close()
     pool.terminate()
     video_capture.stop()
     cv2.destroyAllWindows()
