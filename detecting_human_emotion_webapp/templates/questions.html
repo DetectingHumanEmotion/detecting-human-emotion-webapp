@@ -50,7 +50,7 @@
 
 
 
-    <body onload="record()">
+    <body onload="videoRecording()">
 
     {#    <style xmlns="http://www.w3.org/1999/html"></style>#}
     {#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">#}
@@ -66,42 +66,7 @@
         {% from "form_macros.html" import render_question %}
         {{ currentQuestionNumber+"/"+numberOfQuestions }}
         {{ render_question(question) }}
-
-        <h1>Streaming Video Recorder</h1>
-        <div id="recorder">
-            <button id="record">Record</button>
-            <button id="stop">Stop</button>
-            <a id="download"></a>
-            <script type="text/javascript" src="{{ url_for('static', filename='js/recorder.js') }}"
-                    download="/static/video.avi"></script>
-        </div>
-        {#  <img id="video" src="{{ url_for('video_viewer') }}">#}
-        <img id="video" src="{{ url_for('video_viewer') }}">
     </div>
-
-    <script>
-        function record() {
-        // var url = window.location.href + "record_status";
-        buttonRecord.disabled = true;
-        buttonStop.disabled = false;
-
-        // disable download link
-        var downloadLink = document.getElementById("download");
-        downloadLink.text = "";
-        downloadLink.href = "";
-
-        // XMLHttpRequest
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                // alert(xhr.responseText);
-            }
-        }
-        xhr.open("POST", "/record_status");
-        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xhr.send(JSON.stringify({ status: "true" }));
-        };
-    </script>
     <!-- Learn about this code on MDN: https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API/Recording_a_media_element -->
 
     {#<p>Click the "Start" button to begin video recording for a few seconds. You can stop#}
