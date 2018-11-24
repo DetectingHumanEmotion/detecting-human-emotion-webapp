@@ -34,8 +34,11 @@ def get_files_in_directory(dir, file_extension=".wav"):
 
     return files
 
-def classify_file(file, trained_machine_name = "deceptionGradientBoosting",trained_machine_algorithm = "gradientboosting",classification = ["Truth","Lie"]):
-    return aT.fileClassification(inputFile= file,model_name=trained_machine_name,model_type=trained_machine_algorithm)
+def classify_file(file,trained_machine_name = "deceptionGradientBoosting",trained_machine_algorithm = "gradientboosting"):
+    return aT.fileClassification(inputFile=file, model_name=trained_machine_name, model_type=trained_machine_algorithm)
+def classify_file_process(file,queue,trained_machine_name = "deceptionGradientBoosting",trained_machine_algorithm = "gradientboosting"):
+    queue.put(aT.fileClassification(inputFile=file, model_name=trained_machine_name, model_type=trained_machine_algorithm))
+
 def classify_dir(
     dir,
     trained_machine_name,
@@ -191,7 +194,11 @@ def main():
     #     model_name="deceptionExtraTrees_edited",
     #     compute_beat=False,
     # )
-    print(classify_file("trial_lie_002.wav"))
+    # print(classify_file("trial_lie_002.wav"))
+    file="trial_lie_002.wav"
+    print(classify_file(file, trained_machine_name="deceptionGradientBoosting", trained_machine_algorithm="gradientboosting"))
+    print(classify_file(file, trained_machine_name="emotionExtraTrees", trained_machine_algorithm="extratrees"))
+
     # classify wav files for edited trained machine in directory
     # classify_dir(dir = classify_location,trained_machine_name= "deceptionSvm_edited",trained_machine_algorithm= "svm",output_file_name="_edited.txt",classification = classification)
     # classify_dir(dir = classify_location,trained_machine_name= "deceptionKNN_edited",trained_machine_algorithm= "knn",output_file_name="_edited.txt",classification = classification)

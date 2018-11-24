@@ -103,7 +103,7 @@ def plotCV(Fun, Width, Height, MAX):
 '''
 Basic functionality:
 '''
-def recordAudioSegments(BLOCKSIZE,model,algorithm, Fs = 16000, showSpectrogram = False, showChromagram = False, recordActivity = False,):
+def recordAudioSegments(BLOCKSIZE,model,algorithm,emotion_model,emotion_algorithm,  Fs = 16000, showSpectrogram = False, showChromagram = False, recordActivity = False,):
     midTermBufferSize = int(Fs*BLOCKSIZE)
 
     print ("Press Ctr+C to stop recording")
@@ -205,9 +205,17 @@ def recordAudioSegments(BLOCKSIZE,model,algorithm, Fs = 16000, showSpectrogram =
                                     wavFileName = startDateTimeStr + "_activity_{0:.2f}_{1:.2f}.wav".format(activeT1, activeT2)
                                     if recordActivity:
                                         wavfile.write(wavFileName, Fs, numpy.int16(curActiveWindow))# write current active window to file
-                                        dominate_result, statistics, paths= aT.fileClassification(wavFileName,model, "svm")
+
+                                        #classify recorded snippet if it deceptive
+                                        dominate_result, statistics, paths= aT.fileClassification(wavFileName,model, algorithm)
+
+                                        #classify recorded snippet for emotion
+                                        emotion_dominate_result, emotion_statistics, emotion_paths= aT.fileClassification(wavFileName, emotion_model, emotion_algorithm)
+                                        print("Deception:")
                                         print(dominate_result,statistics,paths)
-                                        results.append((dominate_result,statistics,paths))
+                                        print("Emotion:")
+                                        print(emotion_dominate_result,emotion_statistics,emotion_paths)
+                                        results.append([(dominate_result,statistics,paths),(emotion_dominate_result,emotion_statistics,emotion_paths)])
                                 curActiveWindow = numpy.array([])                               # delete current active window
                         else:
                             if curActiveWindow.shape[0] == 0:                                   # this is a new active window!
@@ -235,18 +243,24 @@ def recordAudioSegments(BLOCKSIZE,model,algorithm, Fs = 16000, showSpectrogram =
                 print( f'{errorcount} Error recording:')
     # return results
 
-def run():
+def run_audio_deception_stream():
+    # model and algorithm for deception detection
     MODEL = "deceptionSvm_edited"
+    ALGORITHM = "svm"
+
+    # Model and algorithm for emotion detection
+    EMOTION_MODEL = "emotionExtraTrees"
+    EMOTION_ALGORITHM = "extratrees"
     BLOCKSIZE = .10
     FS = 16000
     SHOWSPECTOGRAM = True
     SHOWCHROMOGRAM = True
     RECORDACTIVITY = True
-    ALGORITHM = "svm"
 
     # 0.3 deceptionSvm_editedMEANS 16000 True True True
 
-    recordAudioSegments(BLOCKSIZE=BLOCKSIZE, model=MODEL, algorithm=ALGORITHM, Fs=FS, showSpectrogram=SHOWSPECTOGRAM,
+    recordAudioSegments(BLOCKSIZE=BLOCKSIZE, model=MODEL, algorithm=ALGORITHM, emotion_model=EMOTION_MODEL,
+                        emotion_algorithm=EMOTION_ALGORITHM, Fs=FS, showSpectrogram=SHOWSPECTOGRAM,
                         showChromagram=SHOWCHROMOGRAM, recordActivity=RECORDACTIVITY)
 
 if __name__ == "__main__":
@@ -257,15 +271,4 @@ if __name__ == "__main__":
         Fs = args.samplingrate
         recordAudioSegments(BLOCKSIZE= args.blocksize,model= args.model,algorithm=args.algorithm,Fs= args.samplingrate,showSpectrogram= args.spectrogram,showChromagram= args.chromagram,recordActivity= args.recordactivity)
     else:
-        MODEL = "deceptionSvm_edited"
-        BLOCKSIZE = .10
-        FS = 16000
-        SHOWSPECTOGRAM = True
-        SHOWCHROMOGRAM = True
-        RECORDACTIVITY = True
-        ALGORITHM = "svm"
-
-
-        # 0.3 deceptionSvm_editedMEANS 16000 True True True
-
-        recordAudioSegments(BLOCKSIZE=BLOCKSIZE, model= MODEL,algorithm=ALGORITHM, Fs=FS, showSpectrogram=SHOWSPECTOGRAM, showChromagram=SHOWCHROMOGRAM, recordActivity=RECORDACTIVITY)
+        run_audio_deception_stream()

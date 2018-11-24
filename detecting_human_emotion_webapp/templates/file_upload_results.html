@@ -37,8 +37,8 @@ th, td {
       <th colspan="3">Video Deception</th>
 {#      <th class="empty"></th>#}
 
-      <th colspan="3">Audio Emotion</th>
-      <th colspan="3">Video Emotion</th>
+      <th colspan="8">Audio Emotion</th>
+{#      <th colspan="3">Video Emotion</th>#}
   </tr>
 
 
@@ -50,12 +50,14 @@ th, td {
       <th colspan="1">Result</th>
       <th colspan="1">Truth %</th>
       <th colspan="1">Lie %</th>
+      <th>Dominate Emotion</th>
+      <th>Neatral</th>
+      <th>Calm</th>
       <th>Happy</th>
       <th>Sad</th>
       <th>Angry</th>
-      <th>Happy</th>
-      <th>Sad</th>
-      <th>Angry</th>
+      <th>Fear</th>
+      <th>Disgust</th>
     <tr>
 
     <tr>
@@ -76,12 +78,14 @@ th, td {
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>{{ results.get("audio_emotion_detection")[0]|e }}</td>
+    <td>{{ results.get("audio_emotion_detection")[1][0]|e }}</td>
+    <td>{{ results.get("audio_emotion_detection")[1][1]|e }}</td>
+    <td>{{ results.get("audio_emotion_detection")[1][2]|e }}</td>
+    <td>{{ results.get("audio_emotion_detection")[1][3]|e }}</td>
+    <td>{{ results.get("audio_emotion_detection")[1][4]|e }}</td>
+    <td>{{ results.get("audio_emotion_detection")[1][5]|e }}</td>
+    <td>{{ results.get("audio_emotion_detection")[1][6]|e }}</td>
     <!--<td>85%</td>-->
     <!--<td>70%</td>-->
      <!--<td>2%</td>-->

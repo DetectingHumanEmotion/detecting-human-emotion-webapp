@@ -1,7 +1,7 @@
 from flask import Flask,g
 from flask_oidc import OpenIDConnect
 from okta import UsersClient
-# from flask_pymongo import PyMongo
+
 import platform
 import os
 
@@ -12,7 +12,11 @@ UPLOAD_FOLDER = "detecting_human_emotion_webapp/uploads"
 # app.config["SECRET_KEY"] = b'<\xa4`\xb3G\x89>'
 
 if platform.system() is "Windows":
+
+
     app.config["OIDC_CLIENT_SECRETS"] = "detecting_human_emotion_webapp/client_secrets.json"
+
+
 
 else:
     app.config["OIDC_CLIENT_SECRETS"] = "client_secrets.json"
