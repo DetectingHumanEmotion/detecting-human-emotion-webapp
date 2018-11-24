@@ -1,6 +1,11 @@
-from pyAudioAnalysis import audioTrainTest as aT
-import threading
 import os
+
+try:
+    from pyAudioAnalysis import audioTrainTest as aT
+except ModuleNotFoundError:
+    from .pyAudioAnalysis import audioTrainTest as aT
+
+
 
 EXPECTED = {"0.0": "truth", "data.0": "lie"}
 
