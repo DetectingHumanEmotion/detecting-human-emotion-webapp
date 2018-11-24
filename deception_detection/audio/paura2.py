@@ -1,12 +1,7 @@
-import sys, os, time, numpy, glob,  scipy, subprocess, wave, threading, shutil, cv2
+import sys, time, numpy,  scipy, cv2
 import _pickle as cPickle
 import argparse
 import scipy.io.wavfile as wavfile
-from scipy.fftpack import rfft
-from pyAudioAnalysis import audioFeatureExtraction as aF    
-from pyAudioAnalysis import audioTrainTest as aT
-from pyAudioAnalysis import audioSegmentation as aS
-from scipy.fftpack import fft
 import scipy.signal
 import itertools
 import operator
@@ -14,9 +9,14 @@ import datetime
 import signal
 import pyaudio      # PORT-AUDIO-BASED
 import struct
-import click
-import math
 
+try:
+    from pyAudioAnalysis import audioFeatureExtraction as aF
+    from pyAudioAnalysis import audioTrainTest as aT
+
+except ModuleNotFoundError:
+    from .pyAudioAnalysis import audioFeatureExtraction as aF
+    from .pyAudioAnalysis import audioTrainTest as aT
 
 Fs = 16000
 

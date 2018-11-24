@@ -1,6 +1,6 @@
 from pydub import AudioSegment
 import os
-from shutil import copy2
+
 
 def mp3_to_wav(file):
     print(os.path.isfile(file))

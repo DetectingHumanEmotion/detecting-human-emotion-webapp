@@ -1,21 +1,26 @@
-from utils import detector_utils as detector_utils
 import cv2
-import tensorflow as tf
-
-from multiprocessing import Queue, Pool,Process
-
-from utils.detector_utils import WebcamVideoStream
 import datetime
-
-
-
-from deception_detection.audio.paura2 import run_audio_deception_stream
-
+import tensorflow as tf
 from scipy.spatial import distance as dist
-
+from multiprocessing import Queue, Pool,Process #used for multiprocessing
+from threading import Thread #used for threading
 from imutils import face_utils
-
 import dlib
+
+
+
+try:
+    from deception_detection.audio.paura2 import run_audio_deception_stream
+    from utils.detector_utils import WebcamVideoStream
+    from utils import detector_utils as detector_utils
+except ModuleNotFoundError:
+    from .deception_detection.audio.paura2 import run_audio_deception_stream
+    from .utils.detector_utils import WebcamVideoStream
+    from .utils import detector_utils as detector_utils
+
+
+
+
 
 def eye_aspect_ratio(eye):
 	# compute the euclidean distances between the two sets of
