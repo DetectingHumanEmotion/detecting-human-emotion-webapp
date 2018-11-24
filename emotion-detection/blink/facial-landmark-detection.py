@@ -8,7 +8,7 @@ import time
 import dlib
 import cv2
 
-#test_audio_files
+#test
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
 ap.add_argument("-p", "--shape-predictor", required=True,

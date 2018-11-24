@@ -394,7 +394,7 @@ def mp3_to_wav(file):
     print(file)
     print(os.path.isfile(file))
     sound = AudioSegment.from_mp3(file)
-    print(sound.export(os.path.dirname(file) + "test_audio_files.wav", format="wav"))
+    print(sound.export(os.path.dirname(file) + "test.wav", format="wav"))
 
 
 #     return list(dominate_results[dominate_result],result_statistics)
