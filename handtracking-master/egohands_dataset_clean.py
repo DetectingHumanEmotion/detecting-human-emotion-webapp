@@ -137,11 +137,11 @@ def generate_label_files(image_dir):
                   dir + "/" + dir + "_labels.csv")
 
 
-# Split data, copy to train/test folders
+# Split data, copy to train/test_audio_files folders
 def split_data_test_eval_train(image_dir):
     create_directory("images")
     create_directory("images/train")
-    create_directory("images/test")
+    create_directory("images/test_audio_files")
 
     data_size = 4000
     loop_index = 0
@@ -157,9 +157,9 @@ def split_data_test_eval_train(image_dir):
 
                     if loop_index in test_samp_array:
                         os.rename(image_dir + dir +
-                                  "/" + f, "images/test/" + f)
+                                  "/" + f, "images/test_audio_files/" + f)
                         os.rename(image_dir + dir +
-                                  "/" + f.split(".")[0] + ".csv", "images/test/" + f.split(".")[0] + ".csv")
+                                  "/" + f.split(".")[0] + ".csv", "images/test_audio_files/" + f.split(".")[0] + ".csv")
                     else:
                         os.rename(image_dir + dir +
                                   "/" + f, "images/train/" + f)
@@ -170,7 +170,7 @@ def split_data_test_eval_train(image_dir):
             os.remove(image_dir + dir + "/polygons.mat")
             os.rmdir(image_dir + dir)
 
-        print("Train/test content generation complete!")
+        print("Train/test_audio_files content generation complete!")
         generate_label_files("images/")
 
 
@@ -179,11 +179,11 @@ def generate_csv_files(image_dir):
         for dir in dirs:
             get_bbox_visualize(image_dir, dir)
 
-    print("CSV generation complete!\nGenerating train/test/eval folders")
+    print("CSV generation complete!\nGenerating train/test_audio_files/eval folders")
     split_data_test_eval_train("egohands/_LABELLED_SAMPLES/")
 
 
-# rename image files so we can have them all in a train/test/eval folder.
+# rename image files so we can have them all in a train/test_audio_files/eval folder.
 def rename_files(image_dir):
     print("Renaming files")
     loop_index = 0

@@ -140,7 +140,7 @@ def main():
     lie_audio_path = "../../training-data/deception-audio/lie_audio_edited"
     classify_location = "../../training-data/deception-audio/testing_data"
     classification = ["Truth", "Lie"]
-    test_path = "../../training-data/deception-audio/test"
+    test_path = "../../training-data/deception-audio/test_audio_files"
 
 
     # train model

@@ -1,19 +1,28 @@
 from flask import render_template, redirect, url_for, request, g, flash, send_from_directory, jsonify, Response
 from werkzeug.utils import secure_filename
 import os
-from detecting_human_emotion_webapp import app
-from detecting_human_emotion_webapp.forms import UserInfoForm
 from okta import UsersClient
 from flask_oidc import OpenIDConnect
-from deception_detection.audio.lie_detection import classify_file, classify_file_process
 import platform
-from detecting_human_emotion_webapp.camera import VideoCamera
 from shutil import copy2
-from multiprocessing import Queue, Pool, Process
-import multiprocessing
+from pydub import AudioSegment
+
+#local project directories
+try:
+    from detecting_human_emotion_webapp import app
+    from detecting_human_emotion_webapp.forms import UserInfoForm
+    from deception_detection.audio.lie_detection import classify_file, classify_file_process
+    from detecting_human_emotion_webapp.camera import VideoCamera
+except ModuleNotFoundError:
+    from .detecting_human_emotion_webapp import app
+    from .detecting_human_emotion_webapp.forms import UserInfoForm
+    from .deception_detection.audio.lie_detection import classify_file, classify_file_process
+    from .detecting_human_emotion_webapp.camera import VideoCamera
+
+
 
 okta_client = UsersClient("https://dev-240328.oktapreview.com", "00Axbx-B_Dl0XMqSoQmZlURJv9djfBRjHQ9F2xQ4GT")
-from pydub import AudioSegment
+
 
 ALLOWED_EXTENSIONS = ['wav', 'mp3', 'mp4']
 
@@ -385,7 +394,7 @@ def mp3_to_wav(file):
     print(file)
     print(os.path.isfile(file))
     sound = AudioSegment.from_mp3(file)
-    print(sound.export(os.path.dirname(file) + "test.wav", format="wav"))
+    print(sound.export(os.path.dirname(file) + "test_audio_files.wav", format="wav"))
 
 
 #     return list(dominate_results[dominate_result],result_statistics)
