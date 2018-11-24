@@ -2,12 +2,12 @@ from utils import detector_utils as detector_utils
 import cv2
 import tensorflow as tf
 # import multiprocessing
-from multiprocessing import Queue, Pool
+from multiprocessing import Queue, Pool,Process
 # import time
 from utils.detector_utils import WebcamVideoStream
 import datetime
 import   threading
-from multiprocessing import Process
+
 from deception_detection.audio.paura2 import run_audio_deception_stream
 import argparse
 from scipy.spatial import distance as dist

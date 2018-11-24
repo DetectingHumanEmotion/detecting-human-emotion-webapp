@@ -34,8 +34,11 @@ def get_files_in_directory(dir, file_extension=".wav"):
 
     return files
 
-def classify_file(file, trained_machine_name = "deceptionGradientBoosting",trained_machine_algorithm = "gradientboosting",classification = ["Truth","Lie"]):
-    return aT.fileClassification(inputFile= file,model_name=trained_machine_name,model_type=trained_machine_algorithm)
+def classify_file(file,trained_machine_name = "deceptionGradientBoosting",trained_machine_algorithm = "gradientboosting"):
+    return aT.fileClassification(inputFile=file, model_name=trained_machine_name, model_type=trained_machine_algorithm)
+def classify_file_process(file,queue,trained_machine_name = "deceptionGradientBoosting",trained_machine_algorithm = "gradientboosting"):
+    queue.put(aT.fileClassification(inputFile=file, model_name=trained_machine_name, model_type=trained_machine_algorithm))
+
 def classify_dir(
     dir,
     trained_machine_name,
