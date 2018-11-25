@@ -13,11 +13,15 @@ try:
     from detecting_human_emotion_webapp.forms import UserInfoForm
     from deception_detection.audio.lie_detection import classify_file, classify_file_process
     from detecting_human_emotion_webapp.camera import VideoCamera
+    from detecting_human_emotion_webapp.parsing_tool import parse_deception_audio_result, parse_emotion_audio_result
+    from detecting_human_emotion_webapp.file_conversion_tool import mp3_to_wav
 except ModuleNotFoundError:
     from .detecting_human_emotion_webapp import app
     from .detecting_human_emotion_webapp.forms import UserInfoForm
     from .deception_detection.audio.lie_detection import classify_file, classify_file_process
     from .detecting_human_emotion_webapp.camera import VideoCamera
+    from .detecting_human_emotion_webapp.parsing_tool import parse_deception_audio_result, parse_emotion_audio_result
+
 
 
 
@@ -34,8 +38,8 @@ video_camera = None
 global_frame = None
 
 oidc = OpenIDConnect(app)
-if platform.system() is "Windows":
 
+if platform.system() is "Windows":
     QUESTIONS = 'detecting_human_emotion_webapp/questions.txt'
 else:
 
@@ -44,6 +48,12 @@ else:
 
 @app.before_request
 def before_request():
+    """
+    created by tybruno
+
+    This function is for SSO (okta). Checks if user is logged in.
+    :return: void
+    """
     if oidc.user_loggedin:
         g.user = okta_client.get_user(oidc.user_getfield("sub"))
     else:
@@ -122,6 +132,7 @@ def index():
 @app.route("/login")
 @oidc.require_login
 def login():
+
     # return redirect(url_for(".dashboard"))
     return redirect("/detecting")
 
@@ -129,6 +140,12 @@ def login():
 @app.route("/logout", methods=["GET", "POSt"])
 @oidc.require_login
 def logout():
+    """
+    created by tybruno
+
+    logs out user from SSO (okta)
+    :return: redirects the user to login page
+    """
     oidc.logout()
 
     # return redirect(url_for(".login"))
@@ -137,6 +154,10 @@ def logout():
 
 @app.route("/getUserInfo", methods=["GET"])
 def userInfo():
+    """
+    Gets user info
+    :return:
+    """
     header = 'Get User Info'
     userInfo = UserInfoForm()
     template_name = "get_user_info.html"
@@ -145,6 +166,11 @@ def userInfo():
 
 @app.route("/getUserInfo", methods=["POST"])
 def userInfoPost():
+    """
+    created by tybruno
+    Gets info about the current user
+    :return:
+    """
     userInfo = UserInfoForm()
     g.user.profile.race = userInfo.race.data
     g.user.profile.gender = userInfo.gender.data
@@ -199,6 +225,10 @@ def question_post(questionNumber):
 
 @app.route("/results", methods=["GET"])
 def resultsPage():
+    """
+
+    :return:
+    """
     header = 'Results Page'
     # userInfo = UserInfoForm()
     template_name = "results_page.html"
@@ -210,10 +240,21 @@ def resultsPage():
 
 @app.route("/dashboard")
 def dashboard():
+    """
+    Created by tybruno
+    :return: dashboard html file
+    """
     return render_template("dashboard.html")
 
 
 def getLineFromTextFile(fileName):
+    """
+    created by luis
+
+
+    :param fileName:
+    :return:
+    """
     data = ''
     with open(fileName, 'r') as file:
         for line in file:
@@ -223,6 +264,12 @@ def getLineFromTextFile(fileName):
 
 
 def getListFromTextFile(fileName):
+    """
+    Gets a list from at in a file
+    :param fileName: the file that we are pulling the data from
+    :return: list of the data in the file
+    """
+
     l = []
     with open(fileName, 'r') as file:
         for line in file:
@@ -233,22 +280,46 @@ def getListFromTextFile(fileName):
 
 
 def allowed_file(filename):
+    """
+    Used to check if the uploaded file is a valid file type from the allowed extensions
+
+    allowed extensions: .mp4, .mp3, and .wav
+    :param filename: the file that is being checked for correct file type
+    :return:
+    """
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 # this the uploading method
 @app.route("/upload", methods=["GET"])
+@oidc.require_login
 def upload():
+    """
+    Developed by tybruno
+
+    this allows the user to upload files to detect deception and emotion.
+
+    File types supported: .mp4, .mp3, and .wav
+
+    :return:
+    """
     header = "Uploading a file"
     template = "uploading_page.html"
 
-    prompt = "Here you can upload a file to detect lying"
+    prompt = "Here you can upload a file to detect lying and emotion"
     return render_template(template_name_or_list=template, header=header, prompt=prompt)
 
 
 @app.route('/uploads/<filename>')
+@oidc.require_login
 def uploaded_file(filename):
+    """
+    Developed by tybruno
+
+    :param filename: filename that will be uploaded
+    :return: sends the uploaded file
+    """
     return send_from_directory(app.config['UPLOAD_FOLDER'],
                                filename)
 
@@ -256,54 +327,52 @@ def uploaded_file(filename):
 def classify_audio(file, deception_model_path="deception_detection/audio/deceptionGradientBoosting",
                    deception_algorithm="gradientboosting",
                    emotion_model_path="deception_detection/audio/emotionExtraTrees", emotion_algorithm="extratrees"):
-    audio_deception_results = classify_file(file=file, trained_machine_name=deception_model_path,
+    """
+    developed by tybruno
+
+    Classifies audio file with the level of deception and emotion of the person recorded from the audio file.
+    This function only supports .wav files
+    :param file: audio file to be classified
+    :param deception_model_path: The  model path to the deception model
+    :param deception_algorithm: The algorithm used to train the deceptionn model
+    :param emotion_model_path: The model path to the emotion model
+    :param emotion_algorithm: The algorithm used to train the emotion model
+    :return: results of deception and emotion classification
+    """
+    audio_deception_results = classify_file(file=file, trained_model_name=deception_model_path,
                                             trained_machine_algorithm=deception_algorithm)
 
-    audio_emotion_results = classify_file(file=file, trained_machine_name=emotion_model_path,
+    audio_emotion_results = classify_file(file=file, trained_model_name=emotion_model_path,
                                           trained_machine_algorithm=emotion_algorithm)
 
     return audio_deception_results, audio_emotion_results
 
 
-def get_audio_results(file):
-    deception_model_path = "deception_detection/audio/deceptionGradientBoosting"
-    deception_algorithm = "gradientboosting"
-    emotion_model_path = "deception_detection/audio/emotionExtraTrees"
-    emotion_algorithm = "extratrees"
-    audio_deception_results = []
-    audio_emotion_results = []
+def classify_audio_file(file):
+    """
+    developed by tybruno
 
-    # try:
-    #     multiprocessing.get_context('spawn')
-    #     multiprocessing.set_start_method('spawn')
-    #     print("here")
-    #
-    #     queue = multiprocessing.Queue()
-    #     print("here")
-    #
-    #     deception_process = multiprocessing.Process(target=classify_file_process,args=(file,queue,deception_model_path,deception_algorithm,audio_deception_results))
-    #     emotion_process = multiprocessing.Process(target=classify_file_process, args=(file,queue,emotion_model_path,emotion_algorithm,audio_emotion_results))
-    #
-    #     deception_process.start()
-    #     print("Deception process started")
-    #     emotion_process.start()
-    #     print("Emotion process started")
-    #
-    #     deception_process.join()
-    #     print(queue.get())
-    #     emotion_process.join()
-    #     print(queue.get())
-    # except:
-    #     print("Process was unable to start")
+    Classifies audio file. The classification will include deception and emotion classifications and returns the results for each.
+
+    :param file: File that will be classifieded for deception and emotion
+    :return: deception results and emotion results as a tuple.
+    """
+
     audio_deception_results, audio_emotion_results = classify_audio(file)
 
     return audio_deception_results, audio_emotion_results
 
 
 @app.route("/upload", methods=["POST"])
+@oidc.require_login
 def uploading():
-    header = "processing file"
-    template = "results_page.html"
+    """
+    tybruno
+
+    Upload section where the user can upload video/audio files. These files will be classified with audio to check deception and emotion from the user in video/audio file.
+    Upload only supports .mp4, .mp3, .wav files
+    :return: file_upload_results template
+    """
 
     saved_file_location = ""
 
@@ -312,18 +381,12 @@ def uploading():
         return redirect(request.url)
 
     file = request.files['file']
-    print(file)
 
     # if user does not select file, browser also
     # submit a empty part without filename
     if file.filename == '':
         flash('No selected file')
         return redirect(request.url)
-
-    deception_model_path = "deception_detection/audio/deceptionGradientBoosting"
-    deception_algorithm = "gradientboosting"
-    emotion_model_path = "deception_detection/audio/emotionExtraTrees"
-    emotion_algorithm = "extratrees"
 
     if file and allowed_file(file.filename):
         saved_file_location = os.path.join(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(file.filename)))
@@ -332,86 +395,32 @@ def uploading():
     print(saved_file_location)
 
     filename, extension = os.path.splitext(saved_file_location)
-    print(filename)
-    print(extension)
+
     if extension is ".mp4":
         mp3_conversion_file = os.path.join(filename, ".mp3")
         copy2(saved_file_location, mp3_conversion_file)
         mp3_to_wav(mp3_conversion_file)
         # audio_deception_results = classify_file(file=mp3_conversion_file, trained_machine_name=deception_model_path,trained_machine_algorithm=deception_algorithm)
-        audio_deception_results, audio_emotion_results = get_audio_results(file=mp3_conversion_file)
+        audio_deception_results, audio_emotion_results = classify_audio(file=mp3_conversion_file)
     elif extension is ".mp3":
         mp3_conversion_file = os.path.join(filename, ".mp3")
         mp3_to_wav(mp3_conversion_file)
         # audio_deception_results = classify_file(file=mp3_conversion_file, trained_machine_name=deception_model_path,trained_machine_algorithm=deception_algorithm)
-        audio_deception_results, audio_emotion_results = get_audio_results(file=mp3_conversion_file)
+        audio_deception_results, audio_emotion_results = classify_audio(file=mp3_conversion_file)
 
     else:
-        audio_deception_results, audio_emotion_results = get_audio_results(file=saved_file_location)
+        audio_deception_results, audio_emotion_results = classify_audio(file=saved_file_location)
 
         # audio_deception_results = classify_file(file=saved_file_location, trained_machine_name=deception_model_path)
 
     audio_deception_results = parse_deception_audio_result(audio_deception_results)
     audio_emotion_results = parse_emotion_audio_result(audio_emotion_results)
 
-    print(audio_deception_results)
     # SAVE FILE HERE WHICH WAS INPUTED
     results = {"audio_deception_detection": audio_deception_results, "audio_emotion_detection": audio_emotion_results}
     print(results)
 
     return render_template(template_name_or_list="file_upload_results.html", results=results)
-
-
-#     # return redirect(url_for('file_results', results = 1))
-
-def parse_emotion_audio_result(results):
-    print(results)
-    dominate_result_int, result_statistics, paths = results
-    dominate_result = AUDIO_EMOTION_DOMINATE_RESULT.get(dominate_result_int)
-
-    new_statistics = []
-    for result in result_statistics:
-        temp_string = "{:.1%}".format(result)
-        new_statistics.append(temp_string)
-
-    return [dominate_result, new_statistics]
-
-
-def parse_deception_audio_result(results):
-    print(results)
-    dominate_result_int, result_statistics, paths = results
-    dominate_result = AUDIO_DECEPTION_DOMINATE_RESULT.get(dominate_result_int)
-
-    new_statistics = []
-    for result in result_statistics:
-        temp_string = "{:.1%}".format(result)
-        new_statistics.append(temp_string)
-
-    return [dominate_result, new_statistics]
-
-
-def mp3_to_wav(file):
-    print(file)
-    print(os.path.isfile(file))
-    sound = AudioSegment.from_mp3(file)
-    print(sound.export(os.path.dirname(file) + "test.wav", format="wav"))
-
-
-#     return list(dominate_results[dominate_result],result_statistics)
-# @app.route("/file_results/<int:results>", methods=["POST"])
-# def file_results(results):
-#     header = 'Results Page'
-#     # userInfo = UserInfoForm()
-#     template_name = "file_upload_results.html"
-#
-#     print(results)
-
-
-# return render_template(template_name_or_list=template_name, results = results)
-# @app.route('/upload')
-# def upload_files():
-#     return render_template('upload.html')
-
 
 if __name__ == '__main__':
     app.run(host="localhost", port=5000)

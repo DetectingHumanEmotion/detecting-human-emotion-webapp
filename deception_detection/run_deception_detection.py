@@ -10,16 +10,20 @@ except ModuleNotFoundError:
     from .deception_detection.audio.paura2 import recordAudioSegments
     from .deception_detection.visual.detect_multi_threaded import record
 
+"""
+created by tybruno
 
-# try:
-#     print("here")
-#     from deception_detection.visual.detect_multi_threaded import record
-# except ModuleNotFoundError:
-#     from .deception_detection.audio.paura2 import recordAudioSegments
-#     from .deception_detection.visual.detect_multi_threaded import record
+This file is used to run both the visual and audio deception detection in realtime 
+"""
 
 
 def run_audio_detection():
+    """
+    created by tybruno
+
+    Will perform audio deception and emotion classification in real time for
+    :return: Raw results of both the classifiations
+    """
     # model and algorithm for deception detection
     DECEPTION_MODEL = "audio/deceptionSvm_edited"
     ALGORITHM = "svm"
@@ -37,10 +41,13 @@ def run_audio_detection():
                                emotion_algorithm=EMOTION_ALGORITHM, Fs=FS, showSpectrogram=SHOWSPECTOGRAM,
                                showChromagram=SHOWCHROMOGRAM, recordActivity=RECORDACTIVITY)
 
-def run_deception_detection():
+def deception_detection_multiprocessing():
+    """
+    developed by tybruno
 
-
-
+    does audio and video deception detection in real time using multiprocessing
+    :return: void
+    """
     ## Multiprocessing way
     try:
         process1 = Process(target=record)
@@ -58,22 +65,42 @@ def run_deception_detection():
     except:
         print("process failed")
 
-    ## This is the Threading way
-    # try:
-    #     thread1 = threading.Thread(target=record)
-    #
-    #     thread2 = threading.Thread(target=run)
-    #
-    #
-    #     thread1.start()
-    #      print("Thread 1 started")
-    #     thread2.start()
-    #     print("Thread 2 started")
-    #
-    #     thread1.join()
-    #     thread2.join()
-    #
-    # except:
-    #     print("Thread failed")
+def deception_detection_threading():
+    """
+    developed by tybruno
+
+    does audio and video deception detection in real time using threading
+    :return: void
+    """
+    try:
+        thread1 = Thread(target=record)
+
+        thread2 = Thread(target=run_audio_detection)
+
+
+        thread1.start()
+        print("Thread 1 started")
+        thread2.start()
+        print("Thread 2 started")
+
+        thread1.join()
+        thread2.join()
+
+    except:
+        print("Thread failed")
+
+def run_deception_detection(process="threading"):
+    """
+    Created by tybruno
+
+    This function runs both the visual and audio deception classification in real time using either multiprocessing or threading.
+    :return:
+    """
+    if process is "threading":
+        deception_detection_threading()
+    else:
+        deception_detection_multiprocessing()
+
+
 if __name__ == '__main__':
     run_deception_detection()
