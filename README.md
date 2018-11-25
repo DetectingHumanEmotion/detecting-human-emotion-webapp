@@ -44,6 +44,11 @@ The webapp is the location where user's can upload mp4, mp3, and wav files which
 
 # Project Structure 
 
+# Developers
+* Tyler Bruno [(tybruno)](https://github.com/tybruno)
+* Cindy Yee (CindyYee)
+* Avani Bhatnagar (avanibhatnagar)
+* Luis Arevalo (luisarevalo21)
 
 # Contributions
 [PyAudioAnalysis](https://github.com/tyiannak/pyAudioAnalysis) and [Paura2](https://github.com/tyiannak/paura) were developed by the director of machine learning at Behavioral Signals, Dr. Theodoros Giannakopoulos [(tyiannak)](https://github.com/tyiannak).
