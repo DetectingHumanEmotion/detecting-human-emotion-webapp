@@ -28,8 +28,8 @@ python3 -m pip install hmmlearn
 
 # Run realtime visual and audio deception detection
 The following file path contains the python script that runs both the video and audio classification scripts using multiprocessing. Once the script has started, the video stream will begin (takes several seconds to start) then the audio stream will begin. This script was designed as a proof of concept for our deception detection in real time. The user can respond to questions that another person asks, the console will display the likely hood of the person being untruthful and their emotion.
-1. Run handtracking-master/detect_multi_threaded.py <br/>
-        `python3 handtracking-master/detect_multi_threaded.py`
+1. Run deception_detection/run_deception_detection.py <br/>
+        `python3 deception_detection/run_deception_detection.py`
 
 
 # Webapp
