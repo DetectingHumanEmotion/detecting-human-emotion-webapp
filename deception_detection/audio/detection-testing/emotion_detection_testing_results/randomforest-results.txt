@@ -1,0 +1,961 @@
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-01-01-01-01-22.wav
+File results: randomforest.txt
+Expected: Neutral
+Dominate Emotion: Calm
+Neutral: 0.214
+Calm: 0.218
+Happy: 0.102
+Sad: 0.164
+Angry: 0.038
+Fear: 0.038
+Disgust: 0.118
+Surprised: 0.108
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-01-01-01-02-22.wav
+File results: randomforest.txt
+Expected: Neutral
+Dominate Emotion: Disgust
+Neutral: 0.118
+Calm: 0.142
+Happy: 0.1
+Sad: 0.142
+Angry: 0.054
+Fear: 0.048
+Disgust: 0.234
+Surprised: 0.162
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-01-01-02-01-22.wav
+File results: randomforest.txt
+Expected: Neutral
+Dominate Emotion: Sad
+Neutral: 0.154
+Calm: 0.132
+Happy: 0.106
+Sad: 0.236
+Angry: 0.038
+Fear: 0.06
+Disgust: 0.144
+Surprised: 0.13
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-01-01-02-02-22.wav
+File results: randomforest.txt
+Expected: Neutral
+Dominate Emotion: Sad
+Neutral: 0.112
+Calm: 0.168
+Happy: 0.11
+Sad: 0.234
+Angry: 0.04
+Fear: 0.058
+Disgust: 0.176
+Surprised: 0.102
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-02-01-01-01-22.wav
+File results: randomforest.txt
+Expected: Calm
+Dominate Emotion: Calm
+Neutral: 0.142
+Calm: 0.218
+Happy: 0.07
+Sad: 0.206
+Angry: 0.044
+Fear: 0.072
+Disgust: 0.116
+Surprised: 0.132
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-02-01-01-02-22.wav
+File results: randomforest.txt
+Expected: Calm
+Dominate Emotion: Sad
+Neutral: 0.118
+Calm: 0.166
+Happy: 0.116
+Sad: 0.214
+Angry: 0.062
+Fear: 0.086
+Disgust: 0.13
+Surprised: 0.108
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-02-01-02-01-22.wav
+File results: randomforest.txt
+Expected: Calm
+Dominate Emotion: Sad
+Neutral: 0.132
+Calm: 0.194
+Happy: 0.066
+Sad: 0.244
+Angry: 0.04
+Fear: 0.066
+Disgust: 0.124
+Surprised: 0.134
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-02-01-02-02-22.wav
+File results: randomforest.txt
+Expected: Calm
+Dominate Emotion: Disgust
+Neutral: 0.092
+Calm: 0.09
+Happy: 0.148
+Sad: 0.136
+Angry: 0.094
+Fear: 0.084
+Disgust: 0.2
+Surprised: 0.156
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-02-02-01-01-22.wav
+File results: randomforest.txt
+Expected: Calm
+Dominate Emotion: Calm
+Neutral: 0.128
+Calm: 0.174
+Happy: 0.112
+Sad: 0.164
+Angry: 0.042
+Fear: 0.076
+Disgust: 0.172
+Surprised: 0.132
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-02-02-01-02-22.wav
+File results: randomforest.txt
+Expected: Calm
+Dominate Emotion: Disgust
+Neutral: 0.136
+Calm: 0.164
+Happy: 0.092
+Sad: 0.118
+Angry: 0.076
+Fear: 0.064
+Disgust: 0.194
+Surprised: 0.156
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-02-02-02-01-22.wav
+File results: randomforest.txt
+Expected: Calm
+Dominate Emotion: Disgust
+Neutral: 0.09
+Calm: 0.148
+Happy: 0.086
+Sad: 0.192
+Angry: 0.098
+Fear: 0.044
+Disgust: 0.25
+Surprised: 0.092
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-02-02-02-02-22.wav
+File results: randomforest.txt
+Expected: Calm
+Dominate Emotion: Disgust
+Neutral: 0.098
+Calm: 0.186
+Happy: 0.078
+Sad: 0.126
+Angry: 0.088
+Fear: 0.062
+Disgust: 0.282
+Surprised: 0.08
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-03-01-01-01-22.wav
+File results: randomforest.txt
+Expected: Happy
+Dominate Emotion: Calm
+Neutral: 0.082
+Calm: 0.234
+Happy: 0.148
+Sad: 0.144
+Angry: 0.062
+Fear: 0.042
+Disgust: 0.188
+Surprised: 0.1
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-03-01-01-02-22.wav
+File results: randomforest.txt
+Expected: Happy
+Dominate Emotion: Surprised
+Neutral: 0.072
+Calm: 0.076
+Happy: 0.166
+Sad: 0.144
+Angry: 0.098
+Fear: 0.062
+Disgust: 0.138
+Surprised: 0.244
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-03-01-02-01-22.wav
+File results: randomforest.txt
+Expected: Happy
+Dominate Emotion: Disgust
+Neutral: 0.126
+Calm: 0.11
+Happy: 0.118
+Sad: 0.138
+Angry: 0.05
+Fear: 0.058
+Disgust: 0.25
+Surprised: 0.15
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-03-01-02-02-22.wav
+File results: randomforest.txt
+Expected: Happy
+Dominate Emotion: Disgust
+Neutral: 0.074
+Calm: 0.112
+Happy: 0.148
+Sad: 0.104
+Angry: 0.122
+Fear: 0.114
+Disgust: 0.166
+Surprised: 0.16
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-03-02-01-01-22.wav
+File results: randomforest.txt
+Expected: Happy
+Dominate Emotion: Happy
+Neutral: 0.014
+Calm: 0.008
+Happy: 0.254
+Sad: 0.044
+Angry: 0.246
+Fear: 0.058
+Disgust: 0.178
+Surprised: 0.198
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-03-02-01-02-22.wav
+File results: randomforest.txt
+Expected: Happy
+Dominate Emotion: Happy
+Neutral: 0.01
+Calm: 0.012
+Happy: 0.246
+Sad: 0.06
+Angry: 0.234
+Fear: 0.098
+Disgust: 0.202
+Surprised: 0.138
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-03-02-02-01-22.wav
+File results: randomforest.txt
+Expected: Happy
+Dominate Emotion: Surprised
+Neutral: 0.022
+Calm: 0.022
+Happy: 0.172
+Sad: 0.084
+Angry: 0.18
+Fear: 0.11
+Disgust: 0.158
+Surprised: 0.252
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-03-02-02-02-22.wav
+File results: randomforest.txt
+Expected: Happy
+Dominate Emotion: Disgust
+Neutral: 0.012
+Calm: 0.018
+Happy: 0.144
+Sad: 0.066
+Angry: 0.142
+Fear: 0.134
+Disgust: 0.324
+Surprised: 0.16
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-04-01-01-01-22.wav
+File results: randomforest.txt
+Expected: Sad
+Dominate Emotion: Disgust
+Neutral: 0.136
+Calm: 0.188
+Happy: 0.09
+Sad: 0.152
+Angry: 0.098
+Fear: 0.052
+Disgust: 0.204
+Surprised: 0.08
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-04-01-01-02-22.wav
+File results: randomforest.txt
+Expected: Sad
+Dominate Emotion: Calm
+Neutral: 0.098
+Calm: 0.22
+Happy: 0.106
+Sad: 0.16
+Angry: 0.09
+Fear: 0.054
+Disgust: 0.18
+Surprised: 0.092
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-04-01-02-01-22.wav
+File results: randomforest.txt
+Expected: Sad
+Dominate Emotion: Disgust
+Neutral: 0.136
+Calm: 0.156
+Happy: 0.126
+Sad: 0.162
+Angry: 0.098
+Fear: 0.062
+Disgust: 0.188
+Surprised: 0.072
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-04-01-02-02-22.wav
+File results: randomforest.txt
+Expected: Sad
+Dominate Emotion: Disgust
+Neutral: 0.1
+Calm: 0.122
+Happy: 0.08
+Sad: 0.13
+Angry: 0.148
+Fear: 0.062
+Disgust: 0.29
+Surprised: 0.068
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-04-02-01-01-22.wav
+File results: randomforest.txt
+Expected: Sad
+Dominate Emotion: Disgust
+Neutral: 0.08
+Calm: 0.1
+Happy: 0.164
+Sad: 0.156
+Angry: 0.102
+Fear: 0.058
+Disgust: 0.218
+Surprised: 0.122
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-04-02-01-02-22.wav
+File results: randomforest.txt
+Expected: Sad
+Dominate Emotion: Sad
+Neutral: 0.046
+Calm: 0.158
+Happy: 0.128
+Sad: 0.266
+Angry: 0.076
+Fear: 0.066
+Disgust: 0.17
+Surprised: 0.09
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-04-02-02-01-22.wav
+File results: randomforest.txt
+Expected: Sad
+Dominate Emotion: Sad
+Neutral: 0.054
+Calm: 0.198
+Happy: 0.09
+Sad: 0.284
+Angry: 0.084
+Fear: 0.088
+Disgust: 0.1
+Surprised: 0.102
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-04-02-02-02-22.wav
+File results: randomforest.txt
+Expected: Sad
+Dominate Emotion: Calm
+Neutral: 0.054
+Calm: 0.292
+Happy: 0.106
+Sad: 0.244
+Angry: 0.096
+Fear: 0.028
+Disgust: 0.088
+Surprised: 0.092
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-05-01-01-01-22.wav
+File results: randomforest.txt
+Expected: Angry
+Dominate Emotion: Disgust
+Neutral: 0.044
+Calm: 0.048
+Happy: 0.134
+Sad: 0.06
+Angry: 0.146
+Fear: 0.042
+Disgust: 0.358
+Surprised: 0.168
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-05-01-01-02-22.wav
+File results: randomforest.txt
+Expected: Angry
+Dominate Emotion: Angry
+Neutral: 0.032
+Calm: 0.04
+Happy: 0.158
+Sad: 0.064
+Angry: 0.242
+Fear: 0.05
+Disgust: 0.226
+Surprised: 0.188
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-05-01-02-01-22.wav
+File results: randomforest.txt
+Expected: Angry
+Dominate Emotion: Angry
+Neutral: 0.04
+Calm: 0.024
+Happy: 0.166
+Sad: 0.036
+Angry: 0.316
+Fear: 0.056
+Disgust: 0.178
+Surprised: 0.184
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-05-01-02-02-22.wav
+File results: randomforest.txt
+Expected: Angry
+Dominate Emotion: Disgust
+Neutral: 0.038
+Calm: 0.036
+Happy: 0.172
+Sad: 0.056
+Angry: 0.23
+Fear: 0.038
+Disgust: 0.28
+Surprised: 0.15
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-05-02-01-01-22.wav
+File results: randomforest.txt
+Expected: Angry
+Dominate Emotion: Angry
+Neutral: 0.008
+Calm: 0.004
+Happy: 0.186
+Sad: 0.032
+Angry: 0.348
+Fear: 0.054
+Disgust: 0.216
+Surprised: 0.152
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-05-02-01-02-22.wav
+File results: randomforest.txt
+Expected: Angry
+Dominate Emotion: Angry
+Neutral: 0.004
+Calm: 0.008
+Happy: 0.26
+Sad: 0.04
+Angry: 0.322
+Fear: 0.076
+Disgust: 0.148
+Surprised: 0.142
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-05-02-02-01-22.wav
+File results: randomforest.txt
+Expected: Angry
+Dominate Emotion: Angry
+Neutral: 0.008
+Calm: 0.014
+Happy: 0.13
+Sad: 0.014
+Angry: 0.382
+Fear: 0.06
+Disgust: 0.224
+Surprised: 0.168
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-05-02-02-02-22.wav
+File results: randomforest.txt
+Expected: Angry
+Dominate Emotion: Angry
+Neutral: 0.01
+Calm: 0.006
+Happy: 0.144
+Sad: 0.032
+Angry: 0.432
+Fear: 0.054
+Disgust: 0.154
+Surprised: 0.168
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-06-01-01-01-22.wav
+File results: randomforest.txt
+Expected: Fear
+Dominate Emotion: Sad
+Neutral: 0.046
+Calm: 0.136
+Happy: 0.152
+Sad: 0.206
+Angry: 0.09
+Fear: 0.1
+Disgust: 0.146
+Surprised: 0.124
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-06-01-01-02-22.wav
+File results: randomforest.txt
+Expected: Fear
+Dominate Emotion: Happy
+Neutral: 0.032
+Calm: 0.106
+Happy: 0.214
+Sad: 0.19
+Angry: 0.092
+Fear: 0.09
+Disgust: 0.124
+Surprised: 0.152
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-06-01-02-01-22.wav
+File results: randomforest.txt
+Expected: Fear
+Dominate Emotion: Angry
+Neutral: 0.028
+Calm: 0.064
+Happy: 0.16
+Sad: 0.098
+Angry: 0.206
+Fear: 0.114
+Disgust: 0.198
+Surprised: 0.132
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-06-01-02-02-22.wav
+File results: randomforest.txt
+Expected: Fear
+Dominate Emotion: Disgust
+Neutral: 0.038
+Calm: 0.078
+Happy: 0.192
+Sad: 0.152
+Angry: 0.13
+Fear: 0.084
+Disgust: 0.21
+Surprised: 0.116
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-06-02-01-01-22.wav
+File results: randomforest.txt
+Expected: Fear
+Dominate Emotion: Fear
+Neutral: 0.0
+Calm: 0.004
+Happy: 0.158
+Sad: 0.168
+Angry: 0.174
+Fear: 0.34
+Disgust: 0.056
+Surprised: 0.1
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-06-02-01-02-22.wav
+File results: randomforest.txt
+Expected: Fear
+Dominate Emotion: Fear
+Neutral: 0.006
+Calm: 0.006
+Happy: 0.162
+Sad: 0.074
+Angry: 0.182
+Fear: 0.242
+Disgust: 0.104
+Surprised: 0.224
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-06-02-02-01-22.wav
+File results: randomforest.txt
+Expected: Fear
+Dominate Emotion: Fear
+Neutral: 0.0
+Calm: 0.006
+Happy: 0.162
+Sad: 0.12
+Angry: 0.128
+Fear: 0.444
+Disgust: 0.068
+Surprised: 0.072
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-06-02-02-02-22.wav
+File results: randomforest.txt
+Expected: Fear
+Dominate Emotion: Fear
+Neutral: 0.004
+Calm: 0.006
+Happy: 0.116
+Sad: 0.106
+Angry: 0.184
+Fear: 0.488
+Disgust: 0.046
+Surprised: 0.05
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-07-01-01-01-22.wav
+File results: randomforest.txt
+Expected: Disgust
+Dominate Emotion: Angry
+Neutral: 0.02
+Calm: 0.014
+Happy: 0.154
+Sad: 0.056
+Angry: 0.326
+Fear: 0.046
+Disgust: 0.17
+Surprised: 0.214
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-07-01-01-02-22.wav
+File results: randomforest.txt
+Expected: Disgust
+Dominate Emotion: Disgust
+Neutral: 0.052
+Calm: 0.062
+Happy: 0.126
+Sad: 0.066
+Angry: 0.18
+Fear: 0.046
+Disgust: 0.304
+Surprised: 0.164
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-07-01-02-01-22.wav
+File results: randomforest.txt
+Expected: Disgust
+Dominate Emotion: Surprised
+Neutral: 0.05
+Calm: 0.054
+Happy: 0.212
+Sad: 0.072
+Angry: 0.092
+Fear: 0.074
+Disgust: 0.15
+Surprised: 0.296
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-07-01-02-02-22.wav
+File results: randomforest.txt
+Expected: Disgust
+Dominate Emotion: Disgust
+Neutral: 0.056
+Calm: 0.074
+Happy: 0.186
+Sad: 0.058
+Angry: 0.21
+Fear: 0.062
+Disgust: 0.252
+Surprised: 0.102
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-07-02-01-01-22.wav
+File results: randomforest.txt
+Expected: Disgust
+Dominate Emotion: Disgust
+Neutral: 0.046
+Calm: 0.052
+Happy: 0.186
+Sad: 0.056
+Angry: 0.182
+Fear: 0.036
+Disgust: 0.274
+Surprised: 0.168
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-07-02-01-02-22.wav
+File results: randomforest.txt
+Expected: Disgust
+Dominate Emotion: Angry
+Neutral: 0.048
+Calm: 0.032
+Happy: 0.15
+Sad: 0.074
+Angry: 0.248
+Fear: 0.088
+Disgust: 0.202
+Surprised: 0.158
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-07-02-02-01-22.wav
+File results: randomforest.txt
+Expected: Disgust
+Dominate Emotion: Happy
+Neutral: 0.042
+Calm: 0.042
+Happy: 0.222
+Sad: 0.056
+Angry: 0.184
+Fear: 0.044
+Disgust: 0.21
+Surprised: 0.2
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-07-02-02-02-22.wav
+File results: randomforest.txt
+Expected: Disgust
+Dominate Emotion: Angry
+Neutral: 0.088
+Calm: 0.146
+Happy: 0.16
+Sad: 0.08
+Angry: 0.224
+Fear: 0.064
+Disgust: 0.172
+Surprised: 0.066
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-08-01-01-01-22.wav
+File results: randomforest.txt
+Expected: Surprised
+Dominate Emotion: Surprised
+Neutral: 0.03
+Calm: 0.028
+Happy: 0.132
+Sad: 0.07
+Angry: 0.186
+Fear: 0.058
+Disgust: 0.24
+Surprised: 0.256
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-08-01-01-02-22.wav
+File results: randomforest.txt
+Expected: Surprised
+Dominate Emotion: Surprised
+Neutral: 0.012
+Calm: 0.012
+Happy: 0.23
+Sad: 0.046
+Angry: 0.246
+Fear: 0.042
+Disgust: 0.102
+Surprised: 0.31
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-08-01-02-01-22.wav
+File results: randomforest.txt
+Expected: Surprised
+Dominate Emotion: Angry
+Neutral: 0.024
+Calm: 0.032
+Happy: 0.202
+Sad: 0.058
+Angry: 0.28
+Fear: 0.074
+Disgust: 0.134
+Surprised: 0.196
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-08-01-02-02-22.wav
+File results: randomforest.txt
+Expected: Surprised
+Dominate Emotion: Angry
+Neutral: 0.016
+Calm: 0.016
+Happy: 0.2
+Sad: 0.056
+Angry: 0.284
+Fear: 0.098
+Disgust: 0.12
+Surprised: 0.21
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-08-02-01-01-22.wav
+File results: randomforest.txt
+Expected: Surprised
+Dominate Emotion: Surprised
+Neutral: 0.022
+Calm: 0.012
+Happy: 0.114
+Sad: 0.092
+Angry: 0.238
+Fear: 0.082
+Disgust: 0.164
+Surprised: 0.276
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-08-02-01-02-22.wav
+File results: randomforest.txt
+Expected: Surprised
+Dominate Emotion: Angry
+Neutral: 0.014
+Calm: 0.016
+Happy: 0.194
+Sad: 0.064
+Angry: 0.336
+Fear: 0.074
+Disgust: 0.16
+Surprised: 0.142
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-08-02-02-01-22.wav
+File results: randomforest.txt
+Expected: Surprised
+Dominate Emotion: Surprised
+Neutral: 0.018
+Calm: 0.008
+Happy: 0.122
+Sad: 0.06
+Angry: 0.26
+Fear: 0.056
+Disgust: 0.198
+Surprised: 0.278
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+../Emotion Audio/Testing data/Actor_22\03-01-08-02-02-02-22.wav
+File results: randomforest.txt
+Expected: Surprised
+Dominate Emotion: Angry
+Neutral: 0.002
+Calm: 0.014
+Happy: 0.158
+Sad: 0.038
+Angry: 0.28
+Fear: 0.074
+Disgust: 0.188
+Surprised: 0.246
+
+Correct classifications: 23 Out of 60
