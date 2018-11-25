@@ -45,4 +45,9 @@ The webapp is the location where user's can upload mp4, mp3, and wav files which
 # Project Structure 
 
 
+# Contributions
+[PyAudioAnalysis](https://github.com/tyiannak/pyAudioAnalysis) and [Paura2](https://github.com/tyiannak/paura) were developed by the director of machine learning at Behavioral Signals, Dr. Theodoros Giannakopoulos [(tyiannak)](https://github.com/tyiannak).
+
+
+Giannakopoulos, T. (2015, December 11). PyAudioAnalysis: An Open-Source Python Library for Audio Signal Analysis. Retrieved from https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0144610
 
