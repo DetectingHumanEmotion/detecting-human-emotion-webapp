@@ -7,9 +7,12 @@ import os
 from threading import Thread
 from datetime import datetime
 import cv2
-from utils import label_map_util
 from collections import defaultdict
 
+try:
+    from utilities import label_map_util
+except ModuleNotFoundError:
+    from .utilities import label_map_util
 
 # void cv::ellipse2Poly	(	Point 	center,
 # Size 	axes,
@@ -38,11 +41,16 @@ sys.path.append("..")
 # score threshold for showing bounding boxes.
 _score_thresh = 0.27
 
-MODEL_NAME = 'hand_inference_graph'
+MODEL_NAME = 'visual/hand_inference_graph'
 # Path to frozen detection graph. This is the actual model that is used for the object detection.
 PATH_TO_CKPT = MODEL_NAME + '/frozen_inference_graph.pb'
 # List of the strings that is used to add correct label for each box.
 PATH_TO_LABELS = os.path.join(MODEL_NAME, 'hand_label_map.pbtxt')
+
+print(PATH_TO_LABELS)
+print(os.path.isfile(PATH_TO_LABELS))
+print(os.getcwd())
+
 
 NUM_CLASSES = 1
 # load label map

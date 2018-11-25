@@ -1,8 +1,12 @@
-from utils import detector_utils as detector_utils
 import cv2
-import tensorflow as tf
 import datetime
 import argparse
+
+try:
+    from utilities import detector_utils
+except ModuleNotFoundError:
+    from .utilities import detector_utils
+
 
 cap = cv2.VideoCapture(0)
 detection_graph, sess = detector_utils.load_inference_graph()

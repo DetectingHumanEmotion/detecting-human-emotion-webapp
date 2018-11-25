@@ -7,19 +7,13 @@ from threading import Thread #used for threading
 from imutils import face_utils
 import dlib
 
-
-
 try:
-    from deception_detection.audio.paura2 import run_audio_deception_stream
-    from utils.detector_utils import WebcamVideoStream
-    from utils import detector_utils as detector_utils
+    from utilities.detector_utils import WebcamVideoStream
+    from utilities import detector_utils
+
 except ModuleNotFoundError:
-    from .deception_detection.audio.paura2 import run_audio_deception_stream
-    from .utils.detector_utils import WebcamVideoStream
-    from .utils import detector_utils as detector_utils
-
-
-
+    from .utilities.detector_utils import WebcamVideoStream
+    from .utilities import detector_utils
 
 
 def eye_aspect_ratio(eye):
@@ -112,7 +106,7 @@ def record():
     detector = dlib.get_frontal_face_detector()
     # ags=vars(args)
     # predictor = dlib.shape_predictor(ags["shape_predictor"])
-    predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
+    predictor = dlib.shape_predictor("visual/shape_predictor_68_face_landmarks.dat")
 
     # grab the indexes of the facial landmarks for the left and
     # right eye, respectively
