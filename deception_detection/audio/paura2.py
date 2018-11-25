@@ -20,7 +20,7 @@ except ModuleNotFoundError:
     from .pyAudioAnalysis import audioTrainTest as aT
 
     """
-    The majority of the file was created by 
+    The majority of the file was created by Dr. Theodoros Giannakopoulos (tyiannak) https://github.com/tyiannak/paura
     but modified by tybruno.
     
     tybruno got the function to classify deception and emotion in realtime. Originally, the code was unable to classify in real time but tybruno added code to fix it.
