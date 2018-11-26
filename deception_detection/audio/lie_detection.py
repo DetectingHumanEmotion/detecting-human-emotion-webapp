@@ -1,12 +1,24 @@
-from pyAudioAnalysis import audioTrainTest as aT
-import threading
 import os
+
+try:
+    from pyAudioAnalysis import audioTrainTest as aT
+except ModuleNotFoundError:
+    from .pyAudioAnalysis import audioTrainTest as aT
+
+"""
+developed by tybruno
+
+This file was built to train and test deception and emotion audio models.
+
+"""
+
 
 EXPECTED = {"0.0": "truth", "data.0": "lie"}
 
 
 def get_files_in_directory(dir, file_extension=".wav"):
     """
+    created by tybruno
     Gets all the files in a specified directory
 
 
@@ -34,8 +46,23 @@ def get_files_in_directory(dir, file_extension=".wav"):
 
     return files
 
-def classify_file(file, trained_machine_name = "deceptionGradientBoosting",trained_machine_algorithm = "gradientboosting",classification = ["Truth","Lie"]):
-    return aT.fileClassification(inputFile= file,model_name=trained_machine_name,model_type=trained_machine_algorithm)
+def classify_file(file, trained_model_name ="deceptionGradientBoosting", trained_machine_algorithm ="gradientboosting"):
+    """
+    developed by tybruno
+
+    classifies a single file
+
+    :param file: file that will be classified
+    :param trained_model_name: The model that will perform the classification
+    :param trained_machine_algorithm: The algorithm used to perform classification.
+    :return:
+    """
+    return aT.fileClassification(inputFile=file, model_name=trained_model_name, model_type=trained_machine_algorithm)
+
+
+def classify_file_process(file,queue,trained_machine_name = "deceptionGradientBoosting",trained_machine_algorithm = "gradientboosting"):
+    queue.put(aT.fileClassification(inputFile=file, model_name=trained_machine_name, model_type=trained_machine_algorithm))
+
 def classify_dir(
     dir,
     trained_machine_name,
@@ -45,6 +72,8 @@ def classify_dir(
     file_extension=".wav",
 ):
     """
+    developed by tybruno
+
     This classifies every file within a specified directory and prints / writes results.
 
 
@@ -70,14 +99,6 @@ def classify_dir(
         "files_in_directory":len(files_in_directory),
         "correct_classifications": 0
     }
-
-
-    # clear old file
-    # with open(machine_info["output_file"], "w") as f:
-    #     f.write("")
-
-    # counts the number of correctly predicted emotions
-    correct = 0
 
     results_list = []
 
@@ -131,8 +152,159 @@ def classify_dir(
 
     # print(formated_results)
 
+# def train_emotion_model(truth_audio_path = "../../training-data/deception-audio/truth_audio",lie_audio_path = "../../training-data/deception-audio/lie_audio_edited"):
+#
+#
+#     #train model
+#     aT.featureAndTrain(
+#         list_of_dirs=[truth_audio_path,lie_audio_path],
+#         mt_win=1,
+#         mt_step=1,
+#         st_win=aT.shortTermWindow,
+#         st_step=aT.shortTermStep,
+#         classifier_type="svm",
+#         model_name="deceptionSvm_edited",
+#         compute_beat=False,
+#     )
+#     aT.featureAndTrain(
+#         list_of_dirs=[truth_audio_path, lie_audio_path],
+#         mt_win=1,
+#         mt_step=1,
+#         st_win=aT.shortTermWindow,
+#         st_step=aT.shortTermStep,
+#         classifier_type="knn",
+#         model_name="deceptionKNN_edited",
+#         compute_beat=False,
+#     )
+#     aT.featureAndTrain(
+#         list_of_dirs=[truth_audio_path, lie_audio_path],
+#         mt_win=1,
+#         mt_step=1,
+#         st_win=aT.shortTermWindow,
+#         st_step=aT.shortTermStep,
+#         classifier_type="randomforest",
+#         model_name="deceptionRandomForest_edited",
+#         compute_beat=False,
+#     )
+#     aT.featureAndTrain(
+#         list_of_dirs=[truth_audio_path, lie_audio_path],
+#         mt_win=1,
+#         mt_step=1,
+#         st_win=aT.shortTermWindow,
+#         st_step=aT.shortTermStep,
+#         classifier_type="gradientboosting",
+#         model_name="deceptionGradientBoosting_edited",
+#         compute_beat=False,
+#     )
+#     aT.featureAndTrain(
+#         list_of_dirs=[truth_audio_path, lie_audio_path],
+#         mt_win=1,
+#         mt_step=1,
+#         st_win=aT.shortTermWindow,
+#         st_step=aT.shortTermStep,
+#         classifier_type="extratrees",
+#         model_name="deceptionExtraTrees_edited",
+#         compute_beat=False,
+#     )
+def train_deception_model(truth_audio_path = "../../training-data/deception-audio/truth_audio",lie_audio_path = "../../training-data/deception-audio/lie_audio_edited"):
+    """
+    developed by tybruno
+
+    This function was created to train the deception model using .wav files. Only .wav files are supported
+
+    :param truth_audio_path: path to the truth audio (.wav) datasets
+    :param lie_audio_path:  path to the lie audio (.wav) datasets
+    :return:
+    """
+
+    #train model
+    aT.featureAndTrain(
+        list_of_dirs=[truth_audio_path,lie_audio_path],
+        mt_win=1,
+        mt_step=1,
+        st_win=aT.shortTermWindow,
+        st_step=aT.shortTermStep,
+        classifier_type="svm",
+        model_name="deceptionSvm_edited",
+        compute_beat=False,
+    )
+    aT.featureAndTrain(
+        list_of_dirs=[truth_audio_path, lie_audio_path],
+        mt_win=1,
+        mt_step=1,
+        st_win=aT.shortTermWindow,
+        st_step=aT.shortTermStep,
+        classifier_type="knn",
+        model_name="deceptionKNN_edited",
+        compute_beat=False,
+    )
+    aT.featureAndTrain(
+        list_of_dirs=[truth_audio_path, lie_audio_path],
+        mt_win=1,
+        mt_step=1,
+        st_win=aT.shortTermWindow,
+        st_step=aT.shortTermStep,
+        classifier_type="randomforest",
+        model_name="deceptionRandomForest_edited",
+        compute_beat=False,
+    )
+    aT.featureAndTrain(
+        list_of_dirs=[truth_audio_path, lie_audio_path],
+        mt_win=1,
+        mt_step=1,
+        st_win=aT.shortTermWindow,
+        st_step=aT.shortTermStep,
+        classifier_type="gradientboosting",
+        model_name="deceptionGradientBoosting_edited",
+        compute_beat=False,
+    )
+    aT.featureAndTrain(
+        list_of_dirs=[truth_audio_path, lie_audio_path],
+        mt_win=1,
+        mt_step=1,
+        st_win=aT.shortTermWindow,
+        st_step=aT.shortTermStep,
+        classifier_type="extratrees",
+        model_name="deceptionExtraTrees_edited",
+        compute_beat=False,
+    )
+
+def classify_deception_models(classify_location = "../../training-data/deception-audio/testing_data",classification = ["Truth", "Lie"]):
+    """
+    developed by tybruno
+
+    This function classifies training data to show accuracy of each algorithm and model used for deception detect.
+
+    There are 2 parts to this function.
+
+    1. The first classify's the model that has been trained with edited training data. This training data has only the person being questioned in the recorded training data.
+    2. The second part will classify using the model that has been trained with unedited training data. This unedited training data has both the person asking questions and person responding in the audio files.
+
+    through our testing we didn't find a noticeable change in accuracy.
+
+    :param classify_location: directory path that has the data that we want to classify
+    :param classification: classification type used when displaying the results.
+    :return:
+    """
+    # classify wav files for edited trained machine in directory
+    print(classify_dir(dir = classify_location,trained_machine_name= "deceptionSvm_edited",trained_machine_algorithm= "svm",output_file_name="_edited.txt",classification = classification))
+    print(classify_dir(dir = classify_location,trained_machine_name= "deceptionKNN_edited",trained_machine_algorithm= "knn",output_file_name="_edited.txt",classification = classification))
+    print(classify_dir(dir = classify_location,trained_machine_name= "deceptionRandomForest_edited",trained_machine_algorithm= "randomforest",output_file_name="_edited.txt",classification = classification))
+    print(classify_dir(dir = classify_location,trained_machine_name= "deceptionGradientBoosting_edited",trained_machine_algorithm= "gradientboosting",output_file_name="_edited.txt",classification = classification))
+    print(classify_dir(dir = classify_location,trained_machine_name= "deceptionExtraTrees_edited",trained_machine_algorithm= "extratrees",output_file_name="_edited.txt",classification = classification))
+
+    # # classify wav files for unedited trained machine in directory
+    print(classify_dir(dir = classify_location,trained_machine_name= "deceptionSvm",trained_machine_algorithm= "svm",classification = classification))
+    print(classify_dir(dir = classify_location,trained_machine_name= "deceptionKNN",trained_machine_algorithm= "knn",classification = classification))
+    print(classify_dir(dir = classify_location,trained_machine_name= "deceptionRandomForest",trained_machine_algorithm= "randomforest",classification = classification))
+    print(classify_dir(dir = classify_location,trained_machine_name= "deceptionGradientBoosting",trained_machine_algorithm= "gradientboosting",classification = classification))
+    print(classify_dir(dir = classify_location,trained_machine_name= "deceptionExtraTrees",trained_machine_algorithm= "extratrees",classification = classification))
 
 def main():
+    """
+    Developed by tybruno
+
+    """
     truth_audio_path = "../../training-data/deception-audio/truth_audio"
     lie_audio_path = "../../training-data/deception-audio/lie_audio_edited"
     classify_location = "../../training-data/deception-audio/testing_data"
@@ -140,76 +312,11 @@ def main():
     test_path = "../../training-data/deception-audio/test"
 
 
-    # train model
-    # aT.featureAndTrain(
-    #     list_of_dirs=[truth_audio_path,lie_audio_path],
-    #     mt_win=data.0,
-    #     mt_step=data.0,
-    #     st_win=aT.shortTermWindow,
-    #     st_step=aT.shortTermStep,
-    #     classifier_type="svm",
-    #     model_name="deceptionSvm_edited",
-    #     compute_beat=False,
-    # )
-    # aT.featureAndTrain(
-    #     list_of_dirs=[truth_audio_path, lie_audio_path],
-    #     mt_win=data.0,
-    #     mt_step=data.0,
-    #     st_win=aT.shortTermWindow,
-    #     st_step=aT.shortTermStep,
-    #     classifier_type="knn",
-    #     model_name="deceptionKNN_edited",
-    #     compute_beat=False,
-    # )
-    # aT.featureAndTrain(
-    #     list_of_dirs=[truth_audio_path, lie_audio_path],
-    #     mt_win=data.0,
-    #     mt_step=data.0,
-    #     st_win=aT.shortTermWindow,
-    #     st_step=aT.shortTermStep,
-    #     classifier_type="randomforest",
-    #     model_name="deceptionRandomForest_edited",
-    #     compute_beat=False,
-    # )
-    # aT.featureAndTrain(
-    #     list_of_dirs=[truth_audio_path, lie_audio_path],
-    #     mt_win=data.0,
-    #     mt_step=data.0,
-    #     st_win=aT.shortTermWindow,
-    #     st_step=aT.shortTermStep,
-    #     classifier_type="gradientboosting",
-    #     model_name="deceptionGradientBoosting_edited",
-    #     compute_beat=False,
-    # )
-    # aT.featureAndTrain(
-    #     list_of_dirs=[truth_audio_path, lie_audio_path],
-    #     mt_win=data.0,
-    #     mt_step=data.0,
-    #     st_win=aT.shortTermWindow,
-    #     st_step=aT.shortTermStep,
-    #     classifier_type="extratrees",
-    #     model_name="deceptionExtraTrees_edited",
-    #     compute_beat=False,
-    # )
+
     # print(classify_file("trial_lie_002.wav"))
     file="trial_lie_002.wav"
-    print(classify_file(file, trained_machine_name="deceptionGradientBoosting", trained_machine_algorithm="gradientboosting"))
-    print(classify_file(file, trained_machine_name="emotionExtraTrees", trained_machine_algorithm="extratrees"))
-
-    # classify wav files for edited trained machine in directory
-    # classify_dir(dir = classify_location,trained_machine_name= "deceptionSvm_edited",trained_machine_algorithm= "svm",output_file_name="_edited.txt",classification = classification)
-    # classify_dir(dir = classify_location,trained_machine_name= "deceptionKNN_edited",trained_machine_algorithm= "knn",output_file_name="_edited.txt",classification = classification)
-    # classify_dir(dir = classify_location,trained_machine_name= "deceptionRandomForest_edited",trained_machine_algorithm= "randomforest",output_file_name="_edited.txt",classification = classification)
-    # classify_dir(dir = classify_location,trained_machine_name= "deceptionGradientBoosting_edited",trained_machine_algorithm= "gradientboosting",output_file_name="_edited.txt",classification = classification)
-    # classify_dir(dir = classify_location,trained_machine_name= "deceptionExtraTrees_edited",trained_machine_algorithm= "extratrees",output_file_name="_edited.txt",classification = classification)
-    #
-    # # classify wav files for unedited trained machine in directory
-    # classify_dir(dir = classify_location,trained_machine_name= "deceptionSvm",trained_machine_algorithm= "svm",classification = classification)
-    # classify_dir(dir = classify_location,trained_machine_name= "deceptionKNN",trained_machine_algorithm= "knn",classification = classification)
-    # classify_dir(dir = classify_location,trained_machine_name= "deceptionRandomForest",trained_machine_algorithm= "randomforest",classification = classification)
-    # classify_dir(dir = classify_location,trained_machine_name= "deceptionGradientBoosting",trained_machine_algorithm= "gradientboosting",classification = classification)
-    # classify_dir(dir = classify_location,trained_machine_name= "deceptionExtraTrees",trained_machine_algorithm= "extratrees",classification = classification)
-
+    print(classify_file(file, trained_model_name="deceptionGradientBoosting", trained_machine_algorithm="gradientboosting"))
+    print(classify_file(file, trained_model_name="emotionExtraTrees", trained_machine_algorithm="extratrees"))
 
 main()
 

@@ -1,9 +1,16 @@
-from flask import Flask,g
+from flask import Flask, g
 from flask_oidc import OpenIDConnect
 from okta import UsersClient
-# from flask_pymongo import PyMongo
+
 import platform
 import os
+
+"""
+Created by tybruno.
+
+This file contains the settings for the application.
+It also contains SSO (okta) information needed to interface with Okta
+"""
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
@@ -13,11 +20,10 @@ UPLOAD_FOLDER = "detecting_human_emotion_webapp/uploads"
 
 if platform.system() is "Windows":
     app.config["OIDC_CLIENT_SECRETS"] = "detecting_human_emotion_webapp/client_secrets.json"
-
 else:
     app.config["OIDC_CLIENT_SECRETS"] = "client_secrets.json"
 
-#The OIDC_COOKIE_SECURE setting allows you to test out user login and registration in development
+# The OIDC_COOKIE_SECURE setting allows you to test out user login and registration in development
 # without using SSL. If you were going to run your site publicly, you would remove this option and use SSL on your site.
 app.config["OIDC_COOKIE_SECURE"] = False
 app.config["OIDC_CALLBACK_ROUTE"] = "/oidc/callback"

@@ -1,0 +1,961 @@
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-01-01-01-01-22.wav
+File results: svm.txt
+Expected: Neutral
+Dominate Emotion: Neutral
+Neutral: 0.31149146128212735
+Calm: 0.12277254145470082
+Happy: 0.04852482621679259
+Sad: 0.31038374324800644
+Angry: 0.04862150857547907
+Fear: 0.07311637320684647
+Disgust: 0.058538020400941984
+Surprised: 0.026551525615105324
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-01-01-01-02-22.wav
+File results: svm.txt
+Expected: Neutral
+Dominate Emotion: Sad
+Neutral: 0.1809777444548196
+Calm: 0.1619680932260283
+Happy: 0.10720964851498728
+Sad: 0.239699564511982
+Angry: 0.03642505275808755
+Fear: 0.10909096312558507
+Disgust: 0.11476890270976155
+Surprised: 0.04986003069874841
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-01-01-02-01-22.wav
+File results: svm.txt
+Expected: Neutral
+Dominate Emotion: Neutral
+Neutral: 0.4278424720704811
+Calm: 0.1856031878276784
+Happy: 0.0679461433343022
+Sad: 0.1630772173549336
+Angry: 0.010573344276200691
+Fear: 0.06868523864704322
+Disgust: 0.04724264464885324
+Surprised: 0.029029751840507493
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-01-01-02-02-22.wav
+File results: svm.txt
+Expected: Neutral
+Dominate Emotion: Neutral
+Neutral: 0.19241120488940786
+Calm: 0.15317241943428422
+Happy: 0.05499430502590181
+Sad: 0.29549878126701873
+Angry: 0.0684679120634844
+Fear: 0.03509032733858038
+Disgust: 0.1826625141593566
+Surprised: 0.017702535821966046
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-02-01-01-01-22.wav
+File results: svm.txt
+Expected: Calm
+Dominate Emotion: Calm
+Neutral: 0.08714735782037793
+Calm: 0.38576421898934254
+Happy: 0.016017021973041227
+Sad: 0.3165931158456309
+Angry: 0.00650211921354219
+Fear: 0.10257121052165388
+Disgust: 0.07540740212231521
+Surprised: 0.009997553514096511
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-02-01-01-02-22.wav
+File results: svm.txt
+Expected: Calm
+Dominate Emotion: Fear
+Neutral: 0.05829252491383629
+Calm: 0.22911525206630126
+Happy: 0.03575293627592794
+Sad: 0.25328614039523784
+Angry: 0.010535974898238017
+Fear: 0.31840316794639933
+Disgust: 0.08563722081475525
+Surprised: 0.008976782689303898
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-02-01-02-01-22.wav
+File results: svm.txt
+Expected: Calm
+Dominate Emotion: Neutral
+Neutral: 0.19777343237640904
+Calm: 0.2927389936425626
+Happy: 0.03127411187008567
+Sad: 0.2184717224996432
+Angry: 0.01807929719760789
+Fear: 0.09868282735662405
+Disgust: 0.12717345696641028
+Surprised: 0.015806158090657354
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-02-01-02-02-22.wav
+File results: svm.txt
+Expected: Calm
+Dominate Emotion: Disgust
+Neutral: 0.0671731836441144
+Calm: 0.13716621017566455
+Happy: 0.11389036547053023
+Sad: 0.17820676293339377
+Angry: 0.021153308772234515
+Fear: 0.24346810053234788
+Disgust: 0.21901296733833495
+Surprised: 0.019929101133379465
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-02-02-01-01-22.wav
+File results: svm.txt
+Expected: Calm
+Dominate Emotion: Fear
+Neutral: 0.10608717738457903
+Calm: 0.16803260830075212
+Happy: 0.04737928871118004
+Sad: 0.1465196484168548
+Angry: 0.008782267259819041
+Fear: 0.4624682262218197
+Disgust: 0.04836555450961326
+Surprised: 0.012365229195381851
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-02-02-01-02-22.wav
+File results: svm.txt
+Expected: Calm
+Dominate Emotion: Fear
+Neutral: 0.16182952807210763
+Calm: 0.1082769957438013
+Happy: 0.021759080261800564
+Sad: 0.07254732952072555
+Angry: 0.013660039407298928
+Fear: 0.5393498518972544
+Disgust: 0.05991714836327843
+Surprised: 0.02266002673373353
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-02-02-02-01-22.wav
+File results: svm.txt
+Expected: Calm
+Dominate Emotion: Sad
+Neutral: 0.11182992965461716
+Calm: 0.1952793551638959
+Happy: 0.05594076305855828
+Sad: 0.35762333994032985
+Angry: 0.030833877348482936
+Fear: 0.10838915104064681
+Disgust: 0.12264613242884045
+Surprised: 0.01745745136462885
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-02-02-02-02-22.wav
+File results: svm.txt
+Expected: Calm
+Dominate Emotion: Calm
+Neutral: 0.06822719494923933
+Calm: 0.4674461534711692
+Happy: 0.031222101542501247
+Sad: 0.17403992675710767
+Angry: 0.02784417292141056
+Fear: 0.09099067863841183
+Disgust: 0.13195145121187551
+Surprised: 0.00827832050828486
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-03-01-01-01-22.wav
+File results: svm.txt
+Expected: Happy
+Dominate Emotion: Calm
+Neutral: 0.0729581903614306
+Calm: 0.4494474501590885
+Happy: 0.10309926151296855
+Sad: 0.14545089534508837
+Angry: 0.029301343620947384
+Fear: 0.08959584839140604
+Disgust: 0.07534194658979125
+Surprised: 0.03480506401927964
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-03-01-01-02-22.wav
+File results: svm.txt
+Expected: Happy
+Dominate Emotion: Happy
+Neutral: 0.03995351144592155
+Calm: 0.016036488123661
+Happy: 0.5997679670025562
+Sad: 0.02800135702652342
+Angry: 0.012540643656504376
+Fear: 0.18454707666252518
+Disgust: 0.07291785852824506
+Surprised: 0.04623509755406289
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-03-01-02-01-22.wav
+File results: svm.txt
+Expected: Happy
+Dominate Emotion: Fear
+Neutral: 0.20500887887457117
+Calm: 0.0797268662978561
+Happy: 0.061272494692787366
+Sad: 0.12336534630675895
+Angry: 0.019406200520760655
+Fear: 0.3764728594193172
+Disgust: 0.07144641289056376
+Surprised: 0.06330094099738534
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-03-01-02-02-22.wav
+File results: svm.txt
+Expected: Happy
+Dominate Emotion: Fear
+Neutral: 0.21139361009614183
+Calm: 0.05730089808282444
+Happy: 0.17115607734699417
+Sad: 0.061173248643309766
+Angry: 0.03481563865700947
+Fear: 0.3139716302640263
+Disgust: 0.08598418391154225
+Surprised: 0.06420471299815185
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-03-02-01-01-22.wav
+File results: svm.txt
+Expected: Happy
+Dominate Emotion: Happy
+Neutral: 0.027470458968817325
+Calm: 0.02356513327407852
+Happy: 0.36540234635013336
+Sad: 0.05556149656136152
+Angry: 0.04340398770585757
+Fear: 0.0360874259242259
+Disgust: 0.16804190335826832
+Surprised: 0.2804672478572569
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-03-02-01-02-22.wav
+File results: svm.txt
+Expected: Happy
+Dominate Emotion: Happy
+Neutral: 0.014370997585249073
+Calm: 0.014644182657323942
+Happy: 0.2867566750429553
+Sad: 0.04583424220814497
+Angry: 0.017390565577313777
+Fear: 0.2861522164091467
+Disgust: 0.11914468635504875
+Surprised: 0.21570643416481758
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-03-02-02-01-22.wav
+File results: svm.txt
+Expected: Happy
+Dominate Emotion: Fear
+Neutral: 0.007158717764460691
+Calm: 0.007897624904036825
+Happy: 0.1491276588245596
+Sad: 0.08423072016567432
+Angry: 0.022796746956425844
+Fear: 0.4872882638398783
+Disgust: 0.05874134178778276
+Surprised: 0.18275892575718194
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-03-02-02-02-22.wav
+File results: svm.txt
+Expected: Happy
+Dominate Emotion: Happy
+Neutral: 0.021266718485106643
+Calm: 0.035530007102872005
+Happy: 0.3382817878721638
+Sad: 0.06291248376736458
+Angry: 0.027732945459078975
+Fear: 0.24199474854141761
+Disgust: 0.08739572168586325
+Surprised: 0.18488558708613345
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-04-01-01-01-22.wav
+File results: svm.txt
+Expected: Sad
+Dominate Emotion: Fear
+Neutral: 0.15073396458087615
+Calm: 0.0919007185007242
+Happy: 0.07306373067387727
+Sad: 0.13895599575234718
+Angry: 0.09631559762439383
+Fear: 0.3258662142913984
+Disgust: 0.08570128362732478
+Surprised: 0.03746249494905851
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-04-01-01-02-22.wav
+File results: svm.txt
+Expected: Sad
+Dominate Emotion: Fear
+Neutral: 0.1242067972834647
+Calm: 0.27185948908489554
+Happy: 0.04838844312526603
+Sad: 0.0971817437710819
+Angry: 0.04030428910703232
+Fear: 0.3535505799750357
+Disgust: 0.04653937413458284
+Surprised: 0.017969283518640487
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-04-01-02-01-22.wav
+File results: svm.txt
+Expected: Sad
+Dominate Emotion: Disgust
+Neutral: 0.07507345321540154
+Calm: 0.07468585239452429
+Happy: 0.11837606192052044
+Sad: 0.13823802717060993
+Angry: 0.040019381220358766
+Fear: 0.10275387550975723
+Disgust: 0.43351019655242845
+Surprised: 0.017343152016399393
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-04-01-02-02-22.wav
+File results: svm.txt
+Expected: Sad
+Dominate Emotion: Disgust
+Neutral: 0.07774882526107658
+Calm: 0.08240567962092103
+Happy: 0.028695883687424848
+Sad: 0.11355877307894315
+Angry: 0.0586732455848145
+Fear: 0.09577641807232902
+Disgust: 0.5316917999286488
+Surprised: 0.011449374765841909
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-04-02-01-01-22.wav
+File results: svm.txt
+Expected: Sad
+Dominate Emotion: Fear
+Neutral: 0.0857203173199219
+Calm: 0.08858739784130173
+Happy: 0.20752816529114781
+Sad: 0.14294074664346124
+Angry: 0.04958335299703598
+Fear: 0.28504244156718556
+Disgust: 0.11255898117937647
+Surprised: 0.028038597160569403
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-04-02-01-02-22.wav
+File results: svm.txt
+Expected: Sad
+Dominate Emotion: Sad
+Neutral: 0.05595916054569573
+Calm: 0.059547806217317895
+Happy: 0.14009957573204648
+Sad: 0.5417901975631344
+Angry: 0.019064959443328238
+Fear: 0.10380732590278367
+Disgust: 0.06702733991521377
+Surprised: 0.012703634680479931
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-04-02-02-01-22.wav
+File results: svm.txt
+Expected: Sad
+Dominate Emotion: Sad
+Neutral: 0.04227806198671263
+Calm: 0.14084860915983127
+Happy: 0.030847455596900226
+Sad: 0.6504632277892625
+Angry: 0.04008364244041295
+Fear: 0.028952906964856324
+Disgust: 0.05614262281676812
+Surprised: 0.01038347324525616
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-04-02-02-02-22.wav
+File results: svm.txt
+Expected: Sad
+Dominate Emotion: Sad
+Neutral: 0.07752556819307309
+Calm: 0.1676282798633307
+Happy: 0.04978103182762555
+Sad: 0.5044687756118194
+Angry: 0.032764976860969366
+Fear: 0.04418079053991035
+Disgust: 0.060244897205519114
+Surprised: 0.06340567989775218
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-05-01-01-01-22.wav
+File results: svm.txt
+Expected: Angry
+Dominate Emotion: Disgust
+Neutral: 0.11945761399515178
+Calm: 0.12733525975950383
+Happy: 0.048264637548049015
+Sad: 0.14399967879456177
+Angry: 0.06934615306107507
+Fear: 0.11667914669867134
+Disgust: 0.3230166249408531
+Surprised: 0.051900885202134296
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-05-01-01-02-22.wav
+File results: svm.txt
+Expected: Angry
+Dominate Emotion: Disgust
+Neutral: 0.11949637272551174
+Calm: 0.030206737620575852
+Happy: 0.10868382951755881
+Sad: 0.04628691096452326
+Angry: 0.125441704726635
+Fear: 0.11121971496561896
+Disgust: 0.3208803371575751
+Surprised: 0.13778439232200124
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-05-01-02-01-22.wav
+File results: svm.txt
+Expected: Angry
+Dominate Emotion: Disgust
+Neutral: 0.04691648369421285
+Calm: 0.0330741293813247
+Happy: 0.17559393053883235
+Sad: 0.044509855420810186
+Angry: 0.17729438195539302
+Fear: 0.04749002305861224
+Disgust: 0.41906581227445716
+Surprised: 0.056055383676357595
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-05-01-02-02-22.wav
+File results: svm.txt
+Expected: Angry
+Dominate Emotion: Disgust
+Neutral: 0.08017805455377651
+Calm: 0.03233632030731377
+Happy: 0.07281232451302368
+Sad: 0.05583828864427423
+Angry: 0.2531466609475091
+Fear: 0.045379843067453525
+Disgust: 0.41454310048589743
+Surprised: 0.045765407480751634
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-05-02-01-01-22.wav
+File results: svm.txt
+Expected: Angry
+Dominate Emotion: Happy
+Neutral: 0.018335226021844554
+Calm: 0.011825032917028078
+Happy: 0.3966544960397602
+Sad: 0.03375007600669338
+Angry: 0.11223230485478584
+Fear: 0.16697388170683727
+Disgust: 0.13644746475967312
+Surprised: 0.12378151769337714
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-05-02-01-02-22.wav
+File results: svm.txt
+Expected: Angry
+Dominate Emotion: Happy
+Neutral: 0.012346731717203083
+Calm: 0.004485737816463092
+Happy: 0.3134371540675833
+Sad: 0.019134881402723816
+Angry: 0.2770468578235963
+Fear: 0.03691879497365721
+Disgust: 0.22090735177117937
+Surprised: 0.11572249042759385
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-05-02-02-01-22.wav
+File results: svm.txt
+Expected: Angry
+Dominate Emotion: Disgust
+Neutral: 0.0031774024415155673
+Calm: 0.001580738618135343
+Happy: 0.05092450514097723
+Sad: 0.011661886525963127
+Angry: 0.3939094086322307
+Fear: 0.04863884603138683
+Disgust: 0.4604526840137594
+Surprised: 0.029654528596031692
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-05-02-02-02-22.wav
+File results: svm.txt
+Expected: Angry
+Dominate Emotion: Angry
+Neutral: 0.008778925805661517
+Calm: 0.007288574940440409
+Happy: 0.20313950136004952
+Sad: 0.028638642359967804
+Angry: 0.26753691552544195
+Fear: 0.08655192161677744
+Disgust: 0.31355063051895127
+Surprised: 0.08451488787270992
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-06-01-01-01-22.wav
+File results: svm.txt
+Expected: Fear
+Dominate Emotion: Fear
+Neutral: 0.07409200047822932
+Calm: 0.1161972008326878
+Happy: 0.18204981240302823
+Sad: 0.25776837579272965
+Angry: 0.03710419990235258
+Fear: 0.19048375958418848
+Disgust: 0.04963315146988639
+Surprised: 0.09267149953689782
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-06-01-01-02-22.wav
+File results: svm.txt
+Expected: Fear
+Dominate Emotion: Happy
+Neutral: 0.07615916311558876
+Calm: 0.05032098902198644
+Happy: 0.36451591256771815
+Sad: 0.18721677375027823
+Angry: 0.029818093623556904
+Fear: 0.17324376112288595
+Disgust: 0.057096080338059504
+Surprised: 0.06162922645992608
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-06-01-02-01-22.wav
+File results: svm.txt
+Expected: Fear
+Dominate Emotion: Happy
+Neutral: 0.0705842487472926
+Calm: 0.08827140210445251
+Happy: 0.32518061424154043
+Sad: 0.12678094781297372
+Angry: 0.09700565713746916
+Fear: 0.10108738888093187
+Disgust: 0.1370227449264074
+Surprised: 0.05406699614893219
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-06-01-02-02-22.wav
+File results: svm.txt
+Expected: Fear
+Dominate Emotion: Happy
+Neutral: 0.03928560256067785
+Calm: 0.044400042240135745
+Happy: 0.31700980392107103
+Sad: 0.1107268196484719
+Angry: 0.03784746586178098
+Fear: 0.22074985930298763
+Disgust: 0.1629919860239
+Surprised: 0.06698842044097485
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-06-02-01-01-22.wav
+File results: svm.txt
+Expected: Fear
+Dominate Emotion: Surprised
+Neutral: 0.010002871193280815
+Calm: 0.007301484967424748
+Happy: 0.19287661527986932
+Sad: 0.057201357036177174
+Angry: 0.02142108774365248
+Fear: 0.23016097094270588
+Disgust: 0.09943091161133025
+Surprised: 0.3816047012255589
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-06-02-01-02-22.wav
+File results: svm.txt
+Expected: Fear
+Dominate Emotion: Fear
+Neutral: 0.005080052181970283
+Calm: 0.003990241122677876
+Happy: 0.25743109829153055
+Sad: 0.04976132416458172
+Angry: 0.014331449516122745
+Fear: 0.3728439717157545
+Disgust: 0.13816407605176342
+Surprised: 0.15839778695559867
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-06-02-02-01-22.wav
+File results: svm.txt
+Expected: Fear
+Dominate Emotion: Fear
+Neutral: 0.0002969865417943757
+Calm: 0.0003015897074701727
+Happy: 0.04661726634905892
+Sad: 0.02021777380280128
+Angry: 0.003948835588639982
+Fear: 0.9048644246457678
+Disgust: 0.011776641925506136
+Surprised: 0.011976481438961507
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-06-02-02-02-22.wav
+File results: svm.txt
+Expected: Fear
+Dominate Emotion: Fear
+Neutral: 0.00355519223936598
+Calm: 0.0020434476419518123
+Happy: 0.259847469870153
+Sad: 0.04785088535087446
+Angry: 0.014410469100272626
+Fear: 0.5780319793069552
+Disgust: 0.0522206881662909
+Surprised: 0.04203986832413624
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-07-01-01-01-22.wav
+File results: svm.txt
+Expected: Disgust
+Dominate Emotion: Fear
+Neutral: 0.09421654040397429
+Calm: 0.012743563577580956
+Happy: 0.14927060133077777
+Sad: 0.09945810461459666
+Angry: 0.08600128123061049
+Fear: 0.407604423154799
+Disgust: 0.10364511833949251
+Surprised: 0.04706036734816817
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-07-01-01-02-22.wav
+File results: svm.txt
+Expected: Disgust
+Dominate Emotion: Disgust
+Neutral: 0.06052617014290161
+Calm: 0.030983927040635063
+Happy: 0.040573029708402125
+Sad: 0.06803643883370769
+Angry: 0.16560191464226146
+Fear: 0.03820656565450278
+Disgust: 0.538856782748107
+Surprised: 0.05721517122948252
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-07-01-02-01-22.wav
+File results: svm.txt
+Expected: Disgust
+Dominate Emotion: Fear
+Neutral: 0.09062917400261483
+Calm: 0.05191047791300568
+Happy: 0.16340721217640608
+Sad: 0.08191990841331945
+Angry: 0.024699872148367098
+Fear: 0.24682006548689972
+Disgust: 0.22669325652139288
+Surprised: 0.11392003333799405
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-07-01-02-02-22.wav
+File results: svm.txt
+Expected: Disgust
+Dominate Emotion: Fear
+Neutral: 0.05050373769417485
+Calm: 0.05782521929254935
+Happy: 0.09232819563752634
+Sad: 0.0973049739540567
+Angry: 0.03578950839588846
+Fear: 0.42697618250121977
+Disgust: 0.20600354867417217
+Surprised: 0.03326863385041253
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-07-02-01-01-22.wav
+File results: svm.txt
+Expected: Disgust
+Dominate Emotion: Calm
+Neutral: 0.07374906466610452
+Calm: 0.26106732710556596
+Happy: 0.14808630520157964
+Sad: 0.08551179691134488
+Angry: 0.07085115911788209
+Fear: 0.10279354046645446
+Disgust: 0.22582166148406504
+Surprised: 0.03211914504700356
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-07-02-01-02-22.wav
+File results: svm.txt
+Expected: Disgust
+Dominate Emotion: Fear
+Neutral: 0.06290030902964698
+Calm: 0.0699583968982272
+Happy: 0.08997596574955936
+Sad: 0.0828542788112006
+Angry: 0.08980518009567763
+Fear: 0.24779209613110909
+Disgust: 0.26506628465532023
+Surprised: 0.09164748862925914
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-07-02-02-01-22.wav
+File results: svm.txt
+Expected: Disgust
+Dominate Emotion: Disgust
+Neutral: 0.03939109251858151
+Calm: 0.033958438049335904
+Happy: 0.23294347764069226
+Sad: 0.04281960271931959
+Angry: 0.07451786597933305
+Fear: 0.14381257285949176
+Disgust: 0.26818406143818563
+Surprised: 0.16437288879505976
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-07-02-02-02-22.wav
+File results: svm.txt
+Expected: Disgust
+Dominate Emotion: Disgust
+Neutral: 0.04668840071733014
+Calm: 0.055504708680272005
+Happy: 0.1451977733612912
+Sad: 0.10382952051895983
+Angry: 0.11867046579814389
+Fear: 0.11231360946485214
+Disgust: 0.3051719863947287
+Surprised: 0.11262353506442192
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-08-01-01-01-22.wav
+File results: svm.txt
+Expected: Surprised
+Dominate Emotion: Surprised
+Neutral: 0.0887723249470281
+Calm: 0.054268874015134826
+Happy: 0.14311149185699776
+Sad: 0.03947556357692022
+Angry: 0.05310480105867328
+Fear: 0.0696608405906208
+Disgust: 0.1450318470014949
+Surprised: 0.40657425695312976
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-08-01-01-02-22.wav
+File results: svm.txt
+Expected: Surprised
+Dominate Emotion: Surprised
+Neutral: 0.034792523790321404
+Calm: 0.0034854892555714278
+Happy: 0.2126520309992871
+Sad: 0.013266251520522406
+Angry: 0.03963650020827146
+Fear: 0.029609021875773158
+Disgust: 0.12663547316188042
+Surprised: 0.5399227091883726
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-08-01-02-01-22.wav
+File results: svm.txt
+Expected: Surprised
+Dominate Emotion: Disgust
+Neutral: 0.10674266187882181
+Calm: 0.03947091189273156
+Happy: 0.13383819104571715
+Sad: 0.053692906969244926
+Angry: 0.13155092673688829
+Fear: 0.06595432377881975
+Disgust: 0.2852096404420122
+Surprised: 0.18354043725576435
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-08-01-02-02-22.wav
+File results: svm.txt
+Expected: Surprised
+Dominate Emotion: Happy
+Neutral: 0.0191480610751113
+Calm: 0.01058383310015175
+Happy: 0.3597678070585587
+Sad: 0.03190775268105983
+Angry: 0.08675523502985619
+Fear: 0.13716613845683392
+Disgust: 0.12306716059782122
+Surprised: 0.2316040120006071
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-08-02-01-01-22.wav
+File results: svm.txt
+Expected: Surprised
+Dominate Emotion: Happy
+Neutral: 0.03007889662748874
+Calm: 0.015369848964029756
+Happy: 0.2852930469152543
+Sad: 0.057293252562032736
+Angry: 0.12481834779547565
+Fear: 0.1801973729727037
+Disgust: 0.08407114038845556
+Surprised: 0.22287809377455906
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-08-02-01-02-22.wav
+File results: svm.txt
+Expected: Surprised
+Dominate Emotion: Happy
+Neutral: 0.02510567021109804
+Calm: 0.019307997299133767
+Happy: 0.5418260856930727
+Sad: 0.04027586148273749
+Angry: 0.09246444091071507
+Fear: 0.06173391619013068
+Disgust: 0.07760877804167714
+Surprised: 0.14167725017143457
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-08-02-02-01-22.wav
+File results: svm.txt
+Expected: Surprised
+Dominate Emotion: Fear
+Neutral: 0.021415693042584123
+Calm: 0.02347032155880183
+Happy: 0.1828957683582323
+Sad: 0.060405305360562565
+Angry: 0.09087230696684374
+Fear: 0.22393875529758672
+Disgust: 0.13604841186510325
+Surprised: 0.2609534375502855
+
+modality-voiceChannel-emotion-emotionalIntensity-statement-repetition-actor 
+
+1 = neutral, 2 = calm, 3 = happy, 4 = sad, 5 = angry, 6 = fear, 7 = disgust, 8 = surprised 
+03-01-08-02-02-02-22.wav
+File results: svm.txt
+Expected: Surprised
+Dominate Emotion: Surprised
+Neutral: 0.006376080639953174
+Calm: 0.004243983490865852
+Happy: 0.21366060547005467
+Sad: 0.014467668868237752
+Angry: 0.08881092779489533
+Fear: 0.10253039124809143
+Disgust: 0.1816234931974158
+Surprised: 0.3882868492904858
+
+Correct classifications: 23 Out of 60
