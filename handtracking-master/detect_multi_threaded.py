@@ -3,26 +3,22 @@ from typing import List, Any
 from utils import detector_utils as detector_utils
 import cv2
 import tensorflow as tf
-# import multiprocessing
 from multiprocessing import Queue, Pool
-# import time
 from utils.detector_utils import WebcamVideoStream
 import datetime
 import threading
 from multiprocessing import Process, Pipe
-#from deception_detection.audio.paura2 import run_audio_deception_stream
+#from deception_detection.audio.paura2
+# import run_audio_deception_stream
 import argparse
 from scipy.spatial import distance as dist
-# from imutils.video import FileVideoStream
-# from imutils.video import VideoStream
 from imutils import face_utils
 # import numpy as np
 # import imutils
 import time
 import dlib
 
-#use the space bar as a "signal/new question" for testing
-import keyboard
+import keyboard #use the space bar as a "signal/new question" for testing
 
 
 def eye_aspect_ratio(eye):
@@ -40,12 +36,6 @@ def eye_aspect_ratio(eye):
 
 	# return the eye aspect ratio
 	return ear
-
-
-# left = (0,0)
-# right = (0,0)
-# top = (0,0)
-# bottom = (0,0)
 
 
 frame_processed = 0
@@ -89,9 +79,9 @@ def worker(input_q, output_q, cap_params, frame_processed):
                     # CHECK IF HANDS ARE TOUCHING THE FACE
                     while j < (number_of_points / 4 + 4):
                         """
-                        x1,y1 -- x4,y4          L,T -- L+(R-L/2),T -- R,T
+                        x1,y1 -- x4,y4          L,T -- L+(R-L/2),T -- R,T       Top level
                           |        |             |                     |
-                        x2,y2 -- x3,y3        L,T+(B-T/2)          R,T+(B-T/2)
+                        x2,y2 -- x3,y3        L,T+(B-T/2)          R,T+(B-T/2)  Mid level
                         """
                         (x1, y1) = face_pts[-j-1]
                         (x2, y2) = face_pts[-j-2]
@@ -100,46 +90,36 @@ def worker(input_q, output_q, cap_params, frame_processed):
 
                         x_half = (right - left) / 2
                         y_half = (bottom - top) / 2
-                        #check if top left of box is touching face
-                        # xx = left
                         xL_half = left + x_half
-                        # yy = top
                         yT_half = top + y_half
+
+                        #check if top left of box is touching face
                         if ((left <= x2) and (left >= x3) and (top >= y1) and (top <= y2)):
                             # print("found", str(datetime.datetime.now()))
                             touch_detected = True
                         #check if top mid of box is touching face
-                        # xx = left + x_half
                         elif ((xL_half <= x2) and (xL_half >= x3) and (top >= y1) and (top <= y2)):
                             # print("found", str(datetime.datetime.now()))
                             touch_detected = True
-                        #check if top right of box is touching face
-                        # xx = right
-                        # yy = top
-                        # if ((xx <= x2) and (xx >= x3) and (yy >= y1) and (yy <= y2)):
+                        #check if top right of box is touching face\
                         elif ((right <= x2) and (right >= x3) and (top >= y1) and (top <= y2)):
                             # print("found", str(datetime.datetime.now()))
                             touch_detected = True
                         #check if mid left of box is touching face
-                        # xx = left
-                        # yy = top + y_half
                         elif ((left <= x2) and (left >= x3) and (yT_half >= y1) and (yT_half <= y2)):
                             # print("found", str(datetime.datetime.now()))
                             touch_detected = True
                         #check if mid right of box is touching face
-                        # xx = right
-                        # yy = top + y_half
                         elif ((right <= x2) and (right >= x3) and (yT_half >= y1) and (yT_half <= y2)):
                             # print("found", str(datetime.datetime.now()))
                             touch_detected = True
                         else:
                             pass
-
                         j = j + 1
+
             if touch_detected:
                 frames_touch = frames_touch + 1
             # print("touched: ", frames_touch)
-
 
             # add frame annotated with bounding box to queue
             # output_q.put(frame,frames_touch)
@@ -150,7 +130,7 @@ def worker(input_q, output_q, cap_params, frame_processed):
             # output_q.put(frame, frames_touch)
         try:  # used try so that if user pressed other than the given key error will not be shown
             if keyboard.is_pressed(' '):  # if space bar is pressed
-                # IF SIGNAL IS RECIEVED, i.e. new question
+            # IF SIGNAL IS RECIEVED, i.e. new question
                 # HAND TOUCHING FACE -- LIE OR NOT
                 num_frame_processed = frame_processed - prev_frame_processed
                 current_touch_ratio = frames_touch/num_frame_processed
@@ -171,37 +151,10 @@ def worker(input_q, output_q, cap_params, frame_processed):
     sess.close()
 
 def record():
-    # global jaw_
-    # parent_conn, child_conn = Pipe()
-    # child to parent pipeline
 
     # To run program run the following in cli from this directory
-    # python detect_multi_threaded.py --source 0 --shape-predictor shape_predictor_68_face_landmarks.dat
+    # python detect_multi_threaded.py
 
-
-
-    # parser = argparse.ArgumentParser()
-    # parser.add_argument('-src', '--source', dest='video_source', type=int,
-    #                     default=0, help='Device index of the camera.')
-    # parser.add_argument('-nhands', '--num_hands', dest='num_hands', type=int,
-    #                     default=2, help='Max number of hands to detect.')
-    # parser.add_argument('-fps', '--fps', dest='fps', type=int,
-    #                     default=1, help='Show FPS on detection/display visualization')
-    # parser.add_argument('-wd', '--width', dest='width', type=int,
-    #                     default=300, help='Width of the frames in the video stream.')
-    # parser.add_argument('-ht', '--height', dest='height', type=int,
-    #                     default=200, help='Height of the frames in the video stream.')
-    # parser.add_argument('-ds', '--display', dest='display', type=int,
-    #                     default=1, help='Display the detected images using OpenCV. This reduces FPS')
-    # parser.add_argument('-num-w', '--num-workers', dest='num_workers', type=int,
-    #                     default=4, help='Number of workers.')
-    # parser.add_argument('-q-size', '--queue-size', dest='queue_size', type=int,
-    #                     default=5, help='Size of the queue.')
-    # parser.add_argument("-p", "--shape-predictor", required=True,
-    #                 help="path to facial landmark predictor")
-    # parser.add_argument("-v", "--video", type=str, default="",
-    #                 help="path to input video file")
-    # args = parser.parse_args()
 
 
     # define two constants, one for the eye aspect ratio to indicate
@@ -217,8 +170,7 @@ def record():
     # the facial landmark predictor
     print("[INFO] loading facial landmark predictor...")
     detector = dlib.get_frontal_face_detector()
-    # ags=vars(args)
-    # predictor = dlib.shape_predictor(ags["shape_predictor"])
+
     predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
 
     # grab the indexes of the facial landmarks for the left and
@@ -227,14 +179,9 @@ def record():
     (rStart, rEnd) = face_utils.FACIAL_LANDMARKS_IDXS["right_eye"]
     (lStartjaw,rEndjaw)  = face_utils.FACIAL_LANDMARKS_IDXS["jaw"]
 
-    # input_q = Queue(maxsize=args.queue_size)
-    # output_q = Queue(maxsize=args.queue_size)
     input_q = Queue(maxsize=5)
     output_q = Queue(maxsize=7)
 
-    # video_capture = WebcamVideoStream(src=args.video_source,
-    #                                   width=args.width,
-    #                                   height=args.height).start()
     video_capture = WebcamVideoStream(src=0,
                                       width=300,
                                       height=200).start()
@@ -244,7 +191,6 @@ def record():
     cap_params['score_thresh'] = score_thresh
 
     # max number of hands we want to detect/track
-    # cap_params['num_hands_detect'] = args.num_hands
     cap_params['num_hands_detect'] = 2
 
     # print(cap_params, args)
@@ -254,18 +200,9 @@ def record():
 
 
     # spin up workers to paralleize detection.
-    # pool = Pool(args.num_workers, worker,
-    #             (input_q, output_q, cap_params, frame_processed))
 
     pool = Pool(4, worker,
                 (input_q, output_q, cap_params, frame_processed))
-
-    # left = 0
-    # right = 0
-    # top = 0
-    # bottom = 0
-    # pool = Pool(4, worker,
-    #             (input_q, output_q, cap_params, frame_processed,left, right, top, bottom))
 
 
     num_frames = 0
