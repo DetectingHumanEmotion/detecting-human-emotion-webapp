@@ -32,6 +32,7 @@ utils = "*"
 tensorflow = "*"
 cmake = "*"
 dlib = "*"
+keyboard = "*"
 
 [dev-packages]
 pylint = "*"
