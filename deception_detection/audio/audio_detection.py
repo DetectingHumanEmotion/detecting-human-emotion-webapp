@@ -152,7 +152,7 @@ def classify_dir(
 
     # print(formated_results)
 
-# def train_emotion_model(truth_audio_path = "../../training-data/deception-audio/truth_audio",lie_audio_path = "../../training-data/deception-audio/lie_audio_edited"):
+# def train_emotion_model(truth_audio_path = "../../training-data/deception-audio-datasets/truth_audio",lie_audio_path = "../../training-data/deception-audio-datasets/lie_audio_edited"):
 #
 #
 #     #train model
@@ -206,7 +206,7 @@ def classify_dir(
 #         model_name="deceptionExtraTrees_edited",
 #         compute_beat=False,
 #     )
-def train_deception_model(truth_audio_path = "../../training-data/deception-audio/truth_audio",lie_audio_path = "../../training-data/deception-audio/lie_audio_edited"):
+def train_deception_model(truth_audio_path = "../../training-data/deception-audio-datasets/truth_audio",lie_audio_path = "../../training-data/deception-audio-datasets/lie_audio_edited"):
     """
     developed by tybruno
 
@@ -269,7 +269,7 @@ def train_deception_model(truth_audio_path = "../../training-data/deception-audi
         compute_beat=False,
     )
 
-def classify_deception_models(classify_location = "../../training-data/deception-audio/testing_data",classification = ["Truth", "Lie"]):
+def classify_deception_models(classify_location = "../../training-data/deception-audio-datasets/testing_data",classification = ["Truth", "Lie"]):
     """
     developed by tybruno
 
@@ -305,11 +305,11 @@ def main():
     Developed by tybruno
 
     """
-    truth_audio_path = "../../training-data/deception-audio/truth_audio"
-    lie_audio_path = "../../training-data/deception-audio/lie_audio_edited"
-    classify_location = "../../training-data/deception-audio/testing_data"
+    truth_audio_path = "../../training-data/deception-audio-datasets/truth_audio"
+    lie_audio_path = "../../training-data/deception-audio-datasets/lie_audio_edited"
+    classify_location = "../../training-data/deception-audio-datasets/testing_data"
     classification = ["Truth", "Lie"]
-    test_path = "../../training-data/deception-audio/test"
+    test_path = "../../training-data/deception-audio-datasets/test"
 
 
 
