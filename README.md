@@ -75,5 +75,5 @@ The webapp is the location where user's can upload mp4, mp3, and wav files which
 Giannakopoulos, T. (2015, December 11). PyAudioAnalysis: An Open-Source Python Library for Audio Signal Analysis. Retrieved from https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0144610
 
 
-Deception Detection Datasets
+Deception Detection Data sets
 Veronica Perez-Rosas, Mohamed Abouelenien, Rada Mihalcea, Mihai Burzo, Deception Detection using Real-life Trial Data, in Proceedings of the ACM International Conference on Multimodal Interaction (ICMI 2015), Seattle, November 2015. [[pdf](http://web.eecs.umich.edu/~mihalcea/papers/chao.cvpr15.pdf)]
