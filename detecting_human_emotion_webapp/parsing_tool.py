@@ -58,7 +58,7 @@ def pretty_results_deception(results):
     dominate_result = results[0]
     statistics = results[1]
 
-    pretty_results = f'Dominate Trait: {dominate_result}  \nTruth: {statistics[0]} Lie:{statistics[1]}\n'
+    pretty_results = f'Dominate Trait: {dominate_result}  \nTruth: {statistics[0]} Lie: {statistics[1]}\n'
 
     return pretty_results
 def pretty_results_emotion(results):

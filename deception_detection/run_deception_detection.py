@@ -54,16 +54,16 @@ def deception_detection_multiprocessing():
     """
     ## Multiprocessing way
     try:
-        process1 = Process(target=record)
+        # process1 = Process(target=record)
 
         process2 = Process(target=run_audio_detection)
 
-        process1.start()
+        # process1.start()
         print("Proecss 1 started")
         process2.start()
         print("Process 2 started")
 
-        process1.join()
+        # process1.join()
         process2.join()
 
     except:
