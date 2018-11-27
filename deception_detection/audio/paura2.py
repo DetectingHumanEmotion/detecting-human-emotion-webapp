@@ -13,7 +13,7 @@ import struct
 try:
     from pyAudioAnalysis import audioFeatureExtraction as aF
     from pyAudioAnalysis import audioTrainTest as aT
-    from detecting_human_emotion_webapp.parsing_tool import parse_deception_audio_result, parse_emotion_audio_result
+    from detecting_human_emotion_webapp.parsing_tool import parse_deception_audio_result, parse_emotion_audio_result,pretty_results_emotion,pretty_results_deception
 
 except ModuleNotFoundError:
     from .pyAudioAnalysis import audioFeatureExtraction as aF
@@ -247,10 +247,10 @@ def recordAudioSegments(BLOCKSIZE, model, algorithm, emotion_model, emotion_algo
                                     emotion_audio_results = parse_emotion_audio_result(
                                         aT.fileClassification(wavFileName, emotion_model, emotion_algorithm))
 
-                                    print("Deception:")
-                                    print(deception_audio_results)
-                                    print("Emotion:")
-                                    print(emotion_audio_results)
+                                    print("****Deception*****")
+                                    print(pretty_results_deception(deception_audio_results))
+                                    print("****Emotion****")
+                                    print(pretty_results_emotion(emotion_audio_results))
                                     # print(emotion_dominate_result,emotion_statistics,emotion_paths)
                                     results.append([deception_audio_results, emotion_audio_results])
 

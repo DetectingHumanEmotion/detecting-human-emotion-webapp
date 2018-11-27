@@ -48,6 +48,29 @@ def parse_deception_audio_result(results):
         temp_string = "{:.1%}".format(result)
         new_statistics.append(temp_string)
 
+
     #dominate_result is the result that was dominate. i.e. truth
     #new_statistics shows the percentages of each of the classification. i.e. truth: 80% lie: 20%
     return [dominate_result, new_statistics]
+
+
+def pretty_results_deception(results):
+    dominate_result = results[0]
+    statistics = results[1]
+
+    pretty_results = f'Dominate Trait: {dominate_result}  \nTruth: {statistics[0]} Lie:{statistics[1]}\n'
+
+    return pretty_results
+def pretty_results_emotion(results):
+    dominate_result = results[0]
+    statistics = results[1]
+
+    pretty_results = f'Dominate Trait: {dominate_result}  \nNeutral: {statistics[0]}, Calm: {statistics[1]}, Happy: {statistics[2]}, Sad: {statistics[3]}, Angry: {statistics[4]}, Fear: {statistics[5]}, Disgust: {statistics[6]}\n'
+    return pretty_results
+
+def _printing_tester():
+    ugly = ['Lie', ['0.3%', '99.7%']]
+    print(pretty_results_deception(ugly))
+
+    ugly_emotion = ['Calm', ['6.0%', '20.6%', '16.8%', '17.0%', '15.4%', '9.2%', '11.2%', '3.8%']]
+    print(pretty_results_emotion(ugly_emotion))
