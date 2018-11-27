@@ -77,3 +77,11 @@ Giannakopoulos, T. (2015, December 11). PyAudioAnalysis: An Open-Source Python L
 
 Deception Detection Data sets
 Veronica Perez-Rosas, Mohamed Abouelenien, Rada Mihalcea, Mihai Burzo, Deception Detection using Real-life Trial Data, in Proceedings of the ACM International Conference on Multimodal Interaction (ICMI 2015), Seattle, November 2015. [[pdf](http://web.eecs.umich.edu/~mihalcea/papers/chao.cvpr15.pdf)]
+
+
+Eye blink detection with OpenCV, Python, and dlib
+by Adrian Rosebrock on April 24, 2017
+https://www.pyimagesearch.com/2017/04/24/eye-blink-detection-opencv-python-dlib/
+
+
+Victor Dibia, Real-time Hand-Detection using Neural Networks (SSD) on Tensorflow, (2017), GitHub repository, https://github.com/victordibia/handtracking
