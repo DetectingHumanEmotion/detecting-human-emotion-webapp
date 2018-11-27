@@ -2,8 +2,24 @@
 This repository will contain the project work done by the members of Detecting Human Emotion throughout the course of the Fall 2018 semester in SE 195B.
 
 # Project Structure 
-deception_detection
-
+This section contains highlights of the most important part's of the project.
+* **deception_detection**: This section contains both audio and visual detection code.
+    * audio: contains all the code needed to train detection models as well as testing
+        * **detection-testing**: Directory contains all the testing conducted on deception and emotion testing with audio.
+        * **audio_detection.py**: This is the script that was used to train models for both emotion and deception detection as well as provide testing for those models. It also can classify .wav files.
+        * **paura2**: This script can run deception or emotion detection in real time.
+    * **visual**: contains the code to run the facial deception detection.
+        * **detect_multi_threading.py**: Run's the facial deception detection.
+    * **run_deception_detection.py**: Run's both the audio emotion/deception detection and visual detection in real time.
+* **detecting_human_emotion_webapp**: Contains the files for the website portion of our project.
+    * **app.py**: This is the script that run's the website.
+* **training-data**: Training data used for developing the audio emotion/deception detection models
+    * **deception-audio**
+        * **lie_audio**: raw data set that contains the lie audio (.wav files) used for deception detection model training.
+        * **lie_audio_edited**: edited data which filtered out every other sounds besides the person being questioned. This data set was used to trained the edited deception detection models.
+        * **testing_data**: contains all the testing files used for testing deception.
+        * **truth_audio**: truth data set used to train the audio deception detection.
+    * **Pipfile**: File used for the pipenv (virtual environment). The Pipfile contains all the dependencies for the project. If the user does not want to use pipenv they can view the pipfile to find which requirements are needed for the project.
 ## Environment Installation 
 ### Linux OS
 1. sudo apt-get install portaudio19-dev
@@ -58,3 +74,6 @@ The webapp is the location where user's can upload mp4, mp3, and wav files which
 
 Giannakopoulos, T. (2015, December 11). PyAudioAnalysis: An Open-Source Python Library for Audio Signal Analysis. Retrieved from https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0144610
 
+
+Deception Detection Data sets
+Veronica Perez-Rosas, Mohamed Abouelenien, Rada Mihalcea, Mihai Burzo, Deception Detection using Real-life Trial Data, in Proceedings of the ACM International Conference on Multimodal Interaction (ICMI 2015), Seattle, November 2015. [[pdf](http://web.eecs.umich.edu/~mihalcea/papers/chao.cvpr15.pdf)]
