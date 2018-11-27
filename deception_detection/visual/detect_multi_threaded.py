@@ -1,5 +1,3 @@
-
-
 import keyboard #use the space bar as a "signal/new question" for testing
 import cv2
 import datetime
@@ -34,12 +32,12 @@ def eye_aspect_ratio(eye):
 	# return the eye aspect ratio
 	return ear
 
-
 frame_processed = 0
 score_thresh = 0.2
 
 # Create a worker thread that loads graph and
 # does detection on images in an input queue and puts it on an output queue
+
 def worker(input_q, output_q, cap_params, frame_processed):
     print(">> loading frozen model for worker")
     detection_graph, sess = detector_utils.load_inference_graph()
@@ -52,6 +50,7 @@ def worker(input_q, output_q, cap_params, frame_processed):
         (frame,face_pts) = input_q.get()
         # print(face_pts)
         touch_detected = False
+
         if (frame is not None):
             # actual detection
             boxes, scores = detector_utils.detect_objects(
@@ -120,6 +119,7 @@ def worker(input_q, output_q, cap_params, frame_processed):
 
             # add frame annotated with bounding box to queue
             # output_q.put(frame,frames_touch)
+
             output_q.put(frame)
             frame_processed += 1
         else:
@@ -154,6 +154,7 @@ def record():
 
 
 
+
     # define two constants, one for the eye aspect ratio to indicate
     # blink and then a second constant for the number of consecutive
     # frames the eye must be below the threshold
@@ -174,6 +175,7 @@ def record():
     # right eye, respectively
     (lStart, lEnd) = face_utils.FACIAL_LANDMARKS_IDXS["left_eye"]
     (rStart, rEnd) = face_utils.FACIAL_LANDMARKS_IDXS["right_eye"]
+
     (lStartjaw,rEndjaw)  = face_utils.FACIAL_LANDMARKS_IDXS["jaw"]
 
     input_q = Queue(maxsize=5)
@@ -197,7 +199,6 @@ def record():
 
 
     # spin up workers to paralleize detection.
-
     pool = Pool(4, worker,
                 (input_q, output_q, cap_params, frame_processed))
 
@@ -207,6 +208,7 @@ def record():
     index = 0
     BLINK_COUNTER = 0
     TOTAL_BLINKS = 0
+
     current_blink_ratio = 0 #Blinks/second possible lie or not
     thresh_blink_ratio = 26/60
 
@@ -228,7 +230,7 @@ def record():
         frame = video_capture.read()
         frame = cv2.flip(frame, 1)
         index += 1
-
+        
         input_q.put((cv2.cvtColor(frame, cv2.COLOR_BGR2RGB),jaw_))
         output_frame = output_q.get()
 
@@ -250,6 +252,7 @@ def record():
         # print("frame ",  index, num_frames, elapsed_time, fps)
 
         if (output_frame is not None):
+
             try:  # used try so that if user pressed other than the given key error will not be shown
                 if keyboard.is_pressed(' '):  # if space bar is pressed
                 # IF SIGNAL IS RECIEVED, i.e. new question
@@ -271,7 +274,6 @@ def record():
             except:
                 pass
 
-
             # detect faces in the grayscale frame
             rects = detector(gray, 0)
 
@@ -280,6 +282,7 @@ def record():
                 # determine the facial landmarks for the face region, then
                 # convert the facial landmark (x, y)-coordinates to a NumPy
                 # array
+
                 shape = predictor(output_frame, rect)
                 shape = face_utils.shape_to_np(shape)
 
@@ -312,6 +315,7 @@ def record():
 
                     # reset the eye frame counter
                     BLINK_COUNTER = 0
+
 
                 # if (args.display > 0):
                 #     if (args.fps > 0):
@@ -348,13 +352,16 @@ def record():
             cv2.imshow('Multi-Threaded Detection', output_frame)
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
+
             else:
                 if (num_frames == 400):
                     num_frames = 0
                     start_time = datetime.datetime.now()
+
                 # else:
                 #     print("frames processed: ", index, "elapsed time: ",
                 #           elapsed_time, "fps: ", str(int(fps)))
+
 
         else:
             # print("video end")
@@ -363,10 +370,13 @@ def record():
                     start_time).total_seconds()
     fps = num_frames / elapsed_time
     print("fps", fps)
+
     # parent_conn.close()
+
     pool.terminate()
     video_capture.stop()
     cv2.destroyAllWindows()
+
 
 	
 
@@ -388,6 +398,7 @@ if __name__ == '__main__':
         process1.join()
         # process2.join()
 
+
     except:
         print("process failed")
 
@@ -408,3 +419,4 @@ if __name__ == '__main__':
     #
     # except:
     #     print("Thread failed")
+
