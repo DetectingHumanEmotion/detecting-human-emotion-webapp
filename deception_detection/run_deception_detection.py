@@ -3,6 +3,10 @@ from threading import Thread
 from multiprocessing import Process
 import os
 
+
+# from audio.paura2 import recordAudioSegments
+# from deception_detection.visual.detect_multi_threaded import record
+
 try:
     from deception_detection.audio.paura2 import recordAudioSegments
     from deception_detection.visual.detect_multi_threaded import record
