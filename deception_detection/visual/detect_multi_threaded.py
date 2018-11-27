@@ -16,28 +16,34 @@ except ModuleNotFoundError:
     from .utilities.detector_utils import WebcamVideoStream
     from .utilities import detector_utils
 
+
+# To run visual detection only:
+# python detect_multi_threaded.py
+
 def eye_aspect_ratio(eye):
-	# compute the euclidean distances between the two sets of
-	# vertical eye landmarks (x, y)-coordinates
-	A = dist.euclidean(eye[1], eye[5])
-	B = dist.euclidean(eye[2], eye[4])
+    # compute the euclidean distances between the two sets of
+    # vertical eye landmarks (x, y)-coordinates
+    A = dist.euclidean(eye[1], eye[5])
+    B = dist.euclidean(eye[2], eye[4])
 
-	# compute the euclidean distance between the horizontal
-	# eye landmark (x, y)-coordinates
-	C = dist.euclidean(eye[0], eye[3])
+    # compute the euclidean distance between the horizontal
+    # eye landmark (x, y)-coordinates
+    C = dist.euclidean(eye[0], eye[3])
 
-	# compute the eye aspect ratio
-	ear = (A + B) / (2.0 * C)
+    # compute the eye aspect ratio
+    ear = (A + B) / (2.0 * C)
 
-	# return the eye aspect ratio
-	return ear
+    # return the eye aspect ratio
+    return ear
+
 
 frame_processed = 0
 score_thresh = 0.2
 
-# Create a worker thread that loads graph and
-# does detection on images in an input queue and puts it on an output queue
 
+# Create a worker thread that loads graph and
+# does detection on images in an input queue and puts results on an output queue
+# worker process is called by record() using Pool
 def worker(input_q, output_q, cap_params, frame_processed):
     print(">> loading frozen model for worker")
     detection_graph, sess = detector_utils.load_inference_graph()
@@ -47,24 +53,19 @@ def worker(input_q, output_q, cap_params, frame_processed):
     prev_frame_processed = 0
     while True:
         # print("> ===== in worker loop, frame ", frame_processed)
-        (frame,face_pts) = input_q.get()
+        (frame,face_pts) = input_q.get() #get the frame of the webcam and the 17 points of the jaw from dlib from record()
         # print(face_pts)
-        touch_detected = False
+        touch_detected = False #hand to face touch default is false
 
         if (frame is not None):
-            # actual detection
-            boxes, scores = detector_utils.detect_objects(
-                frame, detection_graph, sess)
-            # draw bounding boxes
-            # detector_utils.draw_box_on_image(
-            #     cap_params['num_hands_detect'], cap_params["score_thresh"], scores, boxes, cap_params['im_width'], cap_params['im_height'], frame)
+            # actual detection of hands
+            boxes, scores = detector_utils.detect_objects(frame, detection_graph, sess)
 
             number_of_points = len(face_pts)
             # print(number_of_points)
 
             for i in range(cap_params['num_hands_detect']):
-                # print(jaw_)
-
+                # draw bounding boxes around the hands
                 if (scores[i] > cap_params["score_thresh"]):
                     (left, right, top, bottom) = (boxes[i][1] * cap_params['im_width'], boxes[i][3] * cap_params['im_width'],
                                                   boxes[i][0] * cap_params['im_height'], boxes[i][2] * cap_params['im_height'])
@@ -72,12 +73,13 @@ def worker(input_q, output_q, cap_params, frame_processed):
                     p2 = (int(right), int(bottom))
                     cv2.rectangle(frame, p1, p2, (77, 255, 9), 3, 1)
                     j = 0
-                    # CHECK IF HANDS ARE TOUCHING THE FACE
+                    # CHECK IF DETECTED HANDS ARE TOUCHING THE FACE
                     while j < (number_of_points / 4 + 4):
                         """
                         x1,y1 -- x4,y4          L,T -- L+(R-L/2),T -- R,T       Top level
-                          |        |             |                     |
+                          |  face  |             |   box around hands  |
                         x2,y2 -- x3,y3        L,T+(B-T/2)          R,T+(B-T/2)  Mid level
+                        the face_pts are [0:17] from left to right
                         """
                         (x1, y1) = face_pts[-j-1]
                         (x2, y2) = face_pts[-j-2]
@@ -86,45 +88,38 @@ def worker(input_q, output_q, cap_params, frame_processed):
 
                         x_half = (right - left) / 2
                         y_half = (bottom - top) / 2
-                        xL_half = left + x_half
-                        yT_half = top + y_half
+                        xL_half = left + x_half #L+(R-L/2)
+                        yT_half = top + y_half  #T+(B-T/2)
 
                         #check if top left of box is touching face
                         if ((left <= x2) and (left >= x3) and (top >= y1) and (top <= y2)):
-                            # print("found", str(datetime.datetime.now()))
                             touch_detected = True
                         #check if top mid of box is touching face
                         elif ((xL_half <= x2) and (xL_half >= x3) and (top >= y1) and (top <= y2)):
-                            # print("found", str(datetime.datetime.now()))
                             touch_detected = True
                         #check if top right of box is touching face\
                         elif ((right <= x2) and (right >= x3) and (top >= y1) and (top <= y2)):
-                            # print("found", str(datetime.datetime.now()))
                             touch_detected = True
                         #check if mid left of box is touching face
                         elif ((left <= x2) and (left >= x3) and (yT_half >= y1) and (yT_half <= y2)):
-                            # print("found", str(datetime.datetime.now()))
                             touch_detected = True
                         #check if mid right of box is touching face
                         elif ((right <= x2) and (right >= x3) and (yT_half >= y1) and (yT_half <= y2)):
-                            # print("found", str(datetime.datetime.now()))
                             touch_detected = True
                         else:
                             pass
                         j = j + 1
-
+            #keep track of how many frames there with hands touching a face
             if touch_detected:
                 frames_touch = frames_touch + 1
             # print("touched: ", frames_touch)
 
             # add frame annotated with bounding box to queue
-            # output_q.put(frame,frames_touch)
-
             output_q.put(frame)
             frame_processed += 1
         else:
             output_q.put(frame)
-            # output_q.put(frame, frames_touch)
+
         try:  # used try so that if user pressed other than the given key error will not be shown
             if keyboard.is_pressed(' '):  # if space bar is pressed
             # IF SIGNAL IS RECIEVED, i.e. new question
@@ -136,7 +131,7 @@ def worker(input_q, output_q, cap_params, frame_processed):
                     print("HANDS-FACE: possibly a lie ", frames_touch," / ",num_frame_processed , " = ", current_touch_ratio)
                 else:
                     print("HANDS-FACE: possibly NOT a lie ", frames_touch," / ",num_frame_processed , " = ", current_touch_ratio)
-                frames_touch = 0
+                frames_touch = 0 #reset counter for how total frames of hand to face touch for a question
                 prev_frame_processed = frame_processed
 
                 # BLINKING -- LIE OR NOT is at record()
@@ -148,12 +143,6 @@ def worker(input_q, output_q, cap_params, frame_processed):
     sess.close()
 
 def record():
-
-    # To run program run the following in cli from this directory
-    # python detect_multi_threaded.py
-
-
-
 
     # define two constants, one for the eye aspect ratio to indicate
     # blink and then a second constant for the number of consecutive
@@ -176,6 +165,7 @@ def record():
     (lStart, lEnd) = face_utils.FACIAL_LANDMARKS_IDXS["left_eye"]
     (rStart, rEnd) = face_utils.FACIAL_LANDMARKS_IDXS["right_eye"]
 
+    # grab the indexes of the facial landmarks for the jaw
     (lStartjaw,rEndjaw)  = face_utils.FACIAL_LANDMARKS_IDXS["jaw"]
 
     input_q = Queue(maxsize=5)
@@ -209,42 +199,34 @@ def record():
     BLINK_COUNTER = 0
     TOTAL_BLINKS = 0
 
-    current_blink_ratio = 0 #Blinks/second possible lie or not
-    thresh_blink_ratio = 26/60
+    current_blink_ratio = 0  # Blinks per second for current question
+    thresh_blink_ratio = 26/60  # Threshold for blinks per minute --> possible lie or not
 
-    show_display =1 #show display must be enabled in order for other show_x below to work
+    show_display =1  # show display must be enabled in order for other show_x below to work
     show_fps = 1
     show_blinks = 1
-    show_face = 1   #show_face means to show the jaw or not
-
-
+    show_face = 1   # show_face means to show the jaw or not
 
     if(show_display>0):
         cv2.namedWindow('Multi-Threaded Detection', cv2.WINDOW_NORMAL)
 
     # time.sleep(1)
-    start_time = datetime.datetime.now()
-    start_time_quest = datetime.datetime.now()
+    start_time = datetime.datetime.now()    # start time for the camera feed
+    start_time_quest = datetime.datetime.now() # start time for each question
     while True:
 
         frame = video_capture.read()
         frame = cv2.flip(frame, 1)
         index += 1
-        
+
+        #send the webcam feed and the points for the jaw over to worker
         input_q.put((cv2.cvtColor(frame, cv2.COLOR_BGR2RGB),jaw_))
+        #get the frames with or without bounding boxes around the hands
         output_frame = output_q.get()
-
-        # (output_frame,touch_detected) = output_frame #VALUEERROR:Too many things to unpack
-
-
-        # print("got output frame")
 
         gray = cv2.cvtColor(output_frame, cv2.COLOR_BGR2GRAY)
         output_frame = cv2.cvtColor(output_frame, cv2.COLOR_RGB2BGR)
 
-        # if first == True:
-        #     detector_utils.draw_face(args.width, args.height, output_frame)       ##  TEST DRAWING THE FACE   #####
-        #     first = False
         elapsed_time = (datetime.datetime.now() -
                         start_time).total_seconds()
         num_frames += 1
