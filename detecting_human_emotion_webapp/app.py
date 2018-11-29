@@ -11,14 +11,15 @@ from pydub import AudioSegment
 try:
     from detecting_human_emotion_webapp import app
     from detecting_human_emotion_webapp.forms import UserInfoForm
-    from deception_detection.audio.lie_detection import classify_file, classify_file_process
+    from deception_detection.audio.audio_detection import classify_file, classify_file_process
     from detecting_human_emotion_webapp.camera import VideoCamera
     from detecting_human_emotion_webapp.parsing_tool import parse_deception_audio_result, parse_emotion_audio_result
     from detecting_human_emotion_webapp.file_conversion_tool import mp3_to_wav
 except ModuleNotFoundError:
+    print(ModuleNotFoundError)
     from .detecting_human_emotion_webapp import app
     from .detecting_human_emotion_webapp.forms import UserInfoForm
-    from .deception_detection.audio.lie_detection import classify_file, classify_file_process
+    from .deception_detection.audio.audio_detection import classify_file, classify_file_process
     from .detecting_human_emotion_webapp.camera import VideoCamera
     from .detecting_human_emotion_webapp.parsing_tool import parse_deception_audio_result, parse_emotion_audio_result
 
@@ -126,7 +127,7 @@ def index():
     if oidc.user_loggedin is False:
         return redirect("/login")
     else:
-        return redirect("/detecting")
+        return redirect("/upload")
 
 
 @app.route("/login")
@@ -134,7 +135,7 @@ def index():
 def login():
 
     # return redirect(url_for(".dashboard"))
-    return redirect("/detecting")
+    return redirect("/")
 
 
 @app.route("/logout", methods=["GET", "POSt"])

@@ -20,6 +20,8 @@ This section contains highlights of the most important part's of the project.
         * **testing_data**: contains all the testing files used for testing deception.
         * **truth_audio**: truth data set used to train the audio deception detection.
     * **Pipfile**: File used for the pipenv (virtual environment). The Pipfile contains all the dependencies for the project. If the user does not want to use pipenv they can view the pipfile to find which requirements are needed for the project.
+* Realtim-visual-and-audio-deception-detection-demo.mp4: Demo for the real time visual and audio deception detection.
+* website-demo.mp4: demo of the website.
 ## Environment Installation 
 ### Linux OS
 1. sudo apt-get install portaudio19-dev
