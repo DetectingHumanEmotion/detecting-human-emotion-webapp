@@ -10,9 +10,9 @@ import cv2
 from collections import defaultdict
 
 try:
-    from utilities import label_map_util
+    from deception_detection.visual.utilities import label_map_util
 except ModuleNotFoundError:
-    from .utilities import label_map_util
+    from .deception_detection.visual.utilities import label_map_util
 
 
 detection_graph = tf.Graph()
