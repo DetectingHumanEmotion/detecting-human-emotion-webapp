@@ -127,7 +127,7 @@ def index():
     if oidc.user_loggedin is False:
         return redirect("/login")
     else:
-        return redirect("/upload")
+        return redirect("/home")
 
 
 @app.route("/login")
@@ -237,6 +237,15 @@ def resultsPage():
     # passing in as an array
     data = getLineFromTextFile(QUESTIONS).split("\n")
     return render_template(template_name_or_list=template_name, data=data, title=header)
+
+
+@app.route("/home")
+def home():
+    """
+
+    :return: dashboard html file
+    """
+    return render_template("home.html")
 
 
 @app.route("/dashboard")
