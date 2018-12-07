@@ -1,7 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
+    <div class="w3-content w3-padding" style="max-width:1564px">
+<!-- Project Section -->
+        <br><br>
+  <div class="w3-container w3-padding-32" id="projects">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Upload a File</h3>
+  </div>
+<div>
+    <p>You can upload an audio file here for audio deception detection! </p>
+
+</div>
+</div>
+    <pre><pre>
 <form id="uploadbanner" enctype="multipart/form-data" method="post" action="#">
    <input id="fileupload" name="file" type="file" />
    <input type="submit" value="submit" id="submit" />
 </form>
+    </pre></pre>
 {% endblock content %}

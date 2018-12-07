@@ -1,13 +1,65 @@
-<!DOCTYPE html>
-
 {% extends "base.html" %}
-<html lang="en">
+{% block content %}
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
-<body>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="https://png.pngtree.com/thumb_back/fh260/back_pic/04/30/47/3258411ed8bf04d.jpg" alt="Detecting Deception Detection" width="1500" height="800">
+  <div class="w3-display-middle w3-margin-top w3-center">
+    <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>Detecting</b></span> <span class="w3-hide-small w3-text-light-grey">Deception Detection</span></h1>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:1564px">
+<!-- Project Section -->
+  <div class="w3-container w3-padding-32" id="projects">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Project</h3>
+  </div>
+
+<div>
+    <p>Our project can be found <a href="https://github.com/DetectingHumanEmotion/detecting-human-emotion-webapp">here.</a></p>
+
+    <p>Our Goals: </p>
+    <ul>
+        <li>Detect Human Emotion using Audio</li>
+        <li>Detect Human Deception Detection using Video and Audio</li>
+    </ul>
+</div>
 
 
-</body>
-</html>
+
+  <!-- About US -->
+  <div class="w3-container w3-padding-32" id="about">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">About Us</h3>
+    <p>We are working on a Human Emotion and Deception Detection Application. We aim to detect emotion and deception using audio and video. </p>
+      <p>The main goal of our project was for interviewers to detect when a subject is being deceitful in real-time and with recorded video and audio. One of our main objectives was to create deception detection software which is more portable, accurate, and easy to use than a conventional polygraph machine.</p>
+  </div>
+
+  <div class="w3-row-padding w3-grayscale">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <img src="/w3images/team2.jpg" alt="Tyler" style="width:100%">
+      <h3>Tyler Bruno</h3>
+      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <img src="/w3images/team1.jpg" alt="Avani" style="width:100%">
+      <h3>Avani Bhatnagar</h3>
+      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <img src="/w3images/team3.jpg" alt="Cindy" style="width:100%">
+      <h3>Cindy Yee</h3>
+      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <img src="/w3images/team4.jpg" alt="Luis" style="width:100%">
+      <h3>Luis Arevalo</h3>
+      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+    </div>
+  </div>
+</div>
+{% endblock content %}
