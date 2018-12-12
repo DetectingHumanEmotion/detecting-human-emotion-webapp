@@ -44,10 +44,12 @@ def parse_deception_audio_result(results):
     dominate_result = AUDIO_DECEPTION_DOMINATE_RESULT.get(dominate_result_int)
 
     new_statistics = []
-    for result in result_statistics:
-        temp_string = "{:.1%}".format(result)
-        new_statistics.append(temp_string)
-
+    try:
+        for result in result_statistics:
+            temp_string = "{:.1%}".format(result)
+            new_statistics.append(temp_string)
+    except TypeError:
+        print("Type error")
 
     #dominate_result is the result that was dominate. i.e. truth
     #new_statistics shows the percentages of each of the classification. i.e. truth: 80% lie: 20%

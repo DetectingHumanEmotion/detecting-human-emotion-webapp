@@ -334,9 +334,9 @@ def uploaded_file(filename):
                                filename)
 
 
-def classify_audio(file, deception_model_path="deception_detection/audio/deceptionGradientBoosting",
+def classify_audio(file, deception_model_path="../deception_detection/audio/deceptionGradientBoosting",
                    deception_algorithm="gradientboosting",
-                   emotion_model_path="deception_detection/audio/emotionExtraTrees", emotion_algorithm="extratrees"):
+                   emotion_model_path="../deception_detection/audio/emotionExtraTrees", emotion_algorithm="extratrees"):
     """
     developed by tybruno
 
@@ -400,6 +400,8 @@ def uploading():
 
     if file and allowed_file(file.filename):
         saved_file_location = os.path.join(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(file.filename)))
+        print(os.getcwd())
+        print(os.path.exists(saved_file_location))
         file.save(saved_file_location)
 
     print(saved_file_location)

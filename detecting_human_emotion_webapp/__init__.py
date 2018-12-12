@@ -15,7 +15,9 @@ It also contains SSO (okta) information needed to interface with Okta
 basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
 app.config["WTF_CSRF_SECRET_KEY"] = "To Be changed to a random key"
-UPLOAD_FOLDER = "detecting_human_emotion_webapp/uploads"
+#UPLOAD_FOLDER = "detecting_human_emotion_webapp/uploads"
+UPLOAD_FOLDER = "../training-data/deception-audio-datasets/testing_data"
+
 # app.config["SECRET_KEY"] = b'<\xa4`\xb3G\x89>'
 
 if platform.system() is "Windows":
